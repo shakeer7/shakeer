@@ -37,10 +37,13 @@ const navLinks = [
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
   { label: "Experience", href: "#experience" },
+  { label: "Projects", href: "#projects" },
   { label: "Education", href: "#education" },
   { label: "Certifications", href: "#certifications" },
   { label: "Contact", href: "#contact" },
 ];
+
+const LINKEDIN_URL = "https://www.linkedin.com/in/shakeer-mohammed-384b741a2/";
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
