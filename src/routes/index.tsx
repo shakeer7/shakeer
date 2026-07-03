@@ -132,6 +132,15 @@ function HeroSection() {
                 <Github className="w-5 h-5" />
                 GitHub
               </a>
+              <a
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-input bg-surface-elevated px-6 py-3 text-base font-medium text-foreground hover:bg-secondary transition-colors"
+              >
+                <Linkedin className="w-5 h-5" />
+                LinkedIn
+              </a>
             </div>
             <div className="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-muted-foreground">
               <span className="inline-flex items-center gap-1.5">
