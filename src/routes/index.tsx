@@ -409,6 +409,84 @@ function ExperienceSection() {
   );
 }
 
+const projects = [
+  {
+    name: "OpenSRE",
+    description:
+      "Open-source Site Reliability Engineering toolkit by Tracer Cloud. Contributing to community-driven SRE tooling and best practices.",
+    url: "https://github.com/Tracer-Cloud/opensre",
+    tags: ["SRE", "Open Source", "Community"],
+  },
+  {
+    name: "GitHub Portfolio",
+    description:
+      "Collection of DevOps automation scripts, Terraform modules, Kubernetes manifests, and CI/CD pipeline templates.",
+    url: "https://github.com/shakeer7",
+    tags: ["DevOps", "IaC", "Automation"],
+  },
+];
+
+function ProjectsSection() {
+  return (
+    <section id="projects" className="py-24 bg-background">
+      <div className="container-tight">
+        <div className="text-center mb-16">
+          <span className="text-sm font-semibold uppercase tracking-wider text-primary">Projects</span>
+          <h2 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
+            Featured Work
+          </h2>
+          <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+            Open-source contributions and infrastructure projects on GitHub.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          {projects.map((p) => (
+            <a
+              key={p.name}
+              href={p.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group rounded-2xl border border-border bg-surface-elevated p-6 hover:shadow-lg hover:shadow-primary/5 hover:border-primary/30 transition-all duration-300"
+            >
+              <div className="flex items-start justify-between mb-3">
+                <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-primary/10 text-primary">
+                  <Github className="w-5 h-5" />
+                </div>
+                <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
+              </div>
+              <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
+                {p.name}
+              </h3>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{p.description}</p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {p.tags.map((t) => (
+                  <span key={t} className="text-xs font-medium px-2.5 py-1 rounded-full bg-secondary text-secondary-foreground">
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </a>
+          ))}
+        </div>
+
+        <div className="mt-10 text-center">
+          <a
+            href="https://github.com/shakeer7"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full border border-input bg-surface-elevated px-6 py-3 text-base font-medium text-foreground hover:bg-secondary transition-colors"
+          >
+            <Github className="w-5 h-5" />
+            See all on GitHub
+            <ArrowRight className="w-4 h-4" />
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 const education = [
   {
     degree: "Executive Program in Applied Business Analytics",
