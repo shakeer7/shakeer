@@ -312,8 +312,7 @@ const experiences = [
     company: "Wedbush Securities",
     org: "Tata Consultancy Services (TCS)",
     location: "",
-    period:1: "",
-    period2: "",
+    period: "",
     highlights: [
       "Supported migration from on-premises infrastructure to Microsoft Azure",
       "Assisted in cloud setup, deployment, and migration activities",
