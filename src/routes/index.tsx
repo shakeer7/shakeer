@@ -236,7 +236,7 @@ const skillCategories = [
   {
     title: "Monitoring & Observability",
     icon: Monitor,
-    skills: ["Prometheus", "Grafana"],
+    skills: ["Datadog", "Prometheus", "Grafana"],
   },
   {
     title: "Programming & Scripting",
