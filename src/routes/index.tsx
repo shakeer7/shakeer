@@ -706,6 +706,7 @@ function Index() {
       <AboutSection />
       <SkillsSection />
       <ExperienceSection />
+      <ProjectsSection />
       <EducationSection />
       <CertificationsSection />
       <InterestsSection />
