@@ -161,7 +161,7 @@ function HeroSection() {
                 <img
                   src={profileImg}
                   alt="Shakeer Mohammed"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top"
                   width={320}
                   height={320}
                 />
