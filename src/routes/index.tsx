@@ -680,6 +680,15 @@ function Footer() {
               <Github className="w-5 h-5" />
             </a>
             <a
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-primary transition-colors"
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="w-5 h-5" />
+            </a>
+            <a
               href="https://github.com/Tracer-Cloud/opensre"
               target="_blank"
               rel="noopener noreferrer"
