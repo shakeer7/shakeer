@@ -26,7 +26,7 @@ import {
   Rocket,
   Clock,
 } from "lucide-react";
-import profileImg from "../assets/profile.jpg";
+import profileImg from "../assets/shakeer-portrait.jpg.asset.json";
 import { useEffect, useState } from "react";
 
 export const Route = createFileRoute("/")({
@@ -159,7 +159,7 @@ function HeroSection() {
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/20 to-primary/5" />
               <div className="absolute inset-2 rounded-full overflow-hidden ring-4 ring-background shadow-2xl">
                 <img
-                  src={profileImg}
+                  src={profileImg.url}
                   alt="Shakeer Mohammed"
                   className="w-full h-full object-cover object-top"
                   width={320}
