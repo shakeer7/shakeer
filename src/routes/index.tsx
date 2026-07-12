@@ -25,6 +25,9 @@ import {
   Shield,
   Rocket,
   Clock,
+  Sun,
+  Moon,
+  Laptop,
 } from "lucide-react";
 import profileImg from "../assets/shakeer-portrait.jpg.asset.json";
 import { useEffect, useState } from "react";
@@ -44,6 +47,59 @@ const navLinks = [
 ];
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/shakeer-mohammed-384b741a2/";
+
+type Theme = "light" | "dark" | "system";
+
+function ThemeToggle() {
+  const [theme, setTheme] = useState<Theme>("system");
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    try {
+      const stored = localStorage.getItem("shakeer-theme") as Theme | null;
+      if (stored) setTheme(stored);
+    } catch {
+      // ignore
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+    const root = document.documentElement;
+    const media = window.matchMedia("(prefers-color-scheme: dark)");
+    const apply = () => {
+      const systemDark = media.matches;
+      const isDark = theme === "dark" || (theme === "system" && systemDark);
+      root.classList.toggle("dark", isDark);
+    };
+    apply();
+    try {
+      localStorage.setItem("shakeer-theme", theme);
+    } catch {
+      // ignore
+    }
+    media.addEventListener("change", apply);
+    return () => media.removeEventListener("change", apply);
+  }, [theme, mounted]);
+
+  const cycle = () => {
+    setTheme((t) => (t === "light" ? "dark" : t === "dark" ? "system" : "light"));
+  };
+
+  const icon =
+    theme === "dark" ? <Moon className="w-4 h-4" /> : theme === "light" ? <Sun className="w-4 h-4" /> : <Laptop className="w-4 h-4" />;
+
+  return (
+    <button
+      onClick={cycle}
+      aria-label={`Theme: ${theme}. Click to cycle.`}
+      className="inline-flex items-center justify-center w-9 h-9 rounded-full border border-input bg-surface-elevated text-foreground hover:bg-secondary transition-colors"
+    >
+      {icon}
+    </button>
+  );
+}
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -80,13 +136,16 @@ function Navbar() {
             </a>
           ))}
         </div>
-        <a
-          href="mailto:mds.shakeer@gmail.com"
-          className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
-        >
-          <Mail className="w-4 h-4" />
-          <span className="hidden sm:inline">Get in Touch</span>
-        </a>
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
+          <a
+            href="mailto:mds.shakeer@gmail.com"
+            className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
+          >
+            <Mail className="w-4 h-4" />
+            <span className="hidden sm:inline">Get in Touch</span>
+          </a>
+        </div>
       </div>
     </nav>
   );
