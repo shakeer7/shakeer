@@ -50,7 +50,7 @@ const LINKEDIN_URL = "https://www.linkedin.com/in/shakeer-mohammed-384b741a2/";
 
 type Theme = "light" | "dark" | "system";
 
-const themeOptions: { value: Theme; label: string; icon: React.ReactNode }[] = [
+const themeOptions: { value: Theme; label: string; icon: ReactNode }[] = [
   { value: "light", label: "Light", icon: <Sun className="w-3.5 h-3.5" /> },
   { value: "dark", label: "Dark", icon: <Moon className="w-3.5 h-3.5" /> },
   { value: "system", label: "System", icon: <Laptop className="w-3.5 h-3.5" /> },
