@@ -25,6 +25,9 @@ import {
   Shield,
   Rocket,
   Clock,
+  Sun,
+  Moon,
+  Monitor as SystemIcon,
 } from "lucide-react";
 import profileImg from "../assets/shakeer-portrait.jpg.asset.json";
 import { useEffect, useState } from "react";
