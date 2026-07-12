@@ -653,6 +653,106 @@ function MissionSection() {
   );
 }
 
+function VisitorStats() {
+  const [totalVisits, setTotalVisits] = useState<number | null>(null);
+  const [yourVisits, setYourVisits] = useState<number>(0);
+  const [firstVisit, setFirstVisit] = useState<string>("");
+  const [lastVisit, setLastVisit] = useState<string>("");
+
+  useEffect(() => {
+    // Per-visitor stats via localStorage
+    try {
+      const key = "shakeer_portfolio_visits";
+      const raw = localStorage.getItem(key);
+      const now = new Date().toISOString();
+      const data = raw
+        ? (JSON.parse(raw) as { count: number; first: string; last: string })
+        : { count: 0, first: now, last: now };
+      const next = { count: data.count + 1, first: data.first || now, last: now };
+      localStorage.setItem(key, JSON.stringify(next));
+      setYourVisits(next.count);
+      setFirstVisit(new Date(next.first).toLocaleDateString());
+      setLastVisit(
+        data.last ? new Date(data.last).toLocaleDateString() : new Date(now).toLocaleDateString(),
+      );
+    } catch {
+      setYourVisits(1);
+    }
+
+    // Global visit counter via free public counter API
+    const controller = new AbortController();
+    fetch("https://api.counterapi.dev/v1/shakeer-portfolio/site-visits/up", {
+      signal: controller.signal,
+    })
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error("bad status"))))
+      .then((data: { count?: number }) => {
+        if (typeof data.count === "number") setTotalVisits(data.count);
+      })
+      .catch(() => {
+        // Silent fallback: keep null so UI shows a dash
+      });
+
+    return () => controller.abort();
+  }, []);
+
+  const stats = [
+    {
+      icon: Eye,
+      label: "Total visits",
+      value: totalVisits !== null ? totalVisits.toLocaleString() : "—",
+      hint: "Site-wide counter",
+    },
+    {
+      icon: Zap,
+      label: "Your visits",
+      value: yourVisits.toLocaleString(),
+      hint: "Tracked in this browser",
+    },
+    {
+      icon: Clock,
+      label: "First visit",
+      value: firstVisit || "Today",
+      hint: "You first landed here",
+    },
+    {
+      icon: Rocket,
+      label: "Last visit",
+      value: lastVisit || "Today",
+      hint: "Your previous session",
+    },
+  ];
+
+  return (
+    <section className="py-16 bg-surface border-t border-border">
+      <div className="container-tight">
+        <div className="text-center mb-10">
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
+            Portfolio Stats
+          </h2>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Thanks for stopping by — here's a snapshot of activity.
+          </p>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {stats.map((s) => (
+            <div
+              key={s.label}
+              className="rounded-2xl border border-border bg-surface-elevated p-5 hover:border-primary/30 hover:shadow-sm transition-all"
+            >
+              <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-primary/10 text-primary mb-3">
+                <s.icon className="w-5 h-5" />
+              </div>
+              <div className="text-2xl font-bold text-foreground tabular-nums">{s.value}</div>
+              <div className="text-sm font-medium text-foreground mt-1">{s.label}</div>
+              <div className="text-xs text-muted-foreground mt-0.5">{s.hint}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Footer() {
   return (
     <footer className="py-10 border-t border-border bg-background">
@@ -720,7 +820,9 @@ function Index() {
       <CertificationsSection />
       <InterestsSection />
       <MissionSection />
+      <VisitorStats />
       <Footer />
     </div>
   );
 }
+
