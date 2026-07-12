@@ -27,7 +27,7 @@ import {
   Clock,
   Sun,
   Moon,
-  Monitor as SystemIcon,
+  Laptop,
 } from "lucide-react";
 import profileImg from "../assets/shakeer-portrait.jpg.asset.json";
 import { useEffect, useState } from "react";
