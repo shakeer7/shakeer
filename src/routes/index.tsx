@@ -30,7 +30,7 @@ import {
   Laptop,
 } from "lucide-react";
 import profileImg from "../assets/shakeer-portrait.jpg.asset.json";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 
 export const Route = createFileRoute("/")({
   component: Index,
