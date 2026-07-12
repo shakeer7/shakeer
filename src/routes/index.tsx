@@ -50,6 +50,12 @@ const LINKEDIN_URL = "https://www.linkedin.com/in/shakeer-mohammed-384b741a2/";
 
 type Theme = "light" | "dark" | "system";
 
+const themeOptions: { value: Theme; label: string; icon: React.ReactNode }[] = [
+  { value: "light", label: "Light", icon: <Sun className="w-3.5 h-3.5" /> },
+  { value: "dark", label: "Dark", icon: <Moon className="w-3.5 h-3.5" /> },
+  { value: "system", label: "System", icon: <Laptop className="w-3.5 h-3.5" /> },
+];
+
 function ThemeToggle() {
   const [theme, setTheme] = useState<Theme>("system");
   const [mounted, setMounted] = useState(false);
@@ -83,21 +89,32 @@ function ThemeToggle() {
     return () => media.removeEventListener("change", apply);
   }, [theme, mounted]);
 
-  const cycle = () => {
-    setTheme((t) => (t === "light" ? "dark" : t === "dark" ? "system" : "light"));
-  };
-
-  const icon =
-    theme === "dark" ? <Moon className="w-4 h-4" /> : theme === "light" ? <Sun className="w-4 h-4" /> : <Laptop className="w-4 h-4" />;
-
   return (
-    <button
-      onClick={cycle}
-      aria-label={`Theme: ${theme}. Click to cycle.`}
-      className="inline-flex items-center justify-center w-9 h-9 rounded-full border border-input bg-surface-elevated text-foreground hover:bg-secondary transition-colors"
+    <div
+      className="inline-flex items-center rounded-full border border-input bg-surface-elevated p-1 gap-0.5"
+      aria-label="Theme selector"
+      role="group"
     >
-      {icon}
-    </button>
+      {themeOptions.map((option) => {
+        const active = theme === option.value;
+        return (
+          <button
+            key={option.value}
+            onClick={() => setTheme(option.value)}
+            aria-pressed={active}
+            className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-xs font-medium transition-colors ${
+              active
+                ? "bg-primary text-primary-foreground shadow-sm"
+                : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+            }`}
+            title={`${option.label} mode`}
+          >
+            {option.icon}
+            <span className="hidden sm:inline">{option.label}</span>
+          </button>
+        );
+      })}
+    </div>
   );
 }
 
