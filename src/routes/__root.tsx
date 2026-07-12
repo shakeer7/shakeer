@@ -89,6 +89,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:description", content: "Shakeer Mohammed — DevOps Engineer (Azure) | Cloud Engineer | MLOps Enthusiast. 3+ years designing, automating, and managing cloud infrastructure, CI/CD pipelines, and containerized applications." },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/13669542-f4cf-4277-b0da-90fdc09f352e/id-preview-7a85997c--e5610dae-7c89-432e-a73e-94408109b040.lovable.app-1783093773550.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/13669542-f4cf-4277-b0da-90fdc09f352e/id-preview-7a85997c--e5610dae-7c89-432e-a73e-94408109b040.lovable.app-1783093773550.png" },
+      { name: "color-scheme", content: "light dark" },
+    ],
+    scripts: [
+      {
+        type: "text/javascript",
+        children: `
+          (function () {
+            try {
+              const stored = localStorage.getItem('shakeer-theme');
+              const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+              const isDark = stored === 'dark' || (!stored && systemDark);
+              if (isDark) document.documentElement.classList.add('dark');
+            } catch (e) {}
+          })();
+        `,
+      },
     ],
     links: [
       {
