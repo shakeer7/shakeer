@@ -136,13 +136,16 @@ function Navbar() {
             </a>
           ))}
         </div>
-        <a
-          href="mailto:mds.shakeer@gmail.com"
-          className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
-        >
-          <Mail className="w-4 h-4" />
-          <span className="hidden sm:inline">Get in Touch</span>
-        </a>
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
+          <a
+            href="mailto:mds.shakeer@gmail.com"
+            className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
+          >
+            <Mail className="w-4 h-4" />
+            <span className="hidden sm:inline">Get in Touch</span>
+          </a>
+        </div>
       </div>
     </nav>
   );
