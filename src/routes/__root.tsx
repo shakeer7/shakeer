@@ -78,15 +78,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Shakeer Mohammed — DevOps & Cloud Engineer" },
-      { name: "description", content: "Shakeer Mohammed — DevOps Engineer (Azure) | Cloud Engineer | MLOps Enthusiast. 3+ years designing, automating, and managing cloud infrastructure, CI/CD pipelines, and containerized applications." },
+      { name: "description", content: "Shakeer Mohammed — Azure DevOps & Cloud Engineer with 3+ years building CI/CD pipelines, Kubernetes, and IaC on Azure and AWS." },
       { name: "author", content: "Shakeer Mohammed" },
       { property: "og:title", content: "Shakeer Mohammed — DevOps & Cloud Engineer" },
-      { property: "og:description", content: "Shakeer Mohammed — DevOps Engineer (Azure) | Cloud Engineer | MLOps Enthusiast. 3+ years designing, automating, and managing cloud infrastructure, CI/CD pipelines, and containerized applications." },
+      { property: "og:description", content: "Shakeer Mohammed — Azure DevOps & Cloud Engineer with 3+ years building CI/CD pipelines, Kubernetes, and IaC on Azure and AWS." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@shakeer7" },
       { name: "twitter:title", content: "Shakeer Mohammed — DevOps & Cloud Engineer" },
-      { name: "twitter:description", content: "Shakeer Mohammed — DevOps Engineer (Azure) | Cloud Engineer | MLOps Enthusiast. 3+ years designing, automating, and managing cloud infrastructure, CI/CD pipelines, and containerized applications." },
+      { name: "twitter:description", content: "Shakeer Mohammed — Azure DevOps & Cloud Engineer with 3+ years building CI/CD pipelines, Kubernetes, and IaC on Azure and AWS." },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/13669542-f4cf-4277-b0da-90fdc09f352e/id-preview-7a85997c--e5610dae-7c89-432e-a73e-94408109b040.lovable.app-1783093773550.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/13669542-f4cf-4277-b0da-90fdc09f352e/id-preview-7a85997c--e5610dae-7c89-432e-a73e-94408109b040.lovable.app-1783093773550.png" },
       { name: "color-scheme", content: "light dark" },
@@ -104,6 +104,32 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             } catch (e) {}
           })();
         `,
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Shakeer Mohammed",
+          jobTitle: "DevOps Engineer (Azure) & Cloud Engineer",
+          url: "https://shakeer.lovable.app",
+          address: { "@type": "PostalAddress", addressLocality: "Hyderabad", addressCountry: "IN" },
+          email: "mailto:mds.shakeer@gmail.com",
+          sameAs: [
+            "https://github.com/shakeer7",
+            "https://www.linkedin.com/in/shakeer-mohammed-384b741a2/",
+          ],
+          knowsAbout: ["Azure", "AWS", "Kubernetes", "Docker", "Terraform", "CI/CD", "MLOps", "SRE"],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Shakeer Mohammed — Portfolio",
+          url: "https://shakeer.lovable.app",
+        }),
       },
     ],
     links: [

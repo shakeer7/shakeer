@@ -1,0 +1,13 @@
+# Shakeer Mohammed
+
+> Personal portfolio of Shakeer Mohammed — DevOps Engineer (Azure), Cloud Engineer, and MLOps enthusiast based in Hyderabad, India.
+
+Shakeer is a Cloud & DevOps Engineer with 3+ years of experience designing, automating, and managing cloud infrastructure, CI/CD pipelines, containerized applications, and Infrastructure as Code solutions across Azure and AWS.
+
+## Pages
+
+- [Home](/): About, skills, experience, projects, education, certifications, and contact information.
+
+## Optional
+
+- [Sitemap](/sitemap.xml): Machine-readable list of site URLs.
