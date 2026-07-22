@@ -105,6 +105,32 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           })();
         `,
       },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Shakeer Mohammed",
+          jobTitle: "DevOps Engineer (Azure) & Cloud Engineer",
+          url: "https://shakeer.lovable.app",
+          address: { "@type": "PostalAddress", addressLocality: "Hyderabad", addressCountry: "IN" },
+          email: "mailto:mds.shakeer@gmail.com",
+          sameAs: [
+            "https://github.com/shakeer7",
+            "https://www.linkedin.com/in/shakeer-mohammed-384b741a2/",
+          ],
+          knowsAbout: ["Azure", "AWS", "Kubernetes", "Docker", "Terraform", "CI/CD", "MLOps", "SRE"],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Shakeer Mohammed — Portfolio",
+          url: "https://shakeer.lovable.app",
+        }),
+      },
     ],
     links: [
       {
