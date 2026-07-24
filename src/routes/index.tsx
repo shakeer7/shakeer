@@ -222,7 +222,8 @@ function HeroSection() {
               Available for opportunities
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground leading-[1.1]">
-              <AnimatedName /> — DevOps &amp; Cloud Engineer
+              <span className="block"><AnimatedName /></span>
+              <span className="block mt-2 text-[0.85em] font-bold text-foreground/90">DevOps &amp; Cloud Engineer</span>
             </h1>
             <p className="mt-4 text-xl sm:text-2xl font-medium text-primary">
               DevOps Engineer (Azure) | Cloud Engineer | MLOps Enthusiast
