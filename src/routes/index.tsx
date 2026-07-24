@@ -91,7 +91,7 @@ function ThemeToggle() {
 
   return (
     <div
-      className="inline-flex items-center rounded-full border border-input bg-surface-elevated p-1 gap-0.5"
+      className="inline-flex items-center rounded-full glass p-1 gap-0.5"
       aria-label="Theme selector"
       role="group"
     >
@@ -105,7 +105,7 @@ function ThemeToggle() {
             className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-xs font-medium transition-colors ${
               active
                 ? "bg-primary text-primary-foreground shadow-sm"
-                : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+                : "text-muted-foreground hover:text-foreground hover:bg-white/20"
             }`}
             title={`${option.label} mode`}
           >
@@ -116,6 +116,7 @@ function ThemeToggle() {
       })}
     </div>
   );
+
 }
 
 function Navbar() {
@@ -130,9 +131,7 @@ function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-background/80 backdrop-blur-xl shadow-[0_1px_0_0_var(--color-border)]"
-          : "bg-transparent"
+        scrolled ? "glass-strong" : "bg-transparent"
       }`}
     >
       <div className="container-tight flex items-center justify-between h-16">
@@ -147,7 +146,7 @@ function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="px-3 py-1.5 text-sm font-medium text-muted-foreground rounded-md hover:text-foreground hover:bg-secondary transition-colors"
+              className="px-3 py-1.5 text-sm font-medium text-muted-foreground rounded-md hover:text-foreground hover:bg-white/10 transition-colors"
             >
               {link.label}
             </a>
@@ -157,7 +156,7 @@ function Navbar() {
           <ThemeToggle />
           <a
             href="mailto:mds.shakeer@gmail.com"
-            className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
+            className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
           >
             <Mail className="w-4 h-4" />
             <span className="hidden sm:inline">Get in Touch</span>
@@ -168,17 +167,18 @@ function Navbar() {
   );
 }
 
+
 function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Subtle gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-surface to-hero-glow/30" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--color-hero-glow)_0%,_transparent_60%)] opacity-40" />
+      {/* Soft glow accents only — aurora shows through */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--color-hero-glow)_0%,_transparent_60%)] opacity-30" />
+
 
       <div className="container-tight relative z-10 pt-24 pb-16">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           <div className="flex-1 text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 rounded-full bg-secondary px-4 py-1.5 text-sm font-medium text-secondary-foreground mb-6">
+            <div className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-sm font-medium text-foreground mb-6">
               <Zap className="w-4 h-4 text-skill-icon" />
               Available for opportunities
             </div>
@@ -203,7 +203,7 @@ function HeroSection() {
                 href="https://github.com/shakeer7"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-input bg-surface-elevated px-6 py-3 text-base font-medium text-foreground hover:bg-secondary transition-colors"
+                className="inline-flex items-center gap-2 rounded-full glass glass-pill-hover px-6 py-3 text-base font-medium text-foreground transition-all"
               >
                 <Github className="w-5 h-5" />
                 GitHub
@@ -212,7 +212,7 @@ function HeroSection() {
                 href={LINKEDIN_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-input bg-surface-elevated px-6 py-3 text-base font-medium text-foreground hover:bg-secondary transition-colors"
+                className="inline-flex items-center gap-2 rounded-full glass glass-pill-hover px-6 py-3 text-base font-medium text-foreground transition-all"
               >
                 <Linkedin className="w-5 h-5" />
                 LinkedIn
@@ -232,17 +232,20 @@ function HeroSection() {
 
           <div className="flex-shrink-0">
             <div className="relative w-64 h-64 sm:w-80 sm:h-80">
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/20 to-primary/5" />
-              <div className="absolute inset-2 rounded-full overflow-hidden ring-4 ring-background shadow-2xl">
-                <img
-                  src={profileImg.url}
-                  alt="Shakeer Mohammed"
-                  className="w-full h-full object-cover object-top"
-                  width={320}
-                  height={320}
-                />
+              <div className="absolute -inset-4 rounded-full bg-gradient-to-br from-primary/30 via-primary/10 to-transparent blur-2xl" />
+              <div className="absolute inset-0 rounded-full glass-strong p-2">
+                <div className="w-full h-full rounded-full overflow-hidden ring-1 ring-white/40">
+                  <img
+                    src={profileImg.url}
+                    alt="Shakeer Mohammed"
+                    className="w-full h-full object-cover object-top"
+                    width={320}
+                    height={320}
+                  />
+                </div>
               </div>
             </div>
+
           </div>
         </div>
 
@@ -262,7 +265,7 @@ function HeroSection() {
 
 function AboutSection() {
   return (
-    <section id="about" className="py-24 bg-surface">
+    <section id="about" className="py-24">
       <div className="container-tight">
         <div className="max-w-3xl mx-auto text-center">
           <span className="text-sm font-semibold uppercase tracking-wider text-primary">About Me</span>
@@ -340,7 +343,7 @@ const skillCategories = [
 
 function SkillsSection() {
   return (
-    <section id="skills" className="py-24 bg-background">
+    <section id="skills" className="py-24">
       <div className="container-tight">
         <div className="text-center mb-16">
           <span className="text-sm font-semibold uppercase tracking-wider text-primary">Core Skills</span>
@@ -356,7 +359,7 @@ function SkillsSection() {
           {skillCategories.map((cat) => (
             <div
               key={cat.title}
-              className="group rounded-2xl border border-border bg-surface-elevated p-6 hover:shadow-lg hover:shadow-primary/5 hover:border-primary/20 transition-all duration-300"
+              className="group rounded-2xl glass p-6 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300"
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-primary/10 text-primary">
@@ -412,7 +415,7 @@ const experiences = [
 
 function ExperienceSection() {
   return (
-    <section id="experience" className="py-24 bg-surface">
+    <section id="experience" className="py-24">
       <div className="container-tight">
         <div className="text-center mb-16">
           <span className="text-sm font-semibold uppercase tracking-wider text-primary">Professional Experience</span>
@@ -504,7 +507,7 @@ const projects = [
 
 function ProjectsSection() {
   return (
-    <section id="projects" className="py-24 bg-background">
+    <section id="projects" className="py-24">
       <div className="container-tight">
         <div className="text-center mb-16">
           <span className="text-sm font-semibold uppercase tracking-wider text-primary">Projects</span>
@@ -523,7 +526,7 @@ function ProjectsSection() {
               href={p.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group rounded-2xl border border-border bg-surface-elevated p-6 hover:shadow-lg hover:shadow-primary/5 hover:border-primary/30 transition-all duration-300"
+              className="group rounded-2xl glass p-6 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300"
             >
               <div className="flex items-start justify-between mb-3">
                 <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-primary/10 text-primary">
@@ -537,7 +540,7 @@ function ProjectsSection() {
               <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{p.description}</p>
               <div className="mt-4 flex flex-wrap gap-2">
                 {p.tags.map((t) => (
-                  <span key={t} className="text-xs font-medium px-2.5 py-1 rounded-full bg-secondary text-secondary-foreground">
+                  <span key={t} className="text-xs font-medium px-2.5 py-1 rounded-full glass text-foreground">
                     {t}
                   </span>
                 ))}
@@ -551,7 +554,7 @@ function ProjectsSection() {
             href="https://github.com/shakeer7"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-input bg-surface-elevated px-6 py-3 text-base font-medium text-foreground hover:bg-secondary transition-colors"
+            className="inline-flex items-center gap-2 rounded-full glass glass-pill-hover px-6 py-3 text-base font-medium text-foreground transition-all"
           >
             <Github className="w-5 h-5" />
             See all on GitHub
@@ -586,7 +589,7 @@ const education = [
 
 function EducationSection() {
   return (
-    <section id="education" className="py-24 bg-background">
+    <section id="education" className="py-24">
       <div className="container-tight">
         <div className="text-center mb-16">
           <span className="text-sm font-semibold uppercase tracking-wider text-primary">Education</span>
@@ -599,7 +602,7 @@ function EducationSection() {
           {education.map((edu) => (
             <div
               key={edu.degree}
-              className="rounded-2xl border border-border bg-surface-elevated p-6 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300"
+              className="rounded-2xl glass p-6 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300"
             >
               <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary mb-4">
                 <edu.icon className="w-6 h-6" />
@@ -622,7 +625,7 @@ const certifications = [
 
 function CertificationsSection() {
   return (
-    <section id="certifications" className="py-24 bg-surface">
+    <section id="certifications" className="py-24">
       <div className="container-tight">
         <div className="text-center mb-16">
           <span className="text-sm font-semibold uppercase tracking-wider text-primary">Certifications</span>
@@ -635,7 +638,7 @@ function CertificationsSection() {
           {certifications.map((cert) => (
             <div
               key={cert.name}
-              className="flex items-center gap-4 rounded-2xl border border-border bg-surface-elevated p-5 hover:border-primary/30 transition-colors"
+              className="flex items-center gap-4 rounded-2xl glass p-5 transition-colors"
             >
               <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary">
                 <cert.icon className="w-6 h-6" />
@@ -665,7 +668,7 @@ const interests = [
 
 function InterestsSection() {
   return (
-    <section className="py-24 bg-background">
+    <section className="py-24">
       <div className="container-tight">
         <div className="text-center mb-16">
           <span className="text-sm font-semibold uppercase tracking-wider text-primary">Areas of Interest</span>
@@ -678,7 +681,7 @@ function InterestsSection() {
           {interests.map((item) => (
             <div
               key={item.label}
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-surface-elevated px-4 py-2.5 text-sm font-medium text-foreground hover:border-primary/30 hover:shadow-sm transition-all"
+              className="inline-flex items-center gap-2 rounded-full glass glass-pill-hover px-4 py-2.5 text-sm font-medium text-foreground transition-all"
             >
               <item.icon className="w-4 h-4 text-primary" />
               {item.label}
@@ -692,7 +695,7 @@ function InterestsSection() {
 
 function MissionSection() {
   return (
-    <section id="contact" className="py-24 bg-surface relative overflow-hidden">
+    <section id="contact" className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--color-hero-glow)_0%,_transparent_60%)] opacity-50" />
       <div className="container-tight relative z-10">
         <div className="max-w-3xl mx-auto text-center">
@@ -717,7 +720,7 @@ function MissionSection() {
               href="https://github.com/shakeer7"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-input bg-surface-elevated px-8 py-4 text-base font-medium text-foreground hover:bg-secondary transition-colors"
+              className="inline-flex items-center gap-2 rounded-full glass glass-pill-hover px-8 py-4 text-base font-medium text-foreground transition-all"
             >
               <Github className="w-5 h-5" />
               View GitHub
@@ -799,7 +802,7 @@ function VisitorStats() {
   ];
 
   return (
-    <section className="py-16 bg-surface border-t border-border">
+    <section className="py-16 border-t border-white/10">
       <div className="container-tight">
         <div className="text-center mb-10">
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
@@ -813,7 +816,7 @@ function VisitorStats() {
           {stats.map((s) => (
             <div
               key={s.label}
-              className="rounded-2xl border border-border bg-surface-elevated p-5 hover:border-primary/30 hover:shadow-sm transition-all"
+              className="rounded-2xl glass p-5 hover:shadow-xl hover:shadow-primary/10 transition-all"
             >
               <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-primary/10 text-primary mb-3">
                 <s.icon className="w-5 h-5" />
@@ -831,7 +834,7 @@ function VisitorStats() {
 
 function Footer() {
   return (
-    <footer className="py-10 border-t border-border bg-background">
+    <footer className="py-10 border-t border-white/10">
       <div className="container-tight">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-center md:text-left">
@@ -885,7 +888,12 @@ function Footer() {
 
 function Index() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen aurora-bg">
+      <div className="aurora-layer" aria-hidden="true">
+        <div className="aurora-blob aurora-blob-1" />
+        <div className="aurora-blob aurora-blob-2" />
+        <div className="aurora-blob aurora-blob-3" />
+      </div>
       <Navbar />
       <HeroSection />
       <AboutSection />
@@ -901,4 +909,5 @@ function Index() {
     </div>
   );
 }
+
 

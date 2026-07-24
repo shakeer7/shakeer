@@ -78,7 +78,18 @@
   --surface-elevated: oklch(1 0 0);
   --hero-glow: oklch(0.90 0.05 250);
   --skill-icon: oklch(0.62 0.19 250);
+
+  --glass-bg: color-mix(in oklab, white 60%, transparent);
+  --glass-bg-strong: color-mix(in oklab, white 78%, transparent);
+  --glass-border: color-mix(in oklab, white 80%, transparent);
+  --glass-highlight: rgba(255, 255, 255, 0.75);
+  --glass-shadow: 0 10px 40px -12px rgba(30, 58, 138, 0.18), 0 2px 8px -2px rgba(15, 23, 42, 0.08);
+
+  --aurora-1: oklch(0.78 0.16 245);
+  --aurora-2: oklch(0.82 0.14 200);
+  --aurora-3: oklch(0.80 0.15 290);
 }
+
 
 .dark {
   --background: oklch(0.15 0.02 260);
@@ -113,7 +124,18 @@
   --surface-elevated: oklch(0.22 0.02 260);
   --hero-glow: oklch(0.30 0.05 250);
   --skill-icon: oklch(0.65 0.18 250);
+
+  --glass-bg: color-mix(in oklab, white 8%, transparent);
+  --glass-bg-strong: color-mix(in oklab, white 14%, transparent);
+  --glass-border: color-mix(in oklab, white 18%, transparent);
+  --glass-highlight: rgba(255, 255, 255, 0.14);
+  --glass-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.55), 0 2px 8px -2px rgba(0, 0, 0, 0.35);
+
+  --aurora-1: oklch(0.55 0.20 260);
+  --aurora-2: oklch(0.50 0.18 210);
+  --aurora-3: oklch(0.52 0.22 300);
 }
+
 
 @layer base {
   * {
@@ -146,3 +168,113 @@
 @utility gradient-subtle {
   background: linear-gradient(135deg, var(--color-background) 0%, var(--color-surface) 100%);
 }
+
+@utility glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    inset 0 1px 0 0 var(--glass-highlight),
+    var(--glass-shadow);
+}
+
+@utility glass-strong {
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    inset 0 1px 0 0 var(--glass-highlight),
+    var(--glass-shadow);
+}
+
+@utility glass-pill {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    inset 0 1px 0 0 var(--glass-highlight),
+    0 4px 14px -4px rgba(15, 23, 42, 0.15);
+  transition: background 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+}
+
+@utility glass-pill-hover {
+  &:hover {
+    background: var(--glass-bg-strong);
+    box-shadow:
+      inset 0 1px 0 0 var(--glass-highlight),
+      0 8px 24px -6px rgba(15, 23, 42, 0.22);
+  }
+}
+
+@utility aurora-bg {
+  position: relative;
+  isolation: isolate;
+}
+
+.aurora-layer {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.aurora-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  opacity: 0.55;
+  will-change: transform;
+  animation: aurora-drift 22s ease-in-out infinite;
+}
+
+.dark .aurora-blob {
+  opacity: 0.45;
+}
+
+.aurora-blob-1 {
+  top: -10%;
+  left: -10%;
+  width: 55vw;
+  height: 55vw;
+  background: radial-gradient(circle at 30% 30%, var(--aurora-1), transparent 70%);
+}
+
+.aurora-blob-2 {
+  top: 20%;
+  right: -15%;
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(circle at 60% 40%, var(--aurora-2), transparent 70%);
+  animation-delay: -8s;
+  animation-duration: 26s;
+}
+
+.aurora-blob-3 {
+  bottom: -20%;
+  left: 20%;
+  width: 65vw;
+  height: 65vw;
+  background: radial-gradient(circle at 50% 50%, var(--aurora-3), transparent 70%);
+  animation-delay: -14s;
+  animation-duration: 30s;
+}
+
+@keyframes aurora-drift {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(6%, -4%, 0) scale(1.08);
+  }
+  66% {
+    transform: translate3d(-5%, 5%, 0) scale(0.95);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-blob {
+    animation: none;
+  }
+}
+
