@@ -232,17 +232,20 @@ function HeroSection() {
 
           <div className="flex-shrink-0">
             <div className="relative w-64 h-64 sm:w-80 sm:h-80">
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/20 to-primary/5" />
-              <div className="absolute inset-2 rounded-full overflow-hidden ring-4 ring-background shadow-2xl">
-                <img
-                  src={profileImg.url}
-                  alt="Shakeer Mohammed"
-                  className="w-full h-full object-cover object-top"
-                  width={320}
-                  height={320}
-                />
+              <div className="absolute -inset-4 rounded-full bg-gradient-to-br from-primary/30 via-primary/10 to-transparent blur-2xl" />
+              <div className="absolute inset-0 rounded-full glass-strong p-2">
+                <div className="w-full h-full rounded-full overflow-hidden ring-1 ring-white/40">
+                  <img
+                    src={profileImg.url}
+                    alt="Shakeer Mohammed"
+                    className="w-full h-full object-cover object-top"
+                    width={320}
+                    height={320}
+                  />
+                </div>
               </div>
             </div>
+
           </div>
         </div>
 
