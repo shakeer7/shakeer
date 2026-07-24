@@ -888,7 +888,12 @@ function Footer() {
 
 function Index() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen aurora-bg bg-background">
+      <div className="aurora-layer" aria-hidden="true">
+        <div className="aurora-blob aurora-blob-1" />
+        <div className="aurora-blob aurora-blob-2" />
+        <div className="aurora-blob aurora-blob-3" />
+      </div>
       <Navbar />
       <HeroSection />
       <AboutSection />
@@ -904,4 +909,5 @@ function Index() {
     </div>
   );
 }
+
 
