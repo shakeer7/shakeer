@@ -48,6 +48,45 @@ const navLinks = [
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/shakeer-mohammed-384b741a2/";
 
+const NAME_LANGS: { text: string; lang: string; dir?: "ltr" | "rtl" }[] = [
+  { text: "Shakeer Mohammed", lang: "en" },
+  { text: "شاكر محمد", lang: "ar", dir: "rtl" },
+  { text: "శకీర్ మొహమ్మద్", lang: "te" },
+  { text: "शाकिर मोहम्मद", lang: "hi" },
+  { text: "シャキール・モハメド", lang: "ja" },
+  { text: "沙基尔·穆罕默德", lang: "zh" },
+];
+
+function AnimatedName() {
+  const [i, setI] = useState(0);
+  const [visible, setVisible] = useState(true);
+  useEffect(() => {
+    const t = setInterval(() => {
+      setVisible(false);
+      setTimeout(() => {
+        setI((n) => (n + 1) % NAME_LANGS.length);
+        setVisible(true);
+      }, 350);
+    }, 2200);
+    return () => clearInterval(t);
+  }, []);
+  const cur = NAME_LANGS[i];
+  return (
+    <span
+      key={i}
+      lang={cur.lang}
+      dir={cur.dir ?? "ltr"}
+      className={`inline-block bg-gradient-to-r from-primary via-foreground to-primary bg-clip-text text-transparent transition-all duration-350 ${
+        visible ? "opacity-100 blur-0 translate-y-0" : "opacity-0 blur-sm -translate-y-1"
+      }`}
+      style={{ transitionDuration: "350ms" }}
+      aria-label="Shakeer Mohammed"
+    >
+      {cur.text}
+    </span>
+  );
+}
+
 type Theme = "light" | "dark" | "system";
 
 const themeOptions: { value: Theme; label: string; icon: ReactNode }[] = [
