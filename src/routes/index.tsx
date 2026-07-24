@@ -91,7 +91,7 @@ function ThemeToggle() {
 
   return (
     <div
-      className="inline-flex items-center rounded-full border border-input bg-surface-elevated p-1 gap-0.5"
+      className="inline-flex items-center rounded-full glass p-1 gap-0.5"
       aria-label="Theme selector"
       role="group"
     >
@@ -105,7 +105,7 @@ function ThemeToggle() {
             className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-xs font-medium transition-colors ${
               active
                 ? "bg-primary text-primary-foreground shadow-sm"
-                : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+                : "text-muted-foreground hover:text-foreground hover:bg-white/20"
             }`}
             title={`${option.label} mode`}
           >
@@ -116,6 +116,7 @@ function ThemeToggle() {
       })}
     </div>
   );
+
 }
 
 function Navbar() {
