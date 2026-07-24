@@ -183,7 +183,7 @@ function HeroSection() {
               Available for opportunities
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground leading-[1.1]">
-              Shakeer Mohammed — DevOps &amp; Cloud Engineer
+              <AnimatedName /> — DevOps &amp; Cloud Engineer
             </h1>
             <p className="mt-4 text-xl sm:text-2xl font-medium text-primary">
               DevOps Engineer (Azure) | Cloud Engineer | MLOps Enthusiast
