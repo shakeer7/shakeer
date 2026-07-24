@@ -124,7 +124,18 @@
   --surface-elevated: oklch(0.22 0.02 260);
   --hero-glow: oklch(0.30 0.05 250);
   --skill-icon: oklch(0.65 0.18 250);
+
+  --glass-bg: color-mix(in oklab, white 8%, transparent);
+  --glass-bg-strong: color-mix(in oklab, white 14%, transparent);
+  --glass-border: color-mix(in oklab, white 18%, transparent);
+  --glass-highlight: rgba(255, 255, 255, 0.14);
+  --glass-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.55), 0 2px 8px -2px rgba(0, 0, 0, 0.35);
+
+  --aurora-1: oklch(0.55 0.20 260);
+  --aurora-2: oklch(0.50 0.18 210);
+  --aurora-3: oklch(0.52 0.22 300);
 }
+
 
 @layer base {
   * {
