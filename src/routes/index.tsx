@@ -39,7 +39,7 @@ function Reveal({
   className = "",
 }: {
   children: ReactNode;
-  as?: keyof JSX.IntrinsicElements;
+  as?: React.ElementType;
   delay?: 0 | 1 | 2 | 3 | 4;
   className?: string;
 }) {
