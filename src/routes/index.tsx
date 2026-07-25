@@ -10,6 +10,7 @@ import {
   Award,
   MapPin,
   Mail,
+  Phone,
   Github,
   Linkedin,
   ChevronDown,
