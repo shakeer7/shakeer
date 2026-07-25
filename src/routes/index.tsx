@@ -1008,6 +1008,14 @@ function Footer() {
               <Linkedin className="w-5 h-5" />
             </a>
             <a
+              href="tel:+919441793387"
+              className="text-muted-foreground hover:text-primary transition-colors"
+              aria-label="Call +91 94417 93387"
+              title="Call +91 94417 93387"
+            >
+              <Phone className="w-5 h-5" />
+            </a>
+            <a
               href="https://github.com/Tracer-Cloud/opensre"
               target="_blank"
               rel="noopener noreferrer"
