@@ -386,74 +386,125 @@ function AboutSection() {
   );
 }
 
-const skillCategories = [
+const skillCategories: {
+  title: string;
+  icon: typeof Cloud;
+  skills: { name: string; slug?: string }[];
+}[] = [
   {
     title: "Cloud Platforms",
     icon: Cloud,
-    skills: ["Microsoft Azure", "Amazon Web Services (AWS)"],
+    skills: [
+      { name: "Microsoft Azure", slug: "microsoftazure" },
+      { name: "Amazon Web Services (AWS)", slug: "amazonwebservices" },
+    ],
   },
   {
     title: "DevOps & Automation",
     icon: GitBranch,
-    skills: ["Azure DevOps", "GitHub Actions", "Jenkins", "CI/CD Pipelines", "Infrastructure as Code (Terraform)"],
+    skills: [
+      { name: "Azure DevOps", slug: "azuredevops" },
+      { name: "GitHub Actions", slug: "githubactions" },
+      { name: "Jenkins", slug: "jenkins" },
+      { name: "CI/CD Pipelines" },
+      { name: "Terraform (IaC)", slug: "terraform" },
+    ],
   },
   {
     title: "Containers & Orchestration",
     icon: Container,
-    skills: ["Docker", "Kubernetes"],
+    skills: [
+      { name: "Docker", slug: "docker" },
+      { name: "Kubernetes", slug: "kubernetes" },
+    ],
   },
   {
     title: "Monitoring & Observability",
     icon: Monitor,
-    skills: ["Datadog", "Prometheus", "Grafana"],
+    skills: [
+      { name: "Datadog", slug: "datadog" },
+      { name: "Prometheus", slug: "prometheus" },
+      { name: "Grafana", slug: "grafana" },
+    ],
   },
   {
     title: "Programming & Scripting",
     icon: Code,
-    skills: ["Python", "Bash"],
+    skills: [
+      { name: "Python", slug: "python" },
+      { name: "Bash", slug: "gnubash" },
+    ],
   },
   {
     title: "Version Control",
     icon: Database,
-    skills: ["Git", "GitHub"],
+    skills: [
+      { name: "Git", slug: "git" },
+      { name: "GitHub", slug: "github" },
+    ],
   },
 ];
+
+function ToolIcon({ slug, name }: { slug?: string; name: string }) {
+  const [failed, setFailed] = useState(false);
+  if (!slug || failed) {
+    return (
+      <span className="inline-flex items-center justify-center w-6 h-6 rounded-md bg-primary/10 text-primary">
+        <ArrowRight className="w-3.5 h-3.5" />
+      </span>
+    );
+  }
+  return (
+    <span className="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white/70 dark:bg-white/10 ring-1 ring-black/5 dark:ring-white/10 shrink-0">
+      <img
+        src={`https://cdn.simpleicons.org/${slug}`}
+        alt={`${name} logo`}
+        loading="lazy"
+        width={16}
+        height={16}
+        className="w-4 h-4"
+        onError={() => setFailed(true)}
+      />
+    </span>
+  );
+}
 
 function SkillsSection() {
   return (
     <section id="skills" className="py-24">
       <div className="container-tight">
-        <div className="text-center mb-16">
-          <span className="text-sm font-semibold uppercase tracking-wider text-primary">Core Skills</span>
-          <h2 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
-            Technologies & Tools
-          </h2>
-          <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-            A robust toolkit built across cloud platforms, automation, containers, and observability.
-          </p>
-        </div>
+        <Reveal>
+          <div className="text-center mb-16">
+            <span className="text-sm font-semibold uppercase tracking-wider text-primary">Core Skills</span>
+            <h2 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
+              Technologies & Tools
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+              A robust toolkit built across cloud platforms, automation, containers, and observability.
+            </p>
+          </div>
+        </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skillCategories.map((cat) => (
-            <div
-              key={cat.title}
-              className="group rounded-2xl glass p-6 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-primary/10 text-primary">
-                  <cat.icon className="w-5 h-5" />
+          {skillCategories.map((cat, i) => (
+            <Reveal key={cat.title} delay={(Math.min(i, 3) as 0 | 1 | 2 | 3)}>
+              <div className="group rounded-2xl glass p-6 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1 transition-all duration-300 h-full">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-primary/10 text-primary">
+                    <cat.icon className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-base font-semibold text-foreground">{cat.title}</h3>
                 </div>
-                <h3 className="text-base font-semibold text-foreground">{cat.title}</h3>
+                <ul className="space-y-2.5">
+                  {cat.skills.map((skill) => (
+                    <li key={skill.name} className="flex items-center gap-2.5 text-sm text-muted-foreground">
+                      <ToolIcon slug={skill.slug} name={skill.name} />
+                      <span>{skill.name}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <ul className="space-y-2">
-                {cat.skills.map((skill) => (
-                  <li key={skill} className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <ArrowRight className="w-3.5 h-3.5 text-primary/60 group-hover:text-primary transition-colors" />
-                    {skill}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
