@@ -1035,7 +1035,7 @@ function Index() {
       },
       { threshold: 0.12, rootMargin: "0px 0px -60px 0px" },
     );
-    nodes.forEach((n) => io.observe(n));
+    targets.forEach((n) => io.observe(n));
     return () => io.disconnect();
   }, []);
 
