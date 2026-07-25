@@ -1021,7 +1021,9 @@ function Index() {
     const nodes = document.querySelectorAll<HTMLElement>(
       "main [data-auto-reveal] > *",
     );
-    nodes.forEach((n) => n.classList.add("reveal"));
+    // Skip the hero (first child) so it renders immediately without a fade.
+    const targets = Array.from(nodes).slice(1);
+    targets.forEach((n) => n.classList.add("reveal"));
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
