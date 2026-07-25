@@ -30,7 +30,46 @@ import {
   Laptop,
 } from "lucide-react";
 import profileImg from "../assets/shakeer-portrait.jpg.asset.json";
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
+
+function Reveal({
+  children,
+  as: Tag = "div",
+  delay = 0,
+  className = "",
+}: {
+  children: ReactNode;
+  as?: keyof JSX.IntrinsicElements;
+  delay?: 0 | 1 | 2 | 3 | 4;
+  className?: string;
+}) {
+  const ref = useRef<HTMLElement | null>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === "undefined") {
+      el.classList.add("reveal-in");
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            el.classList.add("reveal-in");
+            io.unobserve(el);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -60px 0px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+  const delayClass = delay ? ` reveal-delay-${delay}` : "";
+  // @ts-expect-error dynamic tag
+  return <Tag ref={ref} className={`reveal${delayClass} ${className}`}>{children}</Tag>;
+}
+
 
 export const Route = createFileRoute("/")({
   component: Index,
