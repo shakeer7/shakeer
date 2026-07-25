@@ -306,6 +306,16 @@ function HeroSection() {
                 <Mail className="w-4 h-4" />
                 mds.shakeer@gmail.com
               </span>
+              <a
+                href="tel:+919441793387"
+                className="inline-flex items-center gap-1.5 hover:text-primary transition-colors"
+                aria-label="Call +91 94417 93387"
+                title="Call +91 94417 93387"
+              >
+                <Phone className="w-4 h-4" />
+                <span className="sr-only">+91 94417 93387</span>
+                <span>Contact</span>
+              </a>
             </div>
           </div>
 
