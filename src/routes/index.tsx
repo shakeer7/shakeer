@@ -1016,6 +1016,27 @@ function Footer() {
 }
 
 function Index() {
+  useEffect(() => {
+    if (typeof IntersectionObserver === "undefined") return;
+    const nodes = document.querySelectorAll<HTMLElement>(
+      "main [data-auto-reveal] > *",
+    );
+    nodes.forEach((n) => n.classList.add("reveal"));
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("reveal-in");
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -60px 0px" },
+    );
+    nodes.forEach((n) => io.observe(n));
+    return () => io.disconnect();
+  }, []);
+
   return (
     <div className="min-h-screen aurora-bg">
       <div className="aurora-layer" aria-hidden="true">
@@ -1024,19 +1045,22 @@ function Index() {
         <div className="aurora-blob aurora-blob-3" />
       </div>
       <Navbar />
-      <HeroSection />
-      <AboutSection />
-      <SkillsSection />
-      <ExperienceSection />
-      <ProjectsSection />
-      <EducationSection />
-      <CertificationsSection />
-      <InterestsSection />
-      <MissionSection />
-      <VisitorStats />
+      <main data-auto-reveal>
+        <HeroSection />
+        <AboutSection />
+        <SkillsSection />
+        <ExperienceSection />
+        <ProjectsSection />
+        <EducationSection />
+        <CertificationsSection />
+        <InterestsSection />
+        <MissionSection />
+        <VisitorStats />
+      </main>
       <Footer />
     </div>
   );
 }
+
 
 
