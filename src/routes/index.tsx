@@ -233,6 +233,14 @@ function Navbar() {
         <div className="flex items-center gap-2">
           <ThemeToggle />
           <a
+            href="tel:+919441793387"
+            className="inline-flex items-center justify-center w-9 h-9 rounded-full glass text-muted-foreground hover:text-primary hover:bg-white/10 transition-colors"
+            aria-label="Call +91 94417 93387"
+            title="Call +91 94417 93387"
+          >
+            <Phone className="w-4 h-4" />
+          </a>
+          <a
             href="mailto:mds.shakeer@gmail.com"
             className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
           >
@@ -417,6 +425,7 @@ const skillCategories: {
       { name: "Azure DevOps", slug: "azuredevops" },
       { name: "GitHub Actions", slug: "githubactions" },
       { name: "Jenkins", slug: "jenkins" },
+      { name: "Ansible", slug: "ansible" },
       { name: "CI/CD Pipelines" },
       { name: "Terraform (IaC)", slug: "terraform" },
     ],
