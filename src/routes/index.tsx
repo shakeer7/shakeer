@@ -66,8 +66,7 @@ function Reveal({
     return () => io.disconnect();
   }, []);
   const delayClass = delay ? ` reveal-delay-${delay}` : "";
-  // @ts-expect-error dynamic tag
-  return <Tag ref={ref} className={`reveal${delayClass} ${className}`}>{children}</Tag>;
+  return <Tag ref={ref as never} className={`reveal${delayClass} ${className}`}>{children}</Tag>;
 }
 
 
