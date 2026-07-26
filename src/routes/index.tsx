@@ -768,8 +768,13 @@ function EducationSection() {
 }
 
 const certifications = [
-  { name: "Microsoft Certified: Azure Administrator Associate (AZ-104)", icon: Cloud },
-  { name: "Microsoft Certified: Azure Fundamentals (AZ-900)", icon: Server },
+  { name: "McKinsey.org Forward Program", issuer: "McKinsey & Company", date: "Jun 2026", icon: Globe },
+  { name: "Microsoft Certified: Azure Administrator Associate (AZ-104)", issuer: "Microsoft", date: "", icon: Cloud },
+  { name: "Microsoft Certified: Azure Fundamentals (AZ-900)", issuer: "Microsoft", date: "", icon: Server },
+  { name: "Python", issuer: "HackerRank", date: "Mar 2022", icon: FileCode },
+  { name: "Claude 101", issuer: "Anthropic", date: "Apr 2026", icon: Zap },
+  { name: "SQL", issuer: "Udemy", date: "Jan 2026", icon: Database },
+  { name: "Scrum Fundamentals Certified (SFC)", issuer: "SCRUMstudy", date: "Apr 2026", icon: LayoutGrid },
 ];
 
 function CertificationsSection() {
@@ -792,9 +797,12 @@ function CertificationsSection() {
               <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary">
                 <cert.icon className="w-6 h-6" />
               </div>
-              <div>
+              <div className="min-w-0">
                 <h3 className="text-base font-semibold text-foreground">{cert.name}</h3>
-                <p className="text-sm text-muted-foreground">Microsoft</p>
+                <p className="text-sm text-muted-foreground">
+                  {cert.issuer}
+                  {cert.date ? ` · Issued ${cert.date}` : ""}
+                </p>
               </div>
             </div>
           ))}
