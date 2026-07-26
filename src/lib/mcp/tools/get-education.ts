@@ -7,7 +7,7 @@ const education = [
     expected: "March 2026",
   },
   {
-    program: "MBA (PG)",
+    program: "MBA (PG) — Business Operations & Analytics",
     institution: "CBIT, Hyderabad",
     period: "2025 – Present",
   },

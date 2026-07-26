@@ -723,7 +723,7 @@ const education = [
     icon: LayoutGrid,
   },
   {
-    degree: "MBA (PG)",
+    degree: "MBA (PG) — Business Operations & Analytics",
     school: "CBIT, Hyderabad",
     period: "2025 – Present",
     icon: GraduationCap,
