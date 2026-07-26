@@ -2,7 +2,7 @@ import { defineTool } from "@lovable.dev/mcp-js";
 
 const profile = {
   name: "Shakeer Mohammed",
-  title: "DevOps Engineer (Azure) | Cloud Engineer | MLOps Enthusiast",
+  title: "DevOps / Cloud Engineer | MLOps Enthusiast",
   location: "Hyderabad, India",
   email: "mds.shakeer@gmail.com",
   links: {

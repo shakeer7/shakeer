@@ -286,10 +286,10 @@ function HeroSection() {
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground leading-[1.1]">
               <span className="block"><AnimatedName /></span>
-              <span className="block mt-2 text-[0.85em] font-bold text-foreground/90">DevOps &amp; Cloud Engineer</span>
+              <span className="block mt-2 text-[0.85em] font-bold text-foreground/90">DevOps / Cloud Engineer | MLOps Enthusiast</span>
             </h1>
             <p className="mt-4 text-xl sm:text-2xl font-medium text-primary">
-              DevOps Engineer (Azure) | Cloud Engineer | MLOps Enthusiast
+              Azure · AWS · Kubernetes · Terraform · CI/CD · MLOps
             </p>
             <p className="mt-6 text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 leading-relaxed">
               Building scalable, secure, and automated cloud platforms that accelerate software delivery and drive operational excellence.
@@ -1012,7 +1012,7 @@ function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-center md:text-left">
             <p className="text-sm font-semibold text-foreground">Shakeer Mohammed</p>
-            <p className="text-sm text-muted-foreground">DevOps & Cloud Engineer</p>
+            <p className="text-sm text-muted-foreground">DevOps / Cloud Engineer | MLOps Enthusiast</p>
           </div>
           <div className="flex items-center gap-4">
             <a
