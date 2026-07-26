@@ -31,6 +31,7 @@ import {
   Laptop,
 } from "lucide-react";
 import profileImg from "../assets/shakeer-portrait.jpg.asset.json";
+import heroAnimeBg from "../assets/hero-anime-bg.jpg";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
 function Reveal({
@@ -257,8 +258,23 @@ function Navbar() {
 function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Anime sky backdrop */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <img
+          src={heroAnimeBg}
+          alt=""
+          aria-hidden="true"
+          width={1920}
+          height={1088}
+          className="h-full w-full object-cover opacity-70 dark:opacity-40"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/50 to-background" />
+      </div>
+
       {/* Soft glow accents only — aurora shows through */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--color-hero-glow)_0%,_transparent_60%)] opacity-30" />
+
+
 
 
       <div className="container-tight relative z-10 pt-24 pb-16">
