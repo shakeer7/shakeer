@@ -1012,7 +1012,7 @@ function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-center md:text-left">
             <p className="text-sm font-semibold text-foreground">Shakeer Mohammed</p>
-            <p className="text-sm text-muted-foreground">DevOps & Cloud Engineer</p>
+            <p className="text-sm text-muted-foreground">DevOps / Cloud Engineer | MLOps Enthusiast</p>
           </div>
           <div className="flex items-center gap-4">
             <a
