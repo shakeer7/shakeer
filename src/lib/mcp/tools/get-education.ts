@@ -19,8 +19,13 @@ const education = [
 ];
 
 const certifications = [
+  "McKinsey.org Forward Program — McKinsey & Company (Jun 2026)",
   "Microsoft Certified: Azure Administrator Associate (AZ-104)",
   "Microsoft Certified: Azure Fundamentals (AZ-900)",
+  "Python — HackerRank (Mar 2022)",
+  "Claude 101 — Anthropic (Apr 2026)",
+  "SQL — Udemy (Jan 2026)",
+  "Scrum Fundamentals Certified (SFC) — SCRUMstudy (Apr 2026)",
 ];
 
 export default defineTool({
