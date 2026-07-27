@@ -5,12 +5,13 @@ const skills = {
   devopsAutomation: [
     "Azure DevOps",
     "GitHub Actions",
-    "Jenkins",
+    "Ansible",
     "CI/CD Pipelines",
     "Terraform (IaC)",
   ],
-  containers: ["Docker", "Kubernetes"],
+  containers: ["Docker", "Kubernetes", "Helm", "Argo CD"],
   monitoring: ["Prometheus", "Grafana", "Datadog"],
+  mlops: ["Python", "Pandas", "Scikit-learn", "MLflow", "DVC", "FastAPI"],
   languages: ["Python", "Bash"],
   versionControl: ["Git", "GitHub"],
   interests: [
