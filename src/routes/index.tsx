@@ -789,8 +789,18 @@ function EducationSection() {
               key={edu.degree}
               className="rounded-2xl glass p-6 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300"
             >
-              <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary mb-4">
-                <edu.icon className="w-6 h-6" />
+              <div className="flex items-center gap-3 mb-4">
+                <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-white/90 dark:bg-white/85 p-2 ring-1 ring-border/50 shrink-0">
+                  <img
+                    src={edu.logo}
+                    alt={`${edu.school} logo`}
+                    loading="lazy"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-primary/10 text-primary shrink-0">
+                  <edu.icon className="w-5 h-5" />
+                </div>
               </div>
               <h3 className="text-base font-semibold text-foreground leading-snug">{edu.degree}</h3>
               <p className="mt-2 text-sm font-medium text-primary">{edu.school}</p>
