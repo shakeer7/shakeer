@@ -31,7 +31,7 @@ import {
   Laptop,
 } from "lucide-react";
 import profileImg from "../assets/shakeer-portrait.jpg.asset.json";
-import isbLogo from "../assets/isb-logo.jpg.asset.json";
+import isbLogo from "../assets/isb-logo.png.asset.json";
 import cbitLogo from "../assets/cbit-logo.png.asset.json";
 import sruLogo from "../assets/sru-logo.png.asset.json";
 import heroAnimeBg from "../assets/hero-anime-bg.jpg";
@@ -790,7 +790,7 @@ function EducationSection() {
               className="rounded-2xl glass p-6 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300"
             >
               <div className="flex items-center gap-3 mb-4">
-                <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-white/90 dark:bg-white/85 p-2 ring-1 ring-border/50 shrink-0">
+                <div className="flex items-center justify-center w-14 h-14 shrink-0">
                   <img
                     src={edu.logo}
                     alt={`${edu.school} logo`}
