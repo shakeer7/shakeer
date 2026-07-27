@@ -31,6 +31,9 @@ import {
 } from "lucide-react";
 import profileImg from "../assets/shakeer-portrait.jpg.asset.json";
 import heroAnimeBg from "../assets/hero-anime-bg.jpg";
+import isbLogo from "../assets/isb-logo.png.asset.json";
+import cbitLogo from "../assets/cbit-logo.png.asset.json";
+import sruLogo from "../assets/sru-logo.png.asset.json";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
 function Reveal({
@@ -748,16 +751,22 @@ const education = [
     degree: "Executive Program in Applied Business Analytics",
     school: "Indian School of Business (ISB)",
     period: "Expected: March 2026",
+    logo: isbLogo.url,
+    logoAlt: "ISB logo",
   },
   {
     degree: "MBA (PG) — Business Operations & Analytics",
     school: "CBIT, Hyderabad",
     period: "2025 – Present",
+    logo: cbitLogo.url,
+    logoAlt: "CBIT logo",
   },
   {
     degree: "B.Tech in Electrical and Electronics Engineering (EEE)",
     school: "SR University, Warangal",
     period: "2019 – 2022",
+    logo: sruLogo.url,
+    logoAlt: "SRU logo",
   },
 ];
 
@@ -779,9 +788,22 @@ function EducationSection() {
               key={edu.degree}
               className="rounded-2xl glass p-6 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300"
             >
-              <h3 className="text-base font-semibold text-foreground leading-snug">{edu.degree}</h3>
-              <p className="mt-2 text-sm font-medium text-primary">{edu.school}</p>
-              <p className="mt-1 text-sm text-muted-foreground">{edu.period}</p>
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-14 h-14 rounded-xl overflow-hidden ring-1 ring-white/20 flex items-center justify-center">
+                  <img
+                    src={edu.logo}
+                    alt={edu.logoAlt}
+                    className="w-full h-full object-contain"
+                    width={56}
+                    height={56}
+                  />
+                </div>
+                <div>
+                  <h3 className="text-base font-semibold text-foreground leading-snug">{edu.degree}</h3>
+                  <p className="mt-2 text-sm font-medium text-primary">{edu.school}</p>
+                  <p className="mt-1 text-sm text-muted-foreground">{edu.period}</p>
+                </div>
+              </div>
             </div>
           ))}
         </div>
