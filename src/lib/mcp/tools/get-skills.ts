@@ -5,12 +5,13 @@ const skills = {
   devopsAutomation: [
     "Azure DevOps",
     "GitHub Actions",
-    "Jenkins",
+    "Ansible",
     "CI/CD Pipelines",
     "Terraform (IaC)",
   ],
-  containers: ["Docker", "Kubernetes"],
+  containers: ["Docker", "Kubernetes", "Helm", "Argo CD"],
   monitoring: ["Prometheus", "Grafana", "Datadog"],
+  mlops: ["Python", "Pandas", "Scikit-learn", "MLflow", "DVC", "FastAPI"],
   languages: ["Python", "Bash"],
   versionControl: ["Git", "GitHub"],
   interests: [
@@ -29,7 +30,7 @@ export default defineTool({
   name: "get_skills",
   title: "Get skills",
   description:
-    "Returns Shakeer's technical skills grouped by category (cloud, DevOps/automation, containers, monitoring, languages, version control, interests).",
+    "Returns Shakeer's technical skills grouped by category (cloud, DevOps/automation, containers, MLOps, monitoring, languages, version control, interests).",
   inputSchema: {},
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: () => ({

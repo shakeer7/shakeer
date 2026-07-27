@@ -389,7 +389,7 @@ function AboutSection() {
             Cloud & DevOps Engineer with <strong className="text-foreground">3+ years</strong> of experience in designing, automating, and managing cloud infrastructure, CI/CD pipelines, containerized applications, and Infrastructure as Code solutions.
           </p>
           <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-            Experienced in <strong className="text-foreground">Azure and AWS</strong> cloud environments, with hands-on expertise in Kubernetes, Docker, Terraform, GitHub Actions, Jenkins, and automation. Currently expanding expertise in <strong className="text-foreground">MLOps, Platform Engineering, and AI-driven infrastructure automation</strong>.
+            Experienced in <strong className="text-foreground">Azure and AWS</strong> cloud environments, with hands-on expertise in Kubernetes, Docker, Terraform, GitHub Actions, Argo CD, Helm, and automation. Currently expanding expertise in <strong className="text-foreground">MLOps, Platform Engineering, and AI-driven infrastructure automation</strong>.
           </p>
           <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
             Strong advocate of DevOps culture, continuous improvement, knowledge sharing, and delivering measurable business value through technology.
@@ -440,7 +440,6 @@ const skillCategories: {
     skills: [
       { name: "Azure DevOps", slug: "azuredevops" },
       { name: "GitHub Actions", slug: "githubactions" },
-      { name: "Jenkins", slug: "jenkins" },
       { name: "Ansible", slug: "ansible" },
       { name: "CI/CD Pipelines" },
       { name: "Terraform (IaC)", slug: "terraform" },
@@ -452,6 +451,8 @@ const skillCategories: {
     skills: [
       { name: "Docker", slug: "docker" },
       { name: "Kubernetes", slug: "kubernetes" },
+      { name: "Helm", slug: "helm" },
+      { name: "Argo CD", slug: "argocd" },
     ],
   },
   {
@@ -461,6 +462,18 @@ const skillCategories: {
       { name: "Datadog", slug: "datadog" },
       { name: "Prometheus", slug: "prometheus" },
       { name: "Grafana", slug: "grafana" },
+    ],
+  },
+  {
+    title: "MLOps & Machine Learning",
+    icon: Cpu,
+    skills: [
+      { name: "Python", slug: "python" },
+      { name: "Pandas", slug: "pandas" },
+      { name: "Scikit-learn", slug: "scikitlearn" },
+      { name: "MLflow", slug: "mlflow" },
+      { name: "DVC", slug: "dvc" },
+      { name: "FastAPI", slug: "fastapi" },
     ],
   },
   {
