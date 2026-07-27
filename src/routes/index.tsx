@@ -6,7 +6,6 @@ import {
   GitBranch,
   Code,
   Monitor,
-  GraduationCap,
   Award,
   MapPin,
   Mail,
