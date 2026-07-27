@@ -30,7 +30,7 @@ export default defineTool({
   name: "get_skills",
   title: "Get skills",
   description:
-    "Returns Shakeer's technical skills grouped by category (cloud, DevOps/automation, containers, MLOps, monitoring, languages, version control, interests)."
+    "Returns Shakeer's technical skills grouped by category (cloud, DevOps/automation, containers, MLOps, monitoring, languages, version control, interests).",
   inputSchema: {},
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: () => ({

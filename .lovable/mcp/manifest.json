@@ -31,7 +31,7 @@
       {
         "name": "get_skills",
         "title": "Get skills",
-        "description": "Returns Shakeer's technical skills grouped by category (cloud, DevOps/automation, containers, monitoring, languages, version control, interests).",
+        "description": "Returns Shakeer's technical skills grouped by category (cloud, DevOps/automation, containers, MLOps, monitoring, languages, version control, interests).",
         "annotations": {
           "readOnlyHint": true,
           "idempotentHint": true,
