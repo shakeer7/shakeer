@@ -31,9 +31,6 @@ import {
   Laptop,
 } from "lucide-react";
 import profileImg from "../assets/shakeer-portrait.jpg.asset.json";
-import isbLogo from "../assets/isb-logo.png.asset.json";
-import cbitLogo from "../assets/cbit-logo.png.asset.json";
-import sruLogo from "../assets/sru-logo.png.asset.json";
 import heroAnimeBg from "../assets/hero-anime-bg.jpg";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
