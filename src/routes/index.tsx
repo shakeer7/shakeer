@@ -750,20 +750,24 @@ const education = [
     school: "Indian School of Business (ISB)",
     period: "Expected: March 2026",
     icon: LayoutGrid,
+    logo: isbLogo.url,
   },
   {
     degree: "MBA (PG) — Business Operations & Analytics",
     school: "CBIT, Hyderabad",
     period: "2025 – Present",
     icon: GraduationCap,
+    logo: cbitLogo.url,
   },
   {
     degree: "B.Tech in Electrical and Electronics Engineering (EEE)",
     school: "SR University, Warangal",
     period: "2019 – 2022",
     icon: Cpu,
+    logo: sruLogo.url,
   },
 ];
+
 
 function EducationSection() {
   return (
