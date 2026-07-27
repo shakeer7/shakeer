@@ -751,16 +751,22 @@ const education = [
     degree: "Executive Program in Applied Business Analytics",
     school: "Indian School of Business (ISB)",
     period: "Expected: March 2026",
+    logo: isbLogo.url,
+    logoAlt: "ISB logo",
   },
   {
     degree: "MBA (PG) — Business Operations & Analytics",
     school: "CBIT, Hyderabad",
     period: "2025 – Present",
+    logo: cbitLogo.url,
+    logoAlt: "CBIT logo",
   },
   {
     degree: "B.Tech in Electrical and Electronics Engineering (EEE)",
     school: "SR University, Warangal",
     period: "2019 – 2022",
+    logo: sruLogo.url,
+    logoAlt: "SRU logo",
   },
 ];
 
