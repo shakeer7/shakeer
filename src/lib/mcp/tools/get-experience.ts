@@ -3,7 +3,7 @@ import { defineTool } from "@lovable.dev/mcp-js";
 const experience = [
   {
     role: "DevOps Engineer (Azure)",
-    client: "London Stock Exchange Group (LSEG)",
+    client: "Follett Corporation",
     employer: "Tata Consultancy Services (TCS)",
     location: "Hyderabad, India",
     highlights: [
