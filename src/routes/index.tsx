@@ -566,7 +566,7 @@ function SkillsSection() {
 const experiences = [
   {
     title: "DevOps Engineer (Azure)",
-    company: "London Stock Exchange Group (LSEG)",
+    company: "Follett Corporation",
     org: "Tata Consultancy Services (TCS)",
     location: "Hyderabad, India",
     period: "2022 – 2025",
@@ -658,7 +658,7 @@ function ExperienceSection() {
                 </div>
               </div>
               <p className="text-muted-foreground">
-                Full tenure at TCS delivering DevOps and cloud engineering solutions across multiple client engagements including LSEG and Wedbush Securities.
+                Full tenure at TCS delivering DevOps and cloud engineering solutions across multiple client engagements including Follett Corporation and Wedbush Securities.
               </p>
             </div>
           </div>
