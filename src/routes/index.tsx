@@ -565,30 +565,30 @@ function SkillsSection() {
 
 const experiences = [
   {
-    title: "DevOps Engineer (Azure)",
-    company: "Follett Corporation",
-    org: "Tata Consultancy Services (TCS)",
-    location: "Hyderabad, India",
-    period: "2022 – 2025",
-    highlights: [
-      "Supported Azure cloud infrastructure and DevOps operations",
-      "Built and maintained CI/CD pipelines for application deployments",
-      "Automated operational workflows and deployment processes",
-      "Implemented monitoring and observability solutions",
-      "Collaborated with development and operations teams to improve release efficiency and platform reliability",
-    ],
-  },
-  {
     title: "Cloud & DevOps Engineer",
-    company: "Wedbush Securities",
-    org: "Tata Consultancy Services (TCS)",
-    location: "",
-    period: "",
-    highlights: [
-      "Supported migration from on-premises infrastructure to Microsoft Azure",
-      "Assisted in cloud setup, deployment, and migration activities",
-      "Helped ensure minimal downtime during migration initiatives",
-      "Contributed to cloud adoption and modernization efforts",
+    company: "Tata Consultancy Services (TCS)",
+    location: "Hyderabad, India",
+    period: "June 2022 – July 2025",
+    clients: [
+      {
+        title: "DevOps Engineer (Azure)",
+        client: "Follett Corporation",
+        highlights: [
+          "Supported Azure cloud infrastructure across 150+ Windows and 50+ Linux servers",
+          "Built and maintained CI/CD pipelines for application deployments",
+          "Automated operational workflows and deployment processes across the environment",
+          "Implemented monitoring and observability solutions using Datadog",
+        ],
+      },
+      {
+        title: "Cloud & DevOps Engineer",
+        client: "Wedbush Securities",
+        highlights: [
+          "Supported migration from on-premises infrastructure to Microsoft Azure",
+          "Assisted in cloud setup, deployment, and migration activities",
+          "Helped ensure minimal downtime during migration initiatives",
+        ],
+      },
     ],
   },
 ];
@@ -603,7 +603,7 @@ function ExperienceSection() {
             Work History
           </h2>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-            Delivering cloud and DevOps solutions for global financial institutions.
+            Delivering cloud and DevOps solutions for global enterprises.
           </p>
         </div>
 
@@ -617,51 +617,45 @@ function ExperienceSection() {
               </div>
 
               <div className="md:ml-12">
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-3">
+                {/* Company header */}
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-6">
                   <div>
                     <h3 className="text-xl font-bold text-foreground">{exp.title}</h3>
                     <p className="text-base font-medium text-primary">{exp.company}</p>
-                    <p className="text-sm text-muted-foreground">{exp.org}</p>
+                    <p className="text-sm text-muted-foreground">{exp.location}</p>
                   </div>
                   <div className="flex items-center gap-1.5 text-sm text-muted-foreground shrink-0">
                     <Clock className="w-4 h-4" />
-                    {exp.period || "2022 – 2025"}
+                    {exp.period}
                   </div>
                 </div>
-                <ul className="space-y-2 mt-4">
-                  {exp.highlights.map((h, hi) => (
-                    <li key={hi} className="flex items-start gap-2.5 text-muted-foreground">
-                      <ArrowRight className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                      <span>{h}</span>
-                    </li>
+
+                {/* Client sub-entries */}
+                <div className="space-y-6">
+                  {exp.clients.map((client, ci) => (
+                    <div
+                      key={ci}
+                      className="rounded-2xl glass p-5 border-l-4 border-primary/60"
+                    >
+                      <div className="mb-3">
+                        <p className="text-sm font-semibold uppercase tracking-wider text-primary/80">Client</p>
+                        <h4 className="text-lg font-bold text-foreground">{client.client}</h4>
+                        <p className="text-sm text-muted-foreground">{client.title}</p>
+                      </div>
+                      <ul className="space-y-2">
+                        {client.highlights.map((h, hi) => (
+                          <li key={hi} className="flex items-start gap-2.5 text-muted-foreground">
+                            <ArrowRight className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                            <span>{h}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
             </div>
           ))}
-
-          {/* TCS summary */}
-          <div className="relative pl-8 md:pl-0">
-            <div className="hidden md:block absolute left-0 top-0 bottom-0 w-px bg-border" />
-            <div className="hidden md:flex absolute -left-3 top-1 w-6 h-6 items-center justify-center rounded-full bg-secondary border-2 border-border">
-              <div className="w-2 h-2 rounded-full bg-muted-foreground" />
-            </div>
-            <div className="md:ml-12">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-3">
-                <div>
-                  <h3 className="text-xl font-bold text-foreground">Cloud & DevOps Engineer</h3>
-                  <p className="text-base font-medium text-primary">Tata Consultancy Services (TCS)</p>
-                </div>
-                <div className="flex items-center gap-1.5 text-sm text-muted-foreground shrink-0">
-                  <Clock className="w-4 h-4" />
-                  June 2022 – July 2025
-                </div>
-              </div>
-              <p className="text-muted-foreground">
-                Full tenure at TCS delivering DevOps and cloud engineering solutions across multiple client engagements including Follett Corporation and Wedbush Securities.
-              </p>
-            </div>
-          </div>
         </div>
       </div>
     </section>
