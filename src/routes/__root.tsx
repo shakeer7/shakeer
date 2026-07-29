@@ -112,7 +112,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@type": "Person",
           name: "Shakeer Mohammed",
           jobTitle: "DevOps Engineer (Azure) & Cloud Engineer",
-          url: "https://shakeer.lovable.app",
+          url: "https://shakeer.online",
           address: { "@type": "PostalAddress", addressLocality: "Hyderabad", addressCountry: "IN" },
           email: "mailto:mds.shakeer@gmail.com",
           sameAs: [
@@ -128,7 +128,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@context": "https://schema.org",
           "@type": "WebSite",
           name: "Shakeer Mohammed — Portfolio",
-          url: "https://shakeer.lovable.app",
+          url: "https://shakeer.online",
         }),
       },
     ],
