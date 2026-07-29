@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as McpRouteImport } from './routes/mcp'
+import { Route as AzureDevopsVsGithubActionsRouteImport } from './routes/azure-devops-vs-github-actions'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
 import { Route as Char91DotmcpChar93ListToolsRouteImport } from './routes/[.mcp]/list-tools'
@@ -26,6 +27,12 @@ const McpRoute = McpRouteImport.update({
   path: '/mcp',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AzureDevopsVsGithubActionsRoute =
+  AzureDevopsVsGithubActionsRouteImport.update({
+    id: '/azure-devops-vs-github-actions',
+    path: '/azure-devops-vs-github-actions',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -52,6 +59,7 @@ const Char91DotmcpChar93InvokeToolToolRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/azure-devops-vs-github-actions': typeof AzureDevopsVsGithubActionsRoute
   '/mcp': typeof McpRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
@@ -60,6 +68,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/azure-devops-vs-github-actions': typeof AzureDevopsVsGithubActionsRoute
   '/mcp': typeof McpRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
@@ -69,6 +78,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/azure-devops-vs-github-actions': typeof AzureDevopsVsGithubActionsRoute
   '/mcp': typeof McpRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
@@ -79,6 +89,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/azure-devops-vs-github-actions'
     | '/mcp'
     | '/sitemap.xml'
     | '/.mcp/list-tools'
@@ -87,6 +98,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/azure-devops-vs-github-actions'
     | '/mcp'
     | '/sitemap.xml'
     | '/.mcp/list-tools'
@@ -95,6 +107,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/azure-devops-vs-github-actions'
     | '/mcp'
     | '/sitemap.xml'
     | '/.mcp/list-tools'
@@ -104,6 +117,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AzureDevopsVsGithubActionsRoute: typeof AzureDevopsVsGithubActionsRoute
   McpRoute: typeof McpRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   Char91DotmcpChar93ListToolsRoute: typeof Char91DotmcpChar93ListToolsRoute
@@ -125,6 +139,13 @@ declare module '@tanstack/react-router' {
       path: '/mcp'
       fullPath: '/mcp'
       preLoaderRoute: typeof McpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/azure-devops-vs-github-actions': {
+      id: '/azure-devops-vs-github-actions'
+      path: '/azure-devops-vs-github-actions'
+      fullPath: '/azure-devops-vs-github-actions'
+      preLoaderRoute: typeof AzureDevopsVsGithubActionsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -160,6 +181,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AzureDevopsVsGithubActionsRoute: AzureDevopsVsGithubActionsRoute,
   McpRoute: McpRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   Char91DotmcpChar93ListToolsRoute: Char91DotmcpChar93ListToolsRoute,
