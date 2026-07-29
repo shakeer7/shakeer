@@ -75,8 +75,27 @@ function Reveal({
 
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Shakeer Mohammed — DevOps / Cloud Engineer (Azure, Kubernetes)" },
+      {
+        name: "description",
+        content:
+          "Portfolio of Shakeer Mohammed — Azure DevOps & Cloud Engineer with 3+ years in CI/CD, Kubernetes, Terraform and MLOps across Azure and AWS.",
+      },
+      { property: "og:title", content: "Shakeer Mohammed — DevOps / Cloud Engineer" },
+      {
+        property: "og:description",
+        content:
+          "Azure DevOps & Cloud Engineer: CI/CD pipelines, Kubernetes, Terraform, observability and MLOps.",
+      },
+      { property: "og:url", content: "https://shakeer.online/" },
+    ],
+    links: [{ rel: "canonical", href: "https://shakeer.online/" }],
+  }),
   component: Index,
 });
+
 
 const navLinks = [
   { label: "About", href: "#about" },
