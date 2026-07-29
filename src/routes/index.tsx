@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Cloud,
   Server,
@@ -75,8 +75,27 @@ function Reveal({
 
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Shakeer Mohammed — DevOps / Cloud Engineer (Azure, Kubernetes)" },
+      {
+        name: "description",
+        content:
+          "Portfolio of Shakeer Mohammed — Azure DevOps & Cloud Engineer with 3+ years in CI/CD, Kubernetes, Terraform and MLOps across Azure and AWS.",
+      },
+      { property: "og:title", content: "Shakeer Mohammed — DevOps / Cloud Engineer" },
+      {
+        property: "og:description",
+        content:
+          "Azure DevOps & Cloud Engineer: CI/CD pipelines, Kubernetes, Terraform, observability and MLOps.",
+      },
+      { property: "og:url", content: "https://shakeer.online/" },
+    ],
+    links: [{ rel: "canonical", href: "https://shakeer.online/" }],
+  }),
   component: Index,
 });
+
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -1036,6 +1055,12 @@ function Footer() {
           <div className="text-center md:text-left">
             <p className="text-sm font-semibold text-foreground">Shakeer Mohammed</p>
             <p className="text-sm text-muted-foreground">DevOps / Cloud Engineer | MLOps Enthusiast</p>
+            <Link
+              to="/azure-devops-vs-github-actions"
+              className="mt-1 inline-block text-sm text-primary hover:underline"
+            >
+              Guide: Azure DevOps vs GitHub Actions
+            </Link>
           </div>
           <div className="flex items-center gap-4">
             <a
