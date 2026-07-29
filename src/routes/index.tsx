@@ -1055,6 +1055,12 @@ function Footer() {
           <div className="text-center md:text-left">
             <p className="text-sm font-semibold text-foreground">Shakeer Mohammed</p>
             <p className="text-sm text-muted-foreground">DevOps / Cloud Engineer | MLOps Enthusiast</p>
+            <Link
+              to="/azure-devops-vs-github-actions"
+              className="mt-1 inline-block text-sm text-primary hover:underline"
+            >
+              Guide: Azure DevOps vs GitHub Actions
+            </Link>
           </div>
           <div className="flex items-center gap-4">
             <a
