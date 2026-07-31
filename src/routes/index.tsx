@@ -593,7 +593,6 @@ const experiences = [
         title: "DevOps Engineer (Azure)",
         client: "Follett Corporation",
         highlights: [
-          "Supported Azure cloud infrastructure across 150+ Windows and 50+ Linux servers",
           "Built and maintained CI/CD pipelines for application deployments",
           "Automated operational workflows and deployment processes across the environment",
           "Implemented monitoring and observability solutions using Datadog",
