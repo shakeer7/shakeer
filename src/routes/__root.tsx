@@ -110,6 +110,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Person",
+          "@id": "https://shakeer.online/#person",
           name: "Shakeer Mohammed",
           jobTitle: "DevOps Engineer (Azure) & Cloud Engineer",
           url: "https://shakeer.online",
