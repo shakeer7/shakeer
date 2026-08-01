@@ -73,6 +73,114 @@ function Reveal({
   return <Tag ref={ref as never} className={`reveal${delayClass} ${className}`}>{children}</Tag>;
 }
 
+const SITE_URL = "https://shakeer.online";
+const PERSON_ID = `${SITE_URL}/#person`;
+
+const MONTHS: Record<string, string> = {
+  January: "01", February: "02", March: "03", April: "04", May: "05", June: "06",
+  July: "07", August: "08", September: "09", October: "10", November: "11", December: "12",
+};
+
+function toIsoMonth(value: string): string | undefined {
+  const m = value.trim().match(/^([A-Za-z]+)\s+(\d{4})$/);
+  if (!m) return undefined;
+  const month = MONTHS[m[1]];
+  return month ? `${m[2]}-${month}` : undefined;
+}
+
+function parsePeriod(period: string): { startDate?: string; endDate?: string } {
+  const [rawStart, rawEnd] = period.split(/[–-]/).map((p) => p.trim());
+  return { startDate: toIsoMonth(rawStart ?? ""), endDate: toIsoMonth(rawEnd ?? "") };
+}
+
+const SKILL_KEYWORDS: Record<string, string> = {
+  azure: "Microsoft Azure",
+  "ci/cd": "CI/CD",
+  pipeline: "CI/CD Pipelines",
+  datadog: "Datadog",
+  monitoring: "Monitoring & Observability",
+  observability: "Monitoring & Observability",
+  automat: "Automation",
+  migration: "Cloud Migration",
+  "on-premises": "Cloud Migration",
+  deployment: "Deployment Automation",
+};
+
+function skillsFrom(highlights: string[]): string[] {
+  const found = new Set<string>();
+  for (const h of highlights) {
+    const lower = h.toLowerCase();
+    for (const [needle, skill] of Object.entries(SKILL_KEYWORDS)) {
+      if (lower.includes(needle)) found.add(skill);
+    }
+  }
+  return [...found];
+}
+
+function buildExperienceJsonLd() {
+  const roles = experiences.flatMap((exp) => {
+    const { startDate, endDate } = parsePeriod(exp.period);
+    const employer = {
+      "@type": "Organization",
+      name: exp.company,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Hyderabad",
+        addressCountry: "IN",
+      },
+    };
+
+    return exp.clients.map((client) => ({
+      "@type": "OrganizationRole",
+      roleName: client.title,
+      ...(startDate ? { startDate } : {}),
+      ...(endDate ? { endDate } : {}),
+      description: client.highlights.join(". ") + ".",
+      skills: skillsFrom(client.highlights),
+      jobLocation: {
+        "@type": "Place",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: exp.location.split(",")[0]?.trim(),
+          addressCountry: "IN",
+        },
+      },
+      worksFor: {
+        ...employer,
+        member: {
+          "@type": "Organization",
+          name: client.client,
+          description: `Client engagement delivered through ${exp.company}`,
+        },
+      },
+    }));
+  });
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfilePage",
+        "@id": `${SITE_URL}/#profilepage`,
+        url: `${SITE_URL}/`,
+        name: "Shakeer Mohammed — DevOps / Cloud Engineer",
+        mainEntity: { "@id": PERSON_ID },
+      },
+      {
+        "@type": "Person",
+        "@id": PERSON_ID,
+        name: "Shakeer Mohammed",
+        url: `${SITE_URL}/`,
+        jobTitle: "DevOps / Cloud Engineer",
+        worksFor: experiences.map((exp) => ({
+          "@type": "Organization",
+          name: exp.company,
+        })),
+        hasOccupation: roles,
+      },
+    ],
+  };
+}
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -92,6 +200,12 @@ export const Route = createFileRoute("/")({
       { property: "og:url", content: "https://shakeer.online/" },
     ],
     links: [{ rel: "canonical", href: "https://shakeer.online/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(buildExperienceJsonLd()),
+      },
+    ],
   }),
   component: Index,
 });
