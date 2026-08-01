@@ -1,29 +1,26 @@
-# Liquid Glass Theme
+## Goal
 
-Refresh the portfolio's visual layer with an Apple-style "Liquid Glass" aesthetic — translucent frosted surfaces, soft aurora gradients behind them, and subtle depth. No content or structural changes; purely presentation.
+Emit JSON-LD on the homepage that describes each role and client entry in the Experience timeline, generated from the existing `experiences` array so the markup can never drift from what's rendered.
 
-## Look & feel
+## What gets added
 
-- Animated aurora background: soft blurred blue/cyan/violet blobs drifting behind everything, sitting on the current Cloud & Clean base.
-- Cards, nav bar, theme toggle, projects, skills, experience, education, certifications, stats — all become frosted glass panels: semi-transparent surface, `backdrop-blur-xl`, 1px inner highlight border, soft shadow, generous rounded corners.
-- Buttons (Contact, LinkedIn, GitHub, resume, theme toggle segments) get a glass pill treatment with a subtle specular highlight on hover.
-- Hero portrait frame gets a thicker glass ring + glow.
-- Dark mode: deeper indigo/slate base, glass panels tint cooler with brighter edge highlights so the frosted effect reads well.
+In `src/routes/index.tsx`:
 
-## Technical changes
+1. Parse the existing `period` string ("June 2022 – July 2025") into ISO dates (`2022-06`, `2025-07`) with a tiny month-map helper.
+2. Build a `Person` graph node for Shakeer with `hasOccupation` and `worksFor`, plus one `OrganizationRole` node per client sub-entry:
+   - `roleName`: e.g. "DevOps Engineer (Azure)"
+   - `startDate` / `endDate` from the parsed period
+   - `worksFor`: `Organization` = Tata Consultancy Services (TCS), with the client (`Follett Corporation`, `Wedbush Securities`) as a nested `Organization` under `member`/`description`
+   - `description`: the highlights joined into one sentence-per-line string
+   - `jobLocation`: PostalAddress Hyderabad, IN
+   - `skills`: derived from the highlight keywords already present (Azure, CI/CD, Datadog, migration)
+3. Also emit a `ProfilePage` wrapper with `mainEntity` pointing at the Person, and `@id` anchors so the root `Person` JSON-LD in `__root.tsx` and this one reference the same entity (`https://shakeer.online/#person`) rather than duplicating a second unrelated Person.
+4. Attach it through the route's existing `head()` as an extra `scripts` entry (`type: "application/ld+json"`), the same pattern used in `azure-devops-vs-github-actions.tsx`.
 
-- `src/styles.css`
-  - Add tokens: `--glass-bg`, `--glass-bg-strong`, `--glass-border`, `--glass-highlight`, `--glass-shadow`, `--aurora-1/2/3` (light + dark variants).
-  - Add `@utility glass`, `@utility glass-strong`, `@utility glass-pill`, `@utility aurora-bg` using `background`, `backdrop-filter: blur() saturate()`, layered box-shadows for inner highlight + outer soft shadow. Standard `backdrop-filter` only (build handles prefixing).
-  - Keyframes for slow aurora drift (`@keyframes aurora-drift`) + reduced-motion guard.
-- `src/routes/index.tsx`
-  - Wrap page in an `aurora-bg` container with 3 blurred gradient blobs.
-  - Swap existing `bg-card`/`border` classes on nav, section cards, project cards, skill category cards, stats cards, theme toggle, and CTA buttons to the new `glass` / `glass-pill` utilities.
-  - Keep all copy, links, section order, and semantic tokens intact.
-- No changes to routing, data, MCP, SEO, or server code.
+To keep the head function clean, the graph builder lives in a small helper (`buildExperienceJsonLd`) in the same file, above the route definition, and reads from the `experiences` array.
 
-## Out of scope
+## Notes
 
-- No new sections, copy edits, or feature work.
-- No dependency additions.
-- No changes to the color palette identity beyond adding glass/aurora tokens.
+- No visual changes; the Experience section renders exactly as it does now.
+- The root route keeps its existing Person/WebSite JSON-LD; this plan adds an `@id` to that node so the two link instead of conflict.
+- Validate the output by pasting the rendered script into Google's Rich Results Test after implementation.
