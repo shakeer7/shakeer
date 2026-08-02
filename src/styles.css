@@ -92,37 +92,37 @@
 
 
 .dark {
-  --background: oklch(0.15 0.02 260);
+  --background: oklch(0 0 0);
   --foreground: oklch(0.95 0.005 250);
 
-  --card: oklch(0.20 0.02 260);
+  --card: oklch(0.05 0 0);
   --card-foreground: oklch(0.95 0.005 250);
 
-  --popover: oklch(0.20 0.02 260);
+  --popover: oklch(0.06 0 0);
   --popover-foreground: oklch(0.95 0.005 250);
 
   --primary: oklch(0.65 0.18 250);
   --primary-foreground: oklch(0.15 0.02 260);
 
-  --secondary: oklch(0.25 0.02 260);
+  --secondary: oklch(0.08 0 0);
   --secondary-foreground: oklch(0.95 0.005 250);
 
-  --muted: oklch(0.25 0.02 260);
+  --muted: oklch(0.08 0 0);
   --muted-foreground: oklch(0.74 0.03 260);
 
-  --accent: oklch(0.25 0.02 260);
+  --accent: oklch(0.08 0 0);
   --accent-foreground: oklch(0.95 0.005 250);
 
   --destructive: oklch(0.70 0.19 22);
   --destructive-foreground: oklch(0.15 0.02 260);
 
-  --border: oklch(1 0 0 / 8%);
-  --input: oklch(1 0 0 / 12%);
+  --border: oklch(0 0 0 / 10%);
+  --input: oklch(0 0 0 / 14%);
   --ring: oklch(0.65 0.18 250);
 
-  --surface: oklch(0.18 0.02 260);
-  --surface-elevated: oklch(0.22 0.02 260);
-  --hero-glow: oklch(0.30 0.05 250);
+  --surface: oklch(0.04 0 0);
+  --surface-elevated: oklch(0.06 0 0);
+  --hero-glow: oklch(0.30 0 0);
   --skill-icon: oklch(0.65 0.18 250);
 
   --glass-bg: color-mix(in oklab, white 8%, transparent);
