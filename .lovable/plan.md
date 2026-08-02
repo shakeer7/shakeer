@@ -1,26 +1,26 @@
+# Matte Black Dark Mode
+
 ## Goal
+Make the dark-mode background a full matte black (zero chroma, near-zero lightness) instead of the current dark slate-blue `oklch(0.15 0.02 260)`, while keeping the glass-morphism cards and aurora accents legible against it.
 
-Emit JSON-LD on the homepage that describes each role and client entry in the Experience timeline, generated from the existing `experiences` array so the markup can never drift from what's rendered.
+## Changes — `src/styles.css` (`.dark` block only)
+Update dark-mode tokens to a matte-black palette. Light mode is untouched.
 
-## What gets added
+- `--background`: `oklch(0 0 0)` — pure matte black, no blue tint.
+- `--surface`: `oklch(0.04 0 0)` — barely-above-black for subtle surface lifts.
+- `--surface-elevated`: `oklch(0.06 0 0)`.
+- `--card`: `oklch(0.05 0 0)` — slightly above background so glass cards still read.
+- `--popover`: `oklch(0.06 0 0)`.
+- `--secondary`: `oklch(0.08 0 0)`.
+- `--muted`: `oklch(0.08 0 0)`.
+- `--border`: `oklch(0 0 0 / 10%)` (was white 8%) — neutral, no blue cast.
+- `--input`: `oklch(0 0 0 / 14%)`.
+- `--hero-glow`: keep current low-chroma value but drop chroma to 0 → `oklch(0.30 0 0)` so the hero radial glow stays neutral on matte black.
 
-In `src/routes/index.tsx`:
+`--foreground`, `--muted-foreground`, `--primary`, `--aurora-*`, and glass tokens stay unchanged (they provide the only color in an otherwise black scheme and keep contrast accessible).
 
-1. Parse the existing `period` string ("June 2022 – July 2025") into ISO dates (`2022-06`, `2025-07`) with a tiny month-map helper.
-2. Build a `Person` graph node for Shakeer with `hasOccupation` and `worksFor`, plus one `OrganizationRole` node per client sub-entry:
-   - `roleName`: e.g. "DevOps Engineer (Azure)"
-   - `startDate` / `endDate` from the parsed period
-   - `worksFor`: `Organization` = Tata Consultancy Services (TCS), with the client (`Follett Corporation`, `Wedbush Securities`) as a nested `Organization` under `member`/`description`
-   - `description`: the highlights joined into one sentence-per-line string
-   - `jobLocation`: PostalAddress Hyderabad, IN
-   - `skills`: derived from the highlight keywords already present (Azure, CI/CD, Datadog, migration)
-3. Also emit a `ProfilePage` wrapper with `mainEntity` pointing at the Person, and `@id` anchors so the root `Person` JSON-LD in `__root.tsx` and this one reference the same entity (`https://shakeer.online/#person`) rather than duplicating a second unrelated Person.
-4. Attach it through the route's existing `head()` as an extra `scripts` entry (`type: "application/ld+json"`), the same pattern used in `azure-devops-vs-github-actions.tsx`.
+## Verification
+- Run `bun run build` to confirm no CSS errors.
+- Visually confirm in preview: background is true matte black, glass cards remain visible, aurora accents still read, and text contrast is preserved.
 
-To keep the head function clean, the graph builder lives in a small helper (`buildExperienceJsonLd`) in the same file, above the route definition, and reads from the `experiences` array.
-
-## Notes
-
-- No visual changes; the Experience section renders exactly as it does now.
-- The root route keeps its existing Person/WebSite JSON-LD; this plan adds an `@id` to that node so the two link instead of conflict.
-- Validate the output by pasting the rendered script into Google's Rich Results Test after implementation.
+No light-mode changes. No component changes — everything keys off the semantic tokens.
