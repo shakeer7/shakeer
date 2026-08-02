@@ -10,7 +10,8 @@ const skills = {
     "Terraform (IaC)",
   ],
   containers: ["Docker", "Kubernetes", "Helm", "Argo CD"],
-  monitoring: ["Prometheus", "Grafana", "Datadog"],
+  monitoring: ["Datadog", "Prometheus", "Grafana"],
+  security: ["SonarQube", "Trivy", "OWASP ZAP", "Nuclei"],
   mlops: ["Python", "Pandas", "Scikit-learn", "MLflow", "DVC", "FastAPI"],
   languages: ["Python", "Bash"],
   versionControl: ["Git", "GitHub"],
@@ -30,7 +31,7 @@ export default defineTool({
   name: "get_skills",
   title: "Get skills",
   description:
-    "Returns Shakeer's technical skills grouped by category (cloud, DevOps/automation, containers, MLOps, monitoring, languages, version control, interests).",
+    "Returns Shakeer's technical skills grouped by category (cloud, DevOps/automation, containers, MLOps, security, monitoring, languages, version control, interests).",
   inputSchema: {},
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: () => ({

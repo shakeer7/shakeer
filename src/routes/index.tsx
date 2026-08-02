@@ -591,6 +591,16 @@ const skillCategories: {
     ],
   },
   {
+    title: "Security",
+    icon: Shield,
+    skills: [
+      { name: "SonarQube", slug: "sonar" },
+      { name: "Trivy", slug: "trivy" },
+      { name: "OWASP ZAP", slug: "owasp" },
+      { name: "Nuclei" },
+    ],
+  },
+  {
     title: "Monitoring & Observability",
     icon: Monitor,
     skills: [
