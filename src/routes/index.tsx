@@ -408,6 +408,7 @@ function HeroSection() {
 
       {/* Soft glow accents only — aurora shows through */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--color-hero-glow)_0%,_transparent_60%)] opacity-30" />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_20%_20%,_color-mix(in_oklab,var(--pure-orange)_28%,transparent)_0%,_transparent_55%),radial-gradient(ellipse_at_80%_70%,_color-mix(in_oklab,var(--slate-blue)_28%,transparent)_0%,_transparent_55%)]" />
 
 
 
@@ -416,14 +417,14 @@ function HeroSection() {
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           <div className="flex-1 text-center lg:text-left">
             <div className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-sm font-medium text-foreground mb-6">
-              <Zap className="w-4 h-4 text-skill-icon" />
+              <Zap className="w-4 h-4 text-caramel" />
               Available for opportunities
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground leading-[1.1]">
-              <span className="block"><AnimatedName /></span>
-              <span className="block mt-2 text-[0.85em] font-bold text-foreground/90">DevOps / Cloud Engineer | MLOps Enthusiast</span>
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground leading-[1.05]">
+              <span className="block hero-name-gradient"><AnimatedName /></span>
+              <span className="block mt-3 text-[0.6em] font-bold uppercase tracking-[0.12em] text-sand">DevOps / Cloud Engineer <span className="text-brick">|</span> MLOps Enthusiast</span>
             </h1>
-            <p className="mt-4 text-xl sm:text-2xl font-medium text-primary">
+            <p className="mt-4 font-display text-lg sm:text-xl font-semibold uppercase tracking-[0.18em] text-caramel">
               Azure · AWS · Kubernetes · Terraform · CI/CD · MLOps
             </p>
             <p className="mt-6 text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 leading-relaxed">
