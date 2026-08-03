@@ -420,11 +420,11 @@ function HeroSection() {
               <Zap className="w-4 h-4 text-primary" />
               Available for opportunities
             </div>
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground leading-[1.05]">
+            <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-foreground leading-[1.02]">
               <span className="block hero-name-gradient"><AnimatedName /></span>
-              <span className="block mt-3 text-[0.6em] font-bold uppercase tracking-[0.12em] text-muted-foreground">DevOps / Cloud Engineer <span className="text-primary">|</span> MLOps Enthusiast</span>
+              <span className="block mt-5 eyebrow text-muted-foreground">DevOps / Cloud Engineer <span className="text-primary">|</span> MLOps Enthusiast</span>
             </h1>
-            <p className="mt-4 font-display text-lg sm:text-xl font-semibold uppercase tracking-[0.18em] text-primary">
+            <p className="mt-5 font-display text-xl sm:text-2xl italic font-medium text-primary tracking-normal">
               Azure · AWS · Kubernetes · Terraform · CI/CD · MLOps
             </p>
             <p className="mt-6 text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 leading-relaxed">
