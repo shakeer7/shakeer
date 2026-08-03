@@ -433,7 +433,7 @@ function HeroSection() {
             <div className="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-4">
               <a
                 href="mailto:mds.shakeer@gmail.com"
-                className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-base font-medium text-primary-foreground hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
+                className="inline-flex items-center gap-2 rounded-full bg-pure-orange px-6 py-3 text-base font-display font-semibold uppercase tracking-wider text-sand hover:bg-brick transition-colors shadow-lg shadow-black/30"
               >
                 <Mail className="w-5 h-5" />
                 Contact Me
@@ -481,9 +481,9 @@ function HeroSection() {
 
           <div className="flex-shrink-0">
             <div className="relative w-64 h-64 sm:w-80 sm:h-80">
-              <div className="absolute -inset-4 rounded-full bg-gradient-to-br from-primary/30 via-primary/10 to-transparent blur-2xl" />
+              <div className="absolute -inset-4 rounded-full bg-[conic-gradient(from_140deg,var(--pure-orange),var(--caramel),var(--olive),var(--slate-blue),var(--pure-orange))] opacity-40 blur-2xl" />
               <div className="absolute inset-0 rounded-full glass-strong p-2">
-                <div className="w-full h-full rounded-full overflow-hidden ring-1 ring-white/40">
+                <div className="w-full h-full rounded-full overflow-hidden ring-2 ring-caramel/60">
                   <img
                     src={profileImg.url}
                     alt="Shakeer Mohammed"
