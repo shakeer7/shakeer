@@ -408,7 +408,7 @@ function HeroSection() {
 
       {/* Soft glow accents only — aurora shows through */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--color-hero-glow)_0%,_transparent_60%)] opacity-30" />
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_20%_20%,_color-mix(in_oklab,var(--pure-orange)_28%,transparent)_0%,_transparent_55%),radial-gradient(ellipse_at_80%_70%,_color-mix(in_oklab,var(--slate-blue)_28%,transparent)_0%,_transparent_55%)]" />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_20%_20%,_color-mix(in_oklab,var(--primary)_30%,transparent)_0%,_transparent_55%),radial-gradient(ellipse_at_80%_70%,_color-mix(in_oklab,var(--aurora-2)_30%,transparent)_0%,_transparent_55%)]" />
 
 
 
@@ -417,14 +417,14 @@ function HeroSection() {
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           <div className="flex-1 text-center lg:text-left">
             <div className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-sm font-medium text-foreground mb-6">
-              <Zap className="w-4 h-4 text-caramel" />
+              <Zap className="w-4 h-4 text-primary" />
               Available for opportunities
             </div>
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground leading-[1.05]">
               <span className="block hero-name-gradient"><AnimatedName /></span>
-              <span className="block mt-3 text-[0.6em] font-bold uppercase tracking-[0.12em] text-sand">DevOps / Cloud Engineer <span className="text-brick">|</span> MLOps Enthusiast</span>
+              <span className="block mt-3 text-[0.6em] font-bold uppercase tracking-[0.12em] text-muted-foreground">DevOps / Cloud Engineer <span className="text-primary">|</span> MLOps Enthusiast</span>
             </h1>
-            <p className="mt-4 font-display text-lg sm:text-xl font-semibold uppercase tracking-[0.18em] text-caramel">
+            <p className="mt-4 font-display text-lg sm:text-xl font-semibold uppercase tracking-[0.18em] text-primary">
               Azure · AWS · Kubernetes · Terraform · CI/CD · MLOps
             </p>
             <p className="mt-6 text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 leading-relaxed">
@@ -433,7 +433,7 @@ function HeroSection() {
             <div className="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-4">
               <a
                 href="mailto:mds.shakeer@gmail.com"
-                className="inline-flex items-center gap-2 rounded-full bg-pure-orange px-6 py-3 text-base font-display font-semibold uppercase tracking-wider text-sand hover:bg-brick transition-colors shadow-lg shadow-black/30"
+                className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-base font-semibold uppercase tracking-wider text-primary-foreground hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
               >
                 <Mail className="w-5 h-5" />
                 Contact Me
@@ -481,9 +481,9 @@ function HeroSection() {
 
           <div className="flex-shrink-0">
             <div className="relative w-64 h-64 sm:w-80 sm:h-80">
-              <div className="absolute -inset-4 rounded-full bg-[conic-gradient(from_140deg,var(--pure-orange),var(--caramel),var(--olive),var(--slate-blue),var(--pure-orange))] opacity-40 blur-2xl" />
+              <div className="absolute -inset-4 rounded-full bg-[conic-gradient(from_140deg,var(--primary),var(--aurora-1),var(--aurora-2),var(--aurora-3),var(--primary))] opacity-40 blur-2xl" />
               <div className="absolute inset-0 rounded-full glass-strong p-2">
-                <div className="w-full h-full rounded-full overflow-hidden ring-2 ring-caramel/60">
+                <div className="w-full h-full rounded-full overflow-hidden ring-2 ring-primary/60">
                   <img
                     src={profileImg.url}
                     alt="Shakeer Mohammed"
