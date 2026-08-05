@@ -422,7 +422,7 @@ function HeroSection() {
             </div>
             <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-foreground leading-[1.02]">
               <span className="block hero-name-gradient"><AnimatedName /></span>
-              <span className="block mt-5 eyebrow text-muted-foreground">DevOps / Cloud Engineer <span className="text-primary">|</span> MLOps Enthusiast</span>
+              <span className="block mt-5 eyebrow text-[0.62rem] sm:text-[0.7rem] tracking-[0.2em] sm:tracking-[0.28em] leading-[1.8] text-muted-foreground">DevOps / Cloud Engineer <span className="text-primary">|</span> MLOps Enthusiast</span>
             </h1>
             <p className="mt-5 font-display text-xl sm:text-2xl italic font-medium text-primary tracking-normal">
               Azure · AWS · Kubernetes · Terraform · CI/CD · MLOps
