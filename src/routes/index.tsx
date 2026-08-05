@@ -30,7 +30,7 @@ import {
   Laptop,
 } from "lucide-react";
 import profileImg from "../assets/shakeer-portrait.jpg.asset.json";
-import heroReadingBg from "../assets/hero-reading-bg.jpg.asset.json";
+import heroHillsBg from "../assets/hero-hills-bg.jpg.asset.json";
 import isbLogo from "../assets/isb-logo.png.asset.json";
 import cbitLogo from "../assets/cbit-logo.png.asset.json";
 import sruLogo from "../assets/sru-logo.png.asset.json";
@@ -396,7 +396,7 @@ function HeroSection() {
       {/* Hero backdrop */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <img
-          src={heroReadingBg.url}
+          src={heroHillsBg.url}
           alt=""
           aria-hidden="true"
           width={1191}
