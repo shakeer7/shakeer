@@ -30,7 +30,7 @@ import {
   Laptop,
 } from "lucide-react";
 import profileImg from "../assets/shakeer-portrait.jpg.asset.json";
-import heroAnimeBg from "../assets/hero-anime-bg.jpg";
+import heroReadingBg from "../assets/hero-reading-bg.jpg.asset.json";
 import isbLogo from "../assets/isb-logo.png.asset.json";
 import cbitLogo from "../assets/cbit-logo.png.asset.json";
 import sruLogo from "../assets/sru-logo.png.asset.json";
@@ -393,18 +393,19 @@ function Navbar() {
 function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Anime sky backdrop */}
+      {/* Hero backdrop */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <img
-          src={heroAnimeBg}
+          src={heroReadingBg.url}
           alt=""
           aria-hidden="true"
-          width={1920}
-          height={1088}
-          className="h-full w-full object-cover opacity-70 dark:opacity-40"
+          width={1191}
+          height={670}
+          className="h-full w-full object-cover opacity-60 dark:opacity-45"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/50 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/60 to-background" />
       </div>
+
 
       {/* Soft glow accents only — aurora shows through */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--color-hero-glow)_0%,_transparent_60%)] opacity-30" />
