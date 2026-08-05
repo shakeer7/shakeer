@@ -401,9 +401,8 @@ function HeroSection() {
           aria-hidden="true"
           width={1191}
           height={670}
-          className="h-full w-full object-cover opacity-60 dark:opacity-45"
+          className="h-full w-full object-cover opacity-100"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/60 to-background" />
       </div>
 
 
