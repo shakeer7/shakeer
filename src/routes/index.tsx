@@ -794,7 +794,7 @@ function ExperienceSection() {
                 </div>
 
                 {/* Client accordion */}
-                <Accordion type="single" collapsible defaultValue="follett" className="space-y-4">
+                <Accordion type="single" collapsible defaultValue={exp.clients[0]?.client.toLowerCase().replace(/\s+/g, "-")} className="space-y-4">
                   {exp.clients.map((client, ci) => {
                     const value = client.client.toLowerCase().replace(/\s+/g, "-");
                     return (
