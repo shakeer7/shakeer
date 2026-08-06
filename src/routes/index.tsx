@@ -35,7 +35,14 @@ import heroAnimeBg from "../assets/hero-anime-bg.jpg.asset.json";
 import isbLogo from "../assets/isb-logo.png.asset.json";
 import cbitLogo from "../assets/cbit-logo.png.asset.json";
 import sruLogo from "../assets/sru-logo.png.asset.json";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { useEffect, useRef, useState, type ReactNode } from "react";
+
 
 function Reveal({
   children,
@@ -786,29 +793,43 @@ function ExperienceSection() {
                   </div>
                 </div>
 
-                {/* Client sub-entries */}
-                <div className="space-y-6">
-                  {exp.clients.map((client, ci) => (
-                    <div
-                      key={ci}
-                      className="rounded-2xl glass p-5 border-l-4 border-primary/60"
-                    >
-                      <div className="mb-3">
-                        <p className="text-sm font-semibold uppercase tracking-wider text-primary/80">Client</p>
-                        <h4 className="text-lg font-bold text-foreground">{client.client}</h4>
-                        <p className="text-sm text-muted-foreground">{client.title}</p>
-                      </div>
-                      <ul className="space-y-2">
-                        {client.highlights.map((h, hi) => (
-                          <li key={hi} className="flex items-start gap-2.5 text-muted-foreground">
-                            <ArrowRight className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                            <span>{h}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
+                {/* Client accordion */}
+                <Accordion type="single" collapsible defaultValue={exp.clients[0]?.client.toLowerCase().replace(/\s+/g, "-")} className="space-y-4">
+                  {exp.clients.map((client, ci) => {
+                    const value = client.client.toLowerCase().replace(/\s+/g, "-");
+                    return (
+                      <AccordionItem
+                        key={ci}
+                        value={value}
+                        className="rounded-2xl glass border-l-4 border-primary/60 border-b-0 px-5 overflow-hidden"
+                      >
+                        <AccordionTrigger className="py-4 hover:no-underline">
+                          <div className="flex items-center justify-between w-full pr-4">
+                            <div className="text-left">
+                              <p className="text-sm font-semibold uppercase tracking-wider text-primary/80">Client</p>
+                              <h4 className="text-lg font-bold text-foreground">{client.client}</h4>
+                              <p className="text-sm text-muted-foreground">{client.title}</p>
+                            </div>
+                            <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary">
+                              {client.highlights.length}
+                            </span>
+                          </div>
+                        </AccordionTrigger>
+                        <AccordionContent className="pb-5">
+                          <ul className="space-y-2">
+                            {client.highlights.map((h, hi) => (
+                              <li key={hi} className="flex items-start gap-2.5 text-muted-foreground">
+                                <ArrowRight className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                                <span>{h}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </AccordionContent>
+                      </AccordionItem>
+                    );
+                  })}
+                </Accordion>
+
               </div>
             </div>
           ))}
