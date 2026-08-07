@@ -1102,37 +1102,94 @@ function InterestsSection() {
 }
 
 function MissionSection() {
+  const channels = [
+    {
+      icon: Mail,
+      label: "Email",
+      value: "mds.shakeer@gmail.com",
+      href: "mailto:mds.shakeer@gmail.com",
+    },
+    {
+      icon: Phone,
+      label: "Phone",
+      value: "Tap to call",
+      href: "tel:+919441793387",
+    },
+    {
+      icon: Linkedin,
+      label: "LinkedIn",
+      value: "shakeer-mohammed",
+      href: LINKEDIN_URL,
+    },
+    {
+      icon: Github,
+      label: "GitHub",
+      value: "shakeer7",
+      href: "https://github.com/shakeer7",
+    },
+  ];
+
   return (
     <section id="contact" className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--color-hero-glow)_0%,_transparent_60%)] opacity-50" />
       <div className="container-tight relative z-10">
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 text-primary mb-8">
-            <Rocket className="w-8 h-8" />
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
-            Mission
-          </h2>
-          <p className="mt-6 text-xl text-muted-foreground leading-relaxed">
-            To build scalable, secure, and automated cloud platforms that enable organizations to deliver software faster, improve reliability, and drive innovation through modern engineering practices.
-          </p>
-          <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <a
-              href="mailto:mds.shakeer@gmail.com"
-              className="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-base font-medium text-primary-foreground hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
-            >
-              <Mail className="w-5 h-5" />
-              Get in Touch
-            </a>
-            <a
-              href="https://github.com/shakeer7"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full glass glass-pill-hover px-8 py-4 text-base font-medium text-foreground transition-all"
-            >
-              <Github className="w-5 h-5" />
-              View GitHub
-            </a>
+        <div className="max-w-4xl mx-auto reveal">
+          <div className="glass rounded-3xl p-8 sm:p-12">
+            <div className="grid gap-10 md:grid-cols-[minmax(0,1fr)_auto] md:items-center">
+              <div className="min-w-0">
+                <div className="inline-flex items-center gap-2 rounded-full border border-[var(--glass-border)] px-3 py-1 text-xs font-medium text-muted-foreground">
+                  <Rocket className="w-3.5 h-3.5 text-primary" />
+                  Open to opportunities
+                </div>
+                <h2 className="mt-5 font-display text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
+                  Let&apos;s build something reliable
+                </h2>
+                <p className="mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed">
+                  Scalable, secure and automated cloud platforms — helping teams ship faster with
+                  modern DevOps and MLOps practices. Reach out for roles, collaborations or a quick chat.
+                </p>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <a
+                    href="mailto:mds.shakeer@gmail.com"
+                    className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
+                  >
+                    <Mail className="w-4 h-4" />
+                    Email me
+                  </a>
+                  <a
+                    href={LINKEDIN_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full glass glass-pill-hover px-6 py-3 text-sm font-medium text-foreground transition-all"
+                  >
+                    <Linkedin className="w-4 h-4" />
+                    Connect on LinkedIn
+                  </a>
+                </div>
+              </div>
+
+              <div className="grid gap-3 sm:grid-cols-2 md:w-[22rem]">
+                {channels.map((c) => (
+                  <a
+                    key={c.label}
+                    href={c.href}
+                    target={c.href.startsWith("http") ? "_blank" : undefined}
+                    rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    className="group flex items-center gap-3 rounded-2xl border border-[var(--glass-border)] bg-white/5 px-4 py-3 transition-colors hover:bg-white/15"
+                  >
+                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary">
+                      <c.icon className="w-4 h-4" />
+                    </span>
+                    <span className="min-w-0">
+                      <span className="block text-xs text-muted-foreground">{c.label}</span>
+                      <span className="block truncate text-sm font-medium text-foreground">
+                        {c.value}
+                      </span>
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
