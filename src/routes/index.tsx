@@ -364,7 +364,7 @@ function Navbar() {
         }`}
         style={{ backdropFilter: "blur(20px) saturate(160%)" }}
       >
-        <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 sm:px-5 h-14">
+        <div className="flex items-center justify-between gap-3 px-4 sm:px-5 h-14">
           <div className="flex min-w-0 items-center gap-4">
             <a
               href="#"
