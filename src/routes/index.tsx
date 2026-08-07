@@ -1168,7 +1168,7 @@ function MissionSection() {
                 </div>
               </div>
 
-              <div className="grid gap-3 sm:grid-cols-2 md:w-[22rem]">
+              <div className="grid gap-3 sm:grid-cols-2 md:w-[24rem]">
                 {channels.map((c) => (
                   <a
                     key={c.label}
