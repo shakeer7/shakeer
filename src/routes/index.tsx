@@ -28,6 +28,9 @@ import {
   Sun,
   Moon,
   Laptop,
+  Menu,
+  X,
+
 } from "lucide-react";
 import profileImg from "../assets/shakeer-portrait.jpg.asset.json";
 
@@ -273,9 +276,9 @@ function AnimatedName() {
 type Theme = "light" | "dark" | "system";
 
 const themeOptions: { value: Theme; label: string; icon: ReactNode }[] = [
-  { value: "light", label: "Light", icon: <Sun className="w-3.5 h-3.5" /> },
-  { value: "dark", label: "Dark", icon: <Moon className="w-3.5 h-3.5" /> },
-  { value: "system", label: "System", icon: <Laptop className="w-3.5 h-3.5" /> },
+  { value: "light", label: "Light", icon: <Sun className="w-3 h-3" /> },
+  { value: "dark", label: "Dark", icon: <Moon className="w-3 h-3" /> },
+  { value: "system", label: "System", icon: <Laptop className="w-3 h-3" /> },
 ];
 
 function ThemeToggle() {
