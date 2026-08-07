@@ -316,7 +316,7 @@ function ThemeToggle() {
 
   return (
     <div
-      className="inline-flex items-center rounded-full glass p-1 gap-0.5"
+      className="inline-flex items-center rounded-full border border-[var(--glass-border)] bg-white/10 p-0.5 gap-0.5"
       aria-label="Theme selector"
       role="group"
     >
@@ -327,15 +327,15 @@ function ThemeToggle() {
             key={option.value}
             onClick={() => setTheme(option.value)}
             aria-pressed={active}
-            className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-xs font-medium transition-colors ${
+            className={`inline-flex items-center justify-center w-6 h-6 rounded-full transition-colors ${
               active
-                ? "bg-primary text-primary-foreground shadow-sm"
+                ? "bg-primary text-primary-foreground"
                 : "text-muted-foreground hover:text-foreground hover:bg-white/20"
             }`}
             title={`${option.label} mode`}
           >
             {option.icon}
-            <span className="hidden sm:inline">{option.label}</span>
+            <span className="sr-only">{option.label} mode</span>
           </button>
         );
       })}
@@ -346,6 +346,7 @@ function ThemeToggle() {
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -354,47 +355,78 @@ function Navbar() {
   }, []);
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "glass-strong" : "bg-transparent"
-      }`}
-    >
-      <div className="container-tight flex items-center justify-between h-16">
-        <a
-          href="#"
-          className="text-lg font-bold tracking-tight text-foreground hover:text-primary transition-colors"
-        >
-          SM
-        </a>
-        <div className="hidden md:flex items-center gap-1">
-          {navLinks.map((link) => (
+    <nav className="fixed top-0 left-0 right-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4">
+      <div
+        className={`mx-auto max-w-6xl rounded-2xl border border-[var(--glass-border)] transition-all duration-300 ${
+          scrolled
+            ? "bg-[var(--glass-bg-strong)] shadow-[var(--glass-shadow)]"
+            : "bg-[var(--glass-bg)] shadow-[0_4px_20px_-12px_rgba(15,23,42,0.25)]"
+        }`}
+        style={{ backdropFilter: "blur(20px) saturate(160%)" }}
+      >
+        <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 sm:px-5 h-14">
+          <div className="flex min-w-0 items-center gap-4">
             <a
-              key={link.href}
-              href={link.href}
-              className="px-3 py-1.5 text-sm font-medium text-muted-foreground rounded-md hover:text-foreground hover:bg-white/10 transition-colors"
+              href="#"
+              className="shrink-0 text-base font-bold tracking-tight text-foreground hover:text-primary transition-colors"
             >
-              {link.label}
+              SM
             </a>
-          ))}
+            <div className="hidden md:flex min-w-0 items-center gap-0.5">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="px-2.5 py-1.5 text-[13px] font-medium text-muted-foreground rounded-full hover:text-foreground hover:bg-white/15 transition-colors"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </div>
+          <div className="flex shrink-0 items-center gap-2">
+            <ThemeToggle />
+            <a
+              href="tel:+919441793387"
+              className="hidden sm:inline-flex items-center justify-center w-8 h-8 rounded-full border border-[var(--glass-border)] text-muted-foreground hover:text-primary hover:bg-white/15 transition-colors"
+              aria-label="Call +91 94417 93387"
+              title="Call +91 94417 93387"
+            >
+              <Phone className="w-4 h-4" />
+            </a>
+            <a
+              href="mailto:mds.shakeer@gmail.com"
+              className="inline-flex items-center gap-2 rounded-full bg-primary px-3.5 py-1.5 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
+            >
+              <Mail className="w-4 h-4" />
+              <span className="hidden sm:inline">Get in Touch</span>
+            </a>
+            <button
+              onClick={() => setOpen((v) => !v)}
+              className="md:hidden inline-flex items-center justify-center w-8 h-8 rounded-full border border-[var(--glass-border)] text-muted-foreground hover:text-foreground transition-colors"
+              aria-label={open ? "Close menu" : "Open menu"}
+              aria-expanded={open}
+            >
+              {open ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+            </button>
+          </div>
         </div>
-        <div className="flex items-center gap-2">
-          <ThemeToggle />
-          <a
-            href="tel:+919441793387"
-            className="inline-flex items-center justify-center w-9 h-9 rounded-full glass text-muted-foreground hover:text-primary hover:bg-white/10 transition-colors"
-            aria-label="Call +91 94417 93387"
-            title="Call +91 94417 93387"
-          >
-            <Phone className="w-4 h-4" />
-          </a>
-          <a
-            href="mailto:mds.shakeer@gmail.com"
-            className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
-          >
-            <Mail className="w-4 h-4" />
-            <span className="hidden sm:inline">Get in Touch</span>
-          </a>
-        </div>
+        {open && (
+          <div className="md:hidden border-t border-[var(--glass-border)] px-3 py-2">
+            <div className="grid grid-cols-2 gap-1">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className="px-3 py-2 text-sm font-medium text-muted-foreground rounded-lg hover:text-foreground hover:bg-white/15 transition-colors"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );
