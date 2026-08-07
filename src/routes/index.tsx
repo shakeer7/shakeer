@@ -30,7 +30,7 @@ import {
   Laptop,
 } from "lucide-react";
 import profileImg from "../assets/shakeer-portrait.jpg.asset.json";
-import heroHillsBg from "../assets/hero-hills-bg.jpg.asset.json";
+
 import heroMadinahBg from "../assets/hero-madinah-bg.jpg.asset.json";
 import isbLogo from "../assets/isb-logo.png.asset.json";
 import cbitLogo from "../assets/cbit-logo.png.asset.json";
