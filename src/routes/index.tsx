@@ -31,7 +31,7 @@ import {
 } from "lucide-react";
 import profileImg from "../assets/shakeer-portrait.jpg.asset.json";
 import heroHillsBg from "../assets/hero-hills-bg.jpg.asset.json";
-import heroAnimeBg from "../assets/hero-anime-bg.jpg.asset.json";
+import heroMadinahBg from "../assets/hero-madinah-bg.jpg.asset.json";
 import isbLogo from "../assets/isb-logo.png.asset.json";
 import cbitLogo from "../assets/cbit-logo.png.asset.json";
 import sruLogo from "../assets/sru-logo.png.asset.json";
@@ -404,14 +404,14 @@ function HeroSection() {
       {/* Hero backdrop */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <img
-          src={heroAnimeBg.url}
+          src={heroMadinahBg.url}
           alt=""
           aria-hidden="true"
-          width={1191}
-          height={670}
-          className="h-full w-full object-cover opacity-40 dark:opacity-30"
+          width={1920}
+          height={1080}
+          className="h-full w-full object-cover opacity-45 dark:opacity-30"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/40 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/55 to-background dark:from-background/55 dark:via-background/70 dark:to-background" />
       </div>
 
 
