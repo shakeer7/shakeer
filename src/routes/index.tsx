@@ -1133,7 +1133,7 @@ function MissionSection() {
     <section id="contact" className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--color-hero-glow)_0%,_transparent_60%)] opacity-50" />
       <div className="container-tight relative z-10">
-        <div className="max-w-4xl mx-auto reveal">
+        <div className="max-w-4xl mx-auto">
           <div className="glass rounded-3xl p-8 sm:p-12">
             <div className="grid gap-10 md:grid-cols-[minmax(0,1fr)_auto] md:items-center">
               <div className="min-w-0">
