@@ -101,39 +101,39 @@
   --popover: oklch(0.06 0 0);
   --popover-foreground: oklch(0.95 0.005 250);
 
-  --primary: oklch(0.65 0.18 250);
-  --primary-foreground: oklch(0.15 0.02 260);
+  --primary: oklch(0.55 0.22 270);
+  --primary-foreground: oklch(0.98 0.01 270);
 
   --secondary: oklch(0.08 0 0);
   --secondary-foreground: oklch(0.95 0.005 250);
 
   --muted: oklch(0.08 0 0);
-  --muted-foreground: oklch(0.74 0.03 260);
+  --muted-foreground: oklch(0.70 0.02 270);
 
-  --accent: oklch(0.08 0 0);
+  --accent: oklch(0.12 0.08 270);
   --accent-foreground: oklch(0.95 0.005 250);
 
-  --destructive: oklch(0.70 0.19 22);
-  --destructive-foreground: oklch(0.15 0.02 260);
+  --destructive: oklch(0.55 0.20 25);
+  --destructive-foreground: oklch(0.98 0.01 270);
 
-  --border: oklch(0 0 0 / 10%);
-  --input: oklch(0 0 0 / 14%);
-  --ring: oklch(0.65 0.18 250);
+  --border: oklch(0.15 0.02 270 / 22%);
+  --input: oklch(0.12 0.02 270 / 18%);
+  --ring: oklch(0.55 0.22 270);
 
   --surface: oklch(0.04 0 0);
   --surface-elevated: oklch(0.06 0 0);
-  --hero-glow: oklch(0.30 0 0);
-  --skill-icon: oklch(0.65 0.18 250);
+  --hero-glow: oklch(0.25 0.08 270);
+  --skill-icon: oklch(0.55 0.22 270);
 
-  --glass-bg: color-mix(in oklab, white 8%, transparent);
-  --glass-bg-strong: color-mix(in oklab, white 14%, transparent);
-  --glass-border: color-mix(in oklab, white 18%, transparent);
-  --glass-highlight: rgba(255, 255, 255, 0.14);
+  --glass-bg: color-mix(in oklab, oklch(0.55 0.22 270) 10%, transparent);
+  --glass-bg-strong: color-mix(in oklab, oklch(0.55 0.22 270) 16%, transparent);
+  --glass-border: color-mix(in oklab, oklch(0.55 0.22 270) 24%, transparent);
+  --glass-highlight: rgba(165, 180, 252, 0.12);
   --glass-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.55), 0 2px 8px -2px rgba(0, 0, 0, 0.35);
 
-  --aurora-1: oklch(0.55 0.20 260);
-  --aurora-2: oklch(0.50 0.18 210);
-  --aurora-3: oklch(0.52 0.22 300);
+  --aurora-1: oklch(0.45 0.18 270);
+  --aurora-2: oklch(0.40 0.16 270);
+  --aurora-3: oklch(0.50 0.20 270);
 }
 
 
