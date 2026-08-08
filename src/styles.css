@@ -92,48 +92,48 @@
 
 
 .dark {
-  --background: oklch(0 0 0);
-  --foreground: oklch(0.96 0 0);
+  --background: oklch(0.18 0.02 245);
+  --foreground: oklch(0.94 0 0);
 
-  --card: oklch(0.18 0.02 245);
-  --card-foreground: oklch(0.96 0 0);
+  --card: oklch(0.24 0.03 245);
+  --card-foreground: oklch(0.94 0 0);
 
-  --popover: oklch(0.20 0.02 245);
-  --popover-foreground: oklch(0.96 0 0);
+  --popover: oklch(0.26 0.03 245);
+  --popover-foreground: oklch(0.94 0 0);
 
-  --primary: oklch(0.58 0.18 245);
-  --primary-foreground: oklch(1 0 0);
+  --primary: oklch(0.72 0.20 65);
+  --primary-foreground: oklch(0.15 0.02 245);
 
-  --secondary: oklch(0.22 0.02 245);
-  --secondary-foreground: oklch(0.96 0 0);
+  --secondary: oklch(0.30 0.03 245);
+  --secondary-foreground: oklch(0.94 0 0);
 
-  --muted: oklch(0.20 0.02 245);
+  --muted: oklch(0.28 0.03 245);
   --muted-foreground: oklch(0.72 0.01 245);
 
-  --accent: oklch(0.70 0.20 55);
-  --accent-foreground: oklch(0.12 0.02 245);
+  --accent: oklch(0.72 0.20 65);
+  --accent-foreground: oklch(0.15 0.02 245);
 
   --destructive: oklch(0.55 0.20 25);
   --destructive-foreground: oklch(0.98 0.01 245);
 
-  --border: oklch(0.28 0.03 245 / 28%);
-  --input: oklch(0.25 0.03 245 / 24%);
-  --ring: oklch(0.58 0.18 245);
+  --border: oklch(0.34 0.04 245 / 32%);
+  --input: oklch(0.30 0.04 245 / 28%);
+  --ring: oklch(0.72 0.20 65);
 
-  --surface: oklch(0.16 0.02 245);
-  --surface-elevated: oklch(0.20 0.02 245);
-  --hero-glow: oklch(0.55 0.14 55);
-  --skill-icon: oklch(0.58 0.18 245);
+  --surface: oklch(0.22 0.03 245);
+  --surface-elevated: oklch(0.26 0.03 245);
+  --hero-glow: oklch(0.72 0.18 65);
+  --skill-icon: oklch(0.72 0.20 65);
 
-  --glass-bg: color-mix(in oklab, oklch(0.58 0.18 245) 12%, transparent);
-  --glass-bg-strong: color-mix(in oklab, oklch(0.58 0.18 245) 18%, transparent);
-  --glass-border: color-mix(in oklab, oklch(0.58 0.18 245) 28%, transparent);
-  --glass-highlight: rgba(100, 160, 230, 0.14);
+  --glass-bg: color-mix(in oklab, oklch(0.34 0.04 245) 55%, transparent);
+  --glass-bg-strong: color-mix(in oklab, oklch(0.40 0.04 245) 70%, transparent);
+  --glass-border: color-mix(in oklab, oklch(0.45 0.05 245) 45%, transparent);
+  --glass-highlight: rgba(255, 255, 255, 0.08);
   --glass-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.55), 0 2px 8px -2px rgba(0, 0, 0, 0.35);
 
-  --aurora-1: oklch(0.55 0.16 245);
-  --aurora-2: oklch(0.62 0.18 55);
-  --aurora-3: oklch(0.45 0.14 245);
+  --aurora-1: oklch(0.45 0.12 245);
+  --aurora-2: oklch(0.60 0.16 65);
+  --aurora-3: oklch(0.50 0.10 245);
 }
 
 
