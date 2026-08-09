@@ -457,6 +457,10 @@ function HeroSection() {
 
 
 
+      {/* Floating glass orbs */}
+      <div className="pointer-events-none absolute top-1/4 left-[10%] w-64 h-64 rounded-full bg-primary/10 blur-[80px]" />
+      <div className="pointer-events-none absolute bottom-1/4 right-[10%] w-72 h-72 rounded-full bg-aurora-2/10 blur-[90px]" />
+
       <div className="container-tight relative z-10 pt-24 pb-16">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           <div className="flex-1 text-center lg:text-left">
@@ -560,40 +564,42 @@ function AboutSection() {
   return (
     <section id="about" className="py-24">
       <div className="container-tight">
-        <div className="max-w-3xl mx-auto text-center">
-          <span className="text-sm font-semibold uppercase tracking-wider text-primary">About Me</span>
-          <h2 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
-            Passionate about cloud, automation & reliability
-          </h2>
-          <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-            Cloud & DevOps Engineer with <strong className="text-foreground">3+ years</strong> of experience in designing, automating, and managing cloud infrastructure, CI/CD pipelines, containerized applications, and Infrastructure as Code solutions.
-          </p>
-          <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-            Experienced in <strong className="text-foreground">Azure and AWS</strong> cloud environments, with hands-on expertise in Kubernetes, Docker, Terraform, GitHub Actions, Argo CD, Helm, and automation. Currently expanding expertise in <strong className="text-foreground">MLOps, Platform Engineering, and AI-driven infrastructure automation</strong>.
-          </p>
-          <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-            Strong advocate of DevOps culture, continuous improvement, knowledge sharing, and delivering measurable business value through technology.
-          </p>
-          <div className="mt-8 flex items-center justify-center gap-2 text-sm text-muted-foreground">
-            <Github className="w-4 h-4" />
-            <a
-              href="https://github.com/shakeer7"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-primary transition-colors underline underline-offset-2"
-            >
-              github.com/shakeer7
-            </a>
-            <span className="mx-2">·</span>
-            <ExternalLink className="w-4 h-4" />
-            <a
-              href="https://github.com/Tracer-Cloud/opensre"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-primary transition-colors underline underline-offset-2"
-            >
-              OpenSRE Contributor
-            </a>
+        <div className="max-w-3xl mx-auto">
+          <div className="glass-card p-8 sm:p-12 text-center">
+            <span className="text-sm font-semibold uppercase tracking-wider text-primary">About Me</span>
+            <h2 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
+              Passionate about cloud, automation & reliability
+            </h2>
+            <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+              Cloud & DevOps Engineer with <strong className="text-foreground">3+ years</strong> of experience in designing, automating, and managing cloud infrastructure, CI/CD pipelines, containerized applications, and Infrastructure as Code solutions.
+            </p>
+            <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
+              Experienced in <strong className="text-foreground">Azure and AWS</strong> cloud environments, with hands-on expertise in Kubernetes, Docker, Terraform, GitHub Actions, Argo CD, Helm, and automation. Currently expanding expertise in <strong className="text-foreground">MLOps, Platform Engineering, and AI-driven infrastructure automation</strong>.
+            </p>
+            <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
+              Strong advocate of DevOps culture, continuous improvement, knowledge sharing, and delivering measurable business value through technology.
+            </p>
+            <div className="mt-8 flex items-center justify-center gap-2 text-sm text-muted-foreground">
+              <Github className="w-4 h-4" />
+              <a
+                href="https://github.com/shakeer7"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-primary transition-colors underline underline-offset-2"
+              >
+                github.com/shakeer7
+              </a>
+              <span className="mx-2">·</span>
+              <ExternalLink className="w-4 h-4" />
+              <a
+                href="https://github.com/Tracer-Cloud/opensre"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-primary transition-colors underline underline-offset-2"
+              >
+                OpenSRE Contributor
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -809,14 +815,14 @@ function ExperienceSection() {
           {experiences.map((exp, i) => (
             <div key={i} className="relative pl-8 md:pl-0">
               {/* Timeline line */}
-              <div className="hidden md:block absolute left-0 top-0 bottom-0 w-px bg-border" />
-              <div className="hidden md:flex absolute -left-3 top-1 w-6 h-6 items-center justify-center rounded-full bg-primary/10 border-2 border-primary">
+              <div className="hidden md:block absolute left-0 top-0 bottom-0 w-px glass" />
+              <div className="hidden md:flex absolute -left-3 top-1 w-6 h-6 items-center justify-center rounded-full glass-strong border border-primary/60">
                 <div className="w-2 h-2 rounded-full bg-primary" />
               </div>
 
               <div className="md:ml-12">
                 {/* Company header */}
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-6">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-6 glass-card px-5 py-4">
                   <div>
                     <h3 className="text-xl font-bold text-foreground">{exp.title}</h3>
                     <p className="text-base font-medium text-primary">{exp.company}</p>
@@ -836,7 +842,7 @@ function ExperienceSection() {
                       <AccordionItem
                         key={ci}
                         value={value}
-                        className="rounded-2xl glass border-l-4 border-primary/60 border-b-0 px-5 overflow-hidden"
+                        className="rounded-2xl glass-strong border-l-4 border-primary/60 border-b-0 px-5 overflow-hidden"
                       >
                         <AccordionTrigger className="py-4 hover:no-underline">
                           <div className="flex items-center justify-between w-full pr-4">
@@ -845,7 +851,7 @@ function ExperienceSection() {
                               <h4 className="text-lg font-bold text-foreground">{client.client}</h4>
                               <p className="text-sm text-muted-foreground">{client.title}</p>
                             </div>
-                            <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary">
+                            <span className="inline-flex items-center rounded-full glass px-2.5 py-1 text-xs font-medium text-primary">
                               {client.highlights.length}
                             </span>
                           </div>
@@ -1175,9 +1181,9 @@ function MissionSection() {
                     href={c.href}
                     target={c.href.startsWith("http") ? "_blank" : undefined}
                     rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="group flex items-center gap-3 rounded-2xl border border-[var(--glass-border)] bg-white/5 px-4 py-3 transition-colors hover:bg-white/15"
+                    className="group flex items-center gap-3 rounded-2xl glass glass-pill-hover px-4 py-3 transition-all"
                   >
-                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary">
+                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl glass-strong text-primary">
                       <c.icon className="w-4 h-4" />
                     </span>
                     <span className="min-w-0">
@@ -1400,8 +1406,17 @@ function Index() {
         <div className="aurora-blob aurora-blob-2" />
         <div className="aurora-blob aurora-blob-3" />
       </div>
+      {/* Global glass grain overlay */}
+      <div
+        className="pointer-events-none fixed inset-0 z-0 opacity-[0.035]"
+        aria-hidden="true"
+        style={{
+          backgroundImage:
+            "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")",
+        }}
+      />
       <Navbar />
-      <main data-auto-reveal>
+      <main data-auto-reveal className="relative z-10">
         <HeroSection />
         <AboutSection />
         <SkillsSection />
