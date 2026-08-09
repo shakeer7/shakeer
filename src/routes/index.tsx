@@ -815,14 +815,14 @@ function ExperienceSection() {
           {experiences.map((exp, i) => (
             <div key={i} className="relative pl-8 md:pl-0">
               {/* Timeline line */}
-              <div className="hidden md:block absolute left-0 top-0 bottom-0 w-px bg-border" />
-              <div className="hidden md:flex absolute -left-3 top-1 w-6 h-6 items-center justify-center rounded-full bg-primary/10 border-2 border-primary">
+              <div className="hidden md:block absolute left-0 top-0 bottom-0 w-px glass" />
+              <div className="hidden md:flex absolute -left-3 top-1 w-6 h-6 items-center justify-center rounded-full glass-strong border border-primary/60">
                 <div className="w-2 h-2 rounded-full bg-primary" />
               </div>
 
               <div className="md:ml-12">
                 {/* Company header */}
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-6">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-6 glass-card px-5 py-4">
                   <div>
                     <h3 className="text-xl font-bold text-foreground">{exp.title}</h3>
                     <p className="text-base font-medium text-primary">{exp.company}</p>
@@ -842,7 +842,7 @@ function ExperienceSection() {
                       <AccordionItem
                         key={ci}
                         value={value}
-                        className="rounded-2xl glass border-l-4 border-primary/60 border-b-0 px-5 overflow-hidden"
+                        className="rounded-2xl glass-strong border-l-4 border-primary/60 border-b-0 px-5 overflow-hidden"
                       >
                         <AccordionTrigger className="py-4 hover:no-underline">
                           <div className="flex items-center justify-between w-full pr-4">
@@ -851,7 +851,7 @@ function ExperienceSection() {
                               <h4 className="text-lg font-bold text-foreground">{client.client}</h4>
                               <p className="text-sm text-muted-foreground">{client.title}</p>
                             </div>
-                            <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary">
+                            <span className="inline-flex items-center rounded-full glass px-2.5 py-1 text-xs font-medium text-primary">
                               {client.highlights.length}
                             </span>
                           </div>
