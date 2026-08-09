@@ -1181,9 +1181,9 @@ function MissionSection() {
                     href={c.href}
                     target={c.href.startsWith("http") ? "_blank" : undefined}
                     rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="group flex items-center gap-3 rounded-2xl border border-[var(--glass-border)] bg-white/5 px-4 py-3 transition-colors hover:bg-white/15"
+                    className="group flex items-center gap-3 rounded-2xl glass glass-pill-hover px-4 py-3 transition-all"
                   >
-                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary">
+                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl glass-strong text-primary">
                       <c.icon className="w-4 h-4" />
                     </span>
                     <span className="min-w-0">
