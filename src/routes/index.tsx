@@ -457,6 +457,10 @@ function HeroSection() {
 
 
 
+      {/* Floating glass orbs */}
+      <div className="pointer-events-none absolute top-1/4 left-[10%] w-64 h-64 rounded-full bg-primary/10 blur-[80px]" />
+      <div className="pointer-events-none absolute bottom-1/4 right-[10%] w-72 h-72 rounded-full bg-aurora-2/10 blur-[90px]" />
+
       <div className="container-tight relative z-10 pt-24 pb-16">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           <div className="flex-1 text-center lg:text-left">
