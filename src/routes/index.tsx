@@ -564,40 +564,42 @@ function AboutSection() {
   return (
     <section id="about" className="py-24">
       <div className="container-tight">
-        <div className="max-w-3xl mx-auto text-center">
-          <span className="text-sm font-semibold uppercase tracking-wider text-primary">About Me</span>
-          <h2 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
-            Passionate about cloud, automation & reliability
-          </h2>
-          <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-            Cloud & DevOps Engineer with <strong className="text-foreground">3+ years</strong> of experience in designing, automating, and managing cloud infrastructure, CI/CD pipelines, containerized applications, and Infrastructure as Code solutions.
-          </p>
-          <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-            Experienced in <strong className="text-foreground">Azure and AWS</strong> cloud environments, with hands-on expertise in Kubernetes, Docker, Terraform, GitHub Actions, Argo CD, Helm, and automation. Currently expanding expertise in <strong className="text-foreground">MLOps, Platform Engineering, and AI-driven infrastructure automation</strong>.
-          </p>
-          <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-            Strong advocate of DevOps culture, continuous improvement, knowledge sharing, and delivering measurable business value through technology.
-          </p>
-          <div className="mt-8 flex items-center justify-center gap-2 text-sm text-muted-foreground">
-            <Github className="w-4 h-4" />
-            <a
-              href="https://github.com/shakeer7"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-primary transition-colors underline underline-offset-2"
-            >
-              github.com/shakeer7
-            </a>
-            <span className="mx-2">·</span>
-            <ExternalLink className="w-4 h-4" />
-            <a
-              href="https://github.com/Tracer-Cloud/opensre"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-primary transition-colors underline underline-offset-2"
-            >
-              OpenSRE Contributor
-            </a>
+        <div className="max-w-3xl mx-auto">
+          <div className="glass-card p-8 sm:p-12 text-center">
+            <span className="text-sm font-semibold uppercase tracking-wider text-primary">About Me</span>
+            <h2 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
+              Passionate about cloud, automation & reliability
+            </h2>
+            <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+              Cloud & DevOps Engineer with <strong className="text-foreground">3+ years</strong> of experience in designing, automating, and managing cloud infrastructure, CI/CD pipelines, containerized applications, and Infrastructure as Code solutions.
+            </p>
+            <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
+              Experienced in <strong className="text-foreground">Azure and AWS</strong> cloud environments, with hands-on expertise in Kubernetes, Docker, Terraform, GitHub Actions, Argo CD, Helm, and automation. Currently expanding expertise in <strong className="text-foreground">MLOps, Platform Engineering, and AI-driven infrastructure automation</strong>.
+            </p>
+            <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
+              Strong advocate of DevOps culture, continuous improvement, knowledge sharing, and delivering measurable business value through technology.
+            </p>
+            <div className="mt-8 flex items-center justify-center gap-2 text-sm text-muted-foreground">
+              <Github className="w-4 h-4" />
+              <a
+                href="https://github.com/shakeer7"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-primary transition-colors underline underline-offset-2"
+              >
+                github.com/shakeer7
+              </a>
+              <span className="mx-2">·</span>
+              <ExternalLink className="w-4 h-4" />
+              <a
+                href="https://github.com/Tracer-Cloud/opensre"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-primary transition-colors underline underline-offset-2"
+              >
+                OpenSRE Contributor
+              </a>
+            </div>
           </div>
         </div>
       </div>
