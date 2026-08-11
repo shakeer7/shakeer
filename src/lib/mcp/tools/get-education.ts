@@ -4,7 +4,7 @@ const education = [
   {
     program: "Executive Program in Applied Business Analytics",
     institution: "Indian School of Business (ISB)",
-    expected: "March 2026",
+    expected: "July 2026",
   },
   {
     program: "MBA (PG) — Business Operations & Analytics",
