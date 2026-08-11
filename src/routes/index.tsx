@@ -961,7 +961,7 @@ const education = [
   {
     degree: "Executive Program in Applied Business Analytics",
     school: "Indian School of Business (ISB)",
-    period: "Expected: March 2026",
+    period: "Expected: July 2026",
     logo: isbLogo.url,
     logoAlt: "ISB logo",
   },
