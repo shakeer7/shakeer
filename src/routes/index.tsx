@@ -766,7 +766,7 @@ const experiences = [
     clients: [
       {
         title: "DevOps Engineer (Azure)",
-        client: "Follett Corporation",
+        client: "Client: US-based Education Services",
         highlights: [
           "3+ years of hands-on experience in Azure Administration and Azure DevOps, delivering secure, scalable, and highly available cloud infrastructure for enterprise applications",
           "Designed, built, and maintained 20+ Azure DevOps CI/CD pipelines, reducing deployment time by 70% and enabling faster, reliable software releases",
@@ -786,7 +786,7 @@ const experiences = [
       },
       {
         title: "Cloud & DevOps Engineer",
-        client: "Wedbush Securities",
+        client: "Client: US-based Financial Services",
         highlights: [
           "Supported migration from on-premises infrastructure to Microsoft Azure",
           "Assisted in cloud setup, deployment, and migration activities",
