@@ -847,7 +847,6 @@ function ExperienceSection() {
                         <AccordionTrigger className="py-4 hover:no-underline">
                           <div className="flex items-center justify-between w-full pr-4">
                             <div className="text-left">
-                              <p className="text-sm font-semibold uppercase tracking-wider text-primary/80">Client</p>
                               <h4 className="text-lg font-bold text-foreground">{client.client}</h4>
                               <p className="text-sm text-muted-foreground">{client.title}</p>
                             </div>
