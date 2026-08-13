@@ -235,6 +235,43 @@ const navLinks = [
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/shakeer-mohammed-384b741a2/";
 
+function useActiveSection(ids: string[]) {
+  const [active, setActive] = useState("");
+  useEffect(() => {
+    if (typeof IntersectionObserver === "undefined") return;
+    const ratios = new Map<string, number>();
+    const update = () => {
+      let maxId = "";
+      let maxRatio = 0;
+      ratios.forEach((ratio, id) => {
+        if (ratio > maxRatio) {
+          maxRatio = ratio;
+          maxId = id;
+        }
+      });
+      setActive(maxId);
+    };
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          ratios.set(e.target.id, e.intersectionRatio);
+        });
+        update();
+      },
+      {
+        threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
+        rootMargin: "-10% 0px -45% 0px",
+      },
+    );
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) io.observe(el);
+    });
+    return () => io.disconnect();
+  }, [ids]);
+  return active;
+}
+
 const NAME_LANGS: { text: string; lang: string; dir?: "ltr" | "rtl" }[] = [
   { text: "Shakeer Mohammed", lang: "en" },
   { text: "شاكر محمد", lang: "ar", dir: "rtl" },
