@@ -237,10 +237,6 @@ const LINKEDIN_URL = "https://www.linkedin.com/in/shakeer-mohammed-384b741a2/";
 const NAME_LANGS: { text: string; lang: string; dir?: "ltr" | "rtl" }[] = [
   { text: "Shakeer Mohammed", lang: "en" },
   { text: "شاكر محمد", lang: "ar", dir: "rtl" },
-  { text: "శకీర్ మొహమ్మద్", lang: "te" },
-  { text: "शाकिर मोहम्मद", lang: "hi" },
-  { text: "シャキール・モハメド", lang: "ja" },
-  { text: "沙基尔·穆罕默德", lang: "zh" },
 ];
 
 function AnimatedName() {
