@@ -223,6 +223,7 @@ export const Route = createFileRoute("/")({
 
 
 const navLinks = [
+  { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
   { label: "Experience", href: "#experience" },
@@ -233,6 +234,43 @@ const navLinks = [
 ];
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/shakeer-mohammed-384b741a2/";
+
+function useActiveSection(ids: string[]) {
+  const [active, setActive] = useState("");
+  useEffect(() => {
+    if (typeof IntersectionObserver === "undefined") return;
+    const ratios = new Map<string, number>();
+    const update = () => {
+      let maxId = "";
+      let maxRatio = 0;
+      ratios.forEach((ratio, id) => {
+        if (ratio > maxRatio) {
+          maxRatio = ratio;
+          maxId = id;
+        }
+      });
+      setActive(maxId);
+    };
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          ratios.set(e.target.id, e.intersectionRatio);
+        });
+        update();
+      },
+      {
+        threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
+        rootMargin: "-10% 0px -45% 0px",
+      },
+    );
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) io.observe(el);
+    });
+    return () => io.disconnect();
+  }, [ids]);
+  return active;
+}
 
 const NAME_LANGS: { text: string; lang: string; dir?: "ltr" | "rtl" }[] = [
   { text: "Shakeer Mohammed", lang: "en" },
@@ -340,7 +378,7 @@ function ThemeToggle() {
 
 }
 
-function Navbar() {
+function Navbar({ activeSection }: { activeSection: string }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -349,6 +387,18 @@ function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const id = href.replace("#", "");
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    setOpen(false);
+  };
+
+  const isHome = activeSection === "home" || activeSection === "";
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4">
@@ -363,21 +413,34 @@ function Navbar() {
         <div className="flex items-center justify-between gap-3 px-4 sm:px-5 h-14">
           <div className="flex min-w-0 items-center gap-4">
             <a
-              href="#"
-              className="shrink-0 text-base font-bold tracking-tight text-foreground hover:text-primary transition-colors"
+              href="#home"
+              onClick={(e) => handleNavClick(e, "#home")}
+              className={`shrink-0 text-base font-bold tracking-tight transition-colors ${
+                isHome
+                  ? "text-primary"
+                  : "text-foreground hover:text-primary"
+              }`}
             >
               SM
             </a>
             <div className="hidden md:flex min-w-0 items-center gap-0.5">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="px-2.5 py-1.5 text-[13px] font-medium text-muted-foreground rounded-full hover:text-foreground hover:bg-white/15 transition-colors"
-                >
-                  {link.label}
-                </a>
-              ))}
+              {navLinks.map((link) => {
+                const active = activeSection === link.href.replace("#", "");
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className={`px-2.5 py-1.5 text-[13px] font-medium rounded-full transition-colors ${
+                      active
+                        ? "text-primary bg-primary/10"
+                        : "text-muted-foreground hover:text-foreground hover:bg-white/15"
+                    }`}
+                  >
+                    {link.label}
+                  </a>
+                );
+              })}
             </div>
           </div>
           <div className="flex shrink-0 items-center gap-2">
@@ -410,16 +473,23 @@ function Navbar() {
         {open && (
           <div className="md:hidden border-t border-[var(--glass-border)] px-3 py-2">
             <div className="grid grid-cols-2 gap-1">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="px-3 py-2 text-sm font-medium text-muted-foreground rounded-lg hover:text-foreground hover:bg-white/15 transition-colors"
-                >
-                  {link.label}
-                </a>
-              ))}
+              {navLinks.map((link) => {
+                const active = activeSection === link.href.replace("#", "");
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
+                      active
+                        ? "text-primary bg-primary/10"
+                        : "text-muted-foreground hover:text-foreground hover:bg-white/15"
+                    }`}
+                  >
+                    {link.label}
+                  </a>
+                );
+              })}
             </div>
           </div>
         )}
@@ -431,7 +501,7 @@ function Navbar() {
 
 function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Hero backdrop */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <img
@@ -1371,6 +1441,17 @@ function Footer() {
 }
 
 function Index() {
+  const activeSection = useActiveSection([
+    "home",
+    "about",
+    "skills",
+    "experience",
+    "projects",
+    "education",
+    "certifications",
+    "contact",
+  ]);
+
   useEffect(() => {
     if (typeof IntersectionObserver === "undefined") return;
     const nodes = document.querySelectorAll<HTMLElement>(
@@ -1410,7 +1491,7 @@ function Index() {
             "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")",
         }}
       />
-      <Navbar />
+      <Navbar activeSection={activeSection} />
       <main data-auto-reveal className="relative z-10">
         <HeroSection />
         <AboutSection />
