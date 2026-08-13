@@ -501,7 +501,7 @@ function Navbar({ activeSection }: { activeSection: string }) {
 
 function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Hero backdrop */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <img
