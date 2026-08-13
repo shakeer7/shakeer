@@ -378,7 +378,7 @@ function ThemeToggle() {
 
 }
 
-function Navbar() {
+function Navbar({ activeSection }: { activeSection: string }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -387,6 +387,18 @@ function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const id = href.replace("#", "");
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    setOpen(false);
+  };
+
+  const isHome = activeSection === "home" || activeSection === "";
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4">
@@ -401,21 +413,34 @@ function Navbar() {
         <div className="flex items-center justify-between gap-3 px-4 sm:px-5 h-14">
           <div className="flex min-w-0 items-center gap-4">
             <a
-              href="#"
-              className="shrink-0 text-base font-bold tracking-tight text-foreground hover:text-primary transition-colors"
+              href="#home"
+              onClick={(e) => handleNavClick(e, "#home")}
+              className={`shrink-0 text-base font-bold tracking-tight transition-colors ${
+                isHome
+                  ? "text-primary"
+                  : "text-foreground hover:text-primary"
+              }`}
             >
               SM
             </a>
             <div className="hidden md:flex min-w-0 items-center gap-0.5">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="px-2.5 py-1.5 text-[13px] font-medium text-muted-foreground rounded-full hover:text-foreground hover:bg-white/15 transition-colors"
-                >
-                  {link.label}
-                </a>
-              ))}
+              {navLinks.map((link) => {
+                const active = activeSection === link.href.replace("#", "");
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className={`px-2.5 py-1.5 text-[13px] font-medium rounded-full transition-colors ${
+                      active
+                        ? "text-primary bg-primary/10"
+                        : "text-muted-foreground hover:text-foreground hover:bg-white/15"
+                    }`}
+                  >
+                    {link.label}
+                  </a>
+                );
+              })}
             </div>
           </div>
           <div className="flex shrink-0 items-center gap-2">
@@ -448,16 +473,23 @@ function Navbar() {
         {open && (
           <div className="md:hidden border-t border-[var(--glass-border)] px-3 py-2">
             <div className="grid grid-cols-2 gap-1">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="px-3 py-2 text-sm font-medium text-muted-foreground rounded-lg hover:text-foreground hover:bg-white/15 transition-colors"
-                >
-                  {link.label}
-                </a>
-              ))}
+              {navLinks.map((link) => {
+                const active = activeSection === link.href.replace("#", "");
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
+                      active
+                        ? "text-primary bg-primary/10"
+                        : "text-muted-foreground hover:text-foreground hover:bg-white/15"
+                    }`}
+                  >
+                    {link.label}
+                  </a>
+                );
+              })}
             </div>
           </div>
         )}
