@@ -11,7 +11,7 @@ const experience = [
         role: "DevOps Engineer (Azure)",
         client: "Client: US-based Education Services",
         highlights: [
-          "3+ years of hands-on experience in Azure Administration and Azure DevOps, delivering secure, scalable, and highly available cloud infrastructure for enterprise applications",
+          "4+ years of hands-on experience in Azure Administration and Azure DevOps, delivering secure, scalable, and highly available cloud infrastructure for enterprise applications",
           "Designed, built, and maintained 20+ Azure DevOps CI/CD pipelines, reducing deployment time by 70% and enabling faster, reliable software releases",
           "Automated infrastructure provisioning using Terraform (Infrastructure as Code), reducing manual effort by 80% and ensuring consistent, repeatable deployments across environments",
           "Provisioned, configured, and administered 100+ Azure resources, including Virtual Machines (Linux: Ubuntu, RHEL; Windows Server 2016/2019), VNets, NSGs, Storage Accounts, Public IPs, Load Balancers, and Virtual Disks",

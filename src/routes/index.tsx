@@ -200,7 +200,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Portfolio of Shakeer Mohammed — Azure DevOps & Cloud Engineer with 3+ years in CI/CD, Kubernetes, Terraform and MLOps across Azure and AWS.",
+          "Portfolio of Shakeer Mohammed — Azure DevOps & Cloud Engineer with 4+ years in CI/CD, Kubernetes, Terraform and MLOps across Azure and AWS.",
       },
       { property: "og:title", content: "Shakeer Mohammed — DevOps / Cloud Engineer" },
       {
@@ -637,7 +637,7 @@ function AboutSection() {
               Passionate about cloud, automation & reliability
             </h2>
             <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-              Cloud & DevOps Engineer with <strong className="text-foreground">3+ years</strong> of experience in designing, automating, and managing cloud infrastructure, CI/CD pipelines, containerized applications, and Infrastructure as Code solutions.
+              Cloud & DevOps Engineer with <strong className="text-foreground">4+ years</strong> of experience in designing, automating, and managing cloud infrastructure, CI/CD pipelines, containerized applications, and Infrastructure as Code solutions.
             </p>
             <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
               Experienced in <strong className="text-foreground">Azure and AWS</strong> cloud environments, with hands-on expertise in Kubernetes, Docker, Terraform, GitHub Actions, Argo CD, Helm, and automation. Currently expanding expertise in <strong className="text-foreground">MLOps, Platform Engineering, and AI-driven infrastructure automation</strong>.
@@ -834,7 +834,7 @@ const experiences = [
         title: "DevOps Engineer (Azure)",
         client: "Client: US-based Education Services",
         highlights: [
-          "3+ years of hands-on experience in Azure Administration and Azure DevOps, delivering secure, scalable, and highly available cloud infrastructure for enterprise applications",
+          "4+ years of hands-on experience in Azure Administration and Azure DevOps, delivering secure, scalable, and highly available cloud infrastructure for enterprise applications",
           "Designed, built, and maintained 20+ Azure DevOps CI/CD pipelines, reducing deployment time by 70% and enabling faster, reliable software releases",
           "Automated infrastructure provisioning using Terraform (Infrastructure as Code), reducing manual effort by 80% and ensuring consistent, repeatable deployments across environments",
           "Provisioned, configured, and administered 100+ Azure resources, including Virtual Machines (Linux: Ubuntu, RHEL; Windows Server 2016/2019), VNets, NSGs, Storage Accounts, Public IPs, Load Balancers, and Virtual Disks",
