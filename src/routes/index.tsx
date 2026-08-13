@@ -1441,6 +1441,17 @@ function Footer() {
 }
 
 function Index() {
+  const activeSection = useActiveSection([
+    "home",
+    "about",
+    "skills",
+    "experience",
+    "projects",
+    "education",
+    "certifications",
+    "contact",
+  ]);
+
   useEffect(() => {
     if (typeof IntersectionObserver === "undefined") return;
     const nodes = document.querySelectorAll<HTMLElement>(
