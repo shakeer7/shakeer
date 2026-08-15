@@ -1271,25 +1271,18 @@ function MissionSection() {
 function VisitorStats() {
   const [totalVisits, setTotalVisits] = useState<number | null>(null);
   const [yourVisits, setYourVisits] = useState<number>(0);
-  const [firstVisit, setFirstVisit] = useState<string>("");
-  const [lastVisit, setLastVisit] = useState<string>("");
 
   useEffect(() => {
     // Per-visitor stats via localStorage
     try {
       const key = "shakeer_portfolio_visits";
       const raw = localStorage.getItem(key);
-      const now = new Date().toISOString();
       const data = raw
         ? (JSON.parse(raw) as { count: number; first: string; last: string })
-        : { count: 0, first: now, last: now };
-      const next = { count: data.count + 1, first: data.first || now, last: now };
+        : { count: 0 };
+      const next = { count: data.count + 1 };
       localStorage.setItem(key, JSON.stringify(next));
       setYourVisits(next.count);
-      setFirstVisit(new Date(next.first).toLocaleDateString());
-      setLastVisit(
-        data.last ? new Date(data.last).toLocaleDateString() : new Date(now).toLocaleDateString(),
-      );
     } catch {
       setYourVisits(1);
     }
@@ -1322,18 +1315,6 @@ function VisitorStats() {
       label: "Your visits",
       value: yourVisits.toLocaleString(),
       hint: "Tracked in this browser",
-    },
-    {
-      icon: Clock,
-      label: "First visit",
-      value: firstVisit || "Today",
-      hint: "You first landed here",
-    },
-    {
-      icon: Rocket,
-      label: "Last visit",
-      value: lastVisit || "Today",
-      hint: "Your previous session",
     },
   ];
 
