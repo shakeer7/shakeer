@@ -292,17 +292,18 @@ function AnimatedName() {
   }, []);
   const cur = NAME_LANGS[i];
   return (
-    <span
-      key={i}
-      lang={cur.lang}
-      dir={cur.dir ?? "ltr"}
-      className={`inline-block bg-gradient-to-r from-primary via-foreground to-primary bg-clip-text text-transparent transition-all duration-350 ${
-        visible ? "opacity-100 blur-0 translate-y-0" : "opacity-0 blur-sm -translate-y-1"
-      }`}
-      style={{ transitionDuration: "350ms" }}
-      aria-label="Shakeer Mohammed"
-    >
-      {cur.text}
+    <span className="relative inline-flex h-[1.15em] items-center overflow-hidden align-bottom" aria-label="Shakeer Mohammed">
+      <span
+        key={i}
+        lang={cur.lang}
+        dir={cur.dir ?? "ltr"}
+        className={`block bg-gradient-to-r from-primary via-foreground to-primary bg-clip-text text-transparent transition-opacity duration-350 ${
+          visible ? "opacity-100" : "opacity-0"
+        }`}
+        style={{ transitionDuration: "350ms" }}
+      >
+        {cur.text}
+      </span>
     </span>
   );
 }
