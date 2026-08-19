@@ -292,7 +292,7 @@ function AnimatedName() {
   }, []);
   const cur = NAME_LANGS[i];
   return (
-    <span className="relative inline-flex h-[1.15em] items-center overflow-hidden align-bottom" aria-label="Shakeer Mohammed">
+    <span className="inline-block min-h-[1.15em] leading-[1.15]" aria-label="Shakeer Mohammed">
       <span
         key={i}
         lang={cur.lang}
