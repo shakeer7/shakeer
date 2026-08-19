@@ -1295,12 +1295,13 @@ function VisitorStats() {
 
     // Global visit counter via free public counter API
     const controller = new AbortController();
-    fetch("https://api.counterapi.dev/v1/shakeer-portfolio/site-visits/up", {
+    fetch("https://abacus.jasoncameron.dev/hit/shakeer-portfolio/site-visits", {
       signal: controller.signal,
     })
       .then((r) => (r.ok ? r.json() : Promise.reject(new Error("bad status"))))
-      .then((data: { count?: number }) => {
-        if (typeof data.count === "number") setTotalVisits(data.count);
+      .then((data: { value?: number; count?: number }) => {
+        const n = typeof data.value === "number" ? data.value : data.count;
+        if (typeof n === "number") setTotalVisits(n);
       })
       .catch(() => {
         // Silent fallback: keep null so UI shows a dash
