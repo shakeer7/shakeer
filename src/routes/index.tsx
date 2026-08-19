@@ -281,29 +281,34 @@ function AnimatedName() {
   const [i, setI] = useState(0);
   const [visible, setVisible] = useState(true);
   useEffect(() => {
+    let swapTimer: ReturnType<typeof setTimeout> | undefined;
     const t = setInterval(() => {
       setVisible(false);
-      setTimeout(() => {
+      swapTimer = setTimeout(() => {
         setI((n) => (n + 1) % NAME_LANGS.length);
         setVisible(true);
       }, 350);
     }, 2200);
-    return () => clearInterval(t);
+    return () => {
+      clearInterval(t);
+      if (swapTimer) clearTimeout(swapTimer);
+    };
   }, []);
-  const cur = NAME_LANGS[i];
   return (
-    <span className="inline-block min-h-[1.15em] leading-[1.15]" aria-label="Shakeer Mohammed">
-      <span
-        key={i}
-        lang={cur.lang}
-        dir={cur.dir ?? "ltr"}
-        className={`block bg-gradient-to-r from-primary via-foreground to-primary bg-clip-text text-transparent transition-opacity duration-350 ${
-          visible ? "opacity-100" : "opacity-0"
-        }`}
-        style={{ transitionDuration: "350ms" }}
-      >
-        {cur.text}
-      </span>
+    <span className="relative grid h-[2.3em] w-full place-items-center leading-[1.15] sm:h-[1.15em] lg:place-items-start" aria-label="Shakeer Mohammed">
+      {NAME_LANGS.map((name, index) => (
+        <span
+          key={name.lang}
+          lang={name.lang}
+          dir={name.dir ?? "ltr"}
+          aria-hidden={index !== i}
+          className={`absolute inset-x-0 top-1/2 -translate-y-1/2 bg-gradient-to-r from-primary via-foreground to-primary bg-clip-text text-center text-transparent transition-opacity duration-[350ms] sm:whitespace-nowrap lg:text-left ${
+            index === i && visible ? "opacity-100" : "pointer-events-none opacity-0"
+          }`}
+        >
+          {name.text}
+        </span>
+      ))}
     </span>
   );
 }
