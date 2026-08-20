@@ -310,8 +310,6 @@ function AnimatedName() {
         </span>
       ))}
     </span>
-
-    </span>
   );
 }
 
