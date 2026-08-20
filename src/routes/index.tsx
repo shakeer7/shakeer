@@ -295,20 +295,22 @@ function AnimatedName() {
     };
   }, []);
   return (
-    <span className="relative grid h-[2.3em] w-full place-items-center leading-[1.15] sm:h-[1.15em] lg:place-items-start" aria-label="Shakeer Mohammed">
+    <span className="relative grid h-[2.4em] w-full max-w-full place-items-center overflow-hidden leading-[1.15] lg:place-items-start" aria-label="Shakeer Mohammed">
       {NAME_LANGS.map((name, index) => (
         <span
           key={name.lang}
           lang={name.lang}
           dir={name.dir ?? "ltr"}
           aria-hidden={index !== i}
-          className={`absolute inset-x-0 top-1/2 -translate-y-1/2 bg-gradient-to-r from-primary via-foreground to-primary bg-clip-text text-center text-transparent transition-opacity duration-[350ms] sm:whitespace-nowrap lg:text-left ${
+          className={`absolute inset-x-0 top-1/2 -translate-y-1/2 break-words bg-gradient-to-r from-primary via-foreground to-primary bg-clip-text text-center text-transparent transition-opacity duration-[350ms] lg:text-left ${
             index === i && visible ? "opacity-100" : "pointer-events-none opacity-0"
           }`}
         >
           {name.text}
         </span>
       ))}
+    </span>
+
     </span>
   );
 }
