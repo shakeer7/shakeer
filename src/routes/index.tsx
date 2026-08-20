@@ -1045,11 +1045,26 @@ function EducationSection() {
                     height={56}
                   />
                 </div>
-                <div>
+              <div>
+                <div className="flex items-start gap-2">
                   <h3 className="text-base font-semibold text-foreground leading-snug">{edu.degree}</h3>
-                  <p className="mt-2 text-sm font-medium text-primary">{edu.school}</p>
-                  <p className="mt-1 text-sm text-muted-foreground">{edu.period}</p>
+                  {(edu as { credentialUrl?: string }).credentialUrl && (
+                    <a
+                      href={(edu as { credentialUrl?: string }).credentialUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-0.5 inline-flex items-center justify-center rounded-lg p-1 text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
+                      aria-label="Verify credential"
+                      title="Verify credential"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  )}
                 </div>
+                <p className="mt-2 text-sm font-medium text-primary">{edu.school}</p>
+                <p className="mt-1 text-sm text-muted-foreground">{edu.period}</p>
+              </div>
+
               </div>
             </div>
           ))}
