@@ -272,46 +272,8 @@ function useActiveSection(ids: string[]) {
   return active;
 }
 
-const NAME_LANGS: { text: string; lang: string; dir?: "ltr" | "rtl" }[] = [
-  { text: "Shakeer Mohammed", lang: "en" },
-  { text: "شاكر محمد", lang: "ar", dir: "rtl" },
-];
+const DISPLAY_NAME = "Shakeer Mohammed";
 
-function AnimatedName() {
-  const [i, setI] = useState(0);
-  const [visible, setVisible] = useState(true);
-  useEffect(() => {
-    let swapTimer: ReturnType<typeof setTimeout> | undefined;
-    const t = setInterval(() => {
-      setVisible(false);
-      swapTimer = setTimeout(() => {
-        setI((n) => (n + 1) % NAME_LANGS.length);
-        setVisible(true);
-      }, 350);
-    }, 2200);
-    return () => {
-      clearInterval(t);
-      if (swapTimer) clearTimeout(swapTimer);
-    };
-  }, []);
-  return (
-    <span className="relative grid h-[2.4em] w-full max-w-full place-items-center overflow-hidden leading-[1.15] lg:place-items-start" aria-label="Shakeer Mohammed">
-      {NAME_LANGS.map((name, index) => (
-        <span
-          key={name.lang}
-          lang={name.lang}
-          dir={name.dir ?? "ltr"}
-          aria-hidden={index !== i}
-          className={`absolute inset-x-0 top-1/2 -translate-y-1/2 break-words bg-gradient-to-r from-primary via-foreground to-primary bg-clip-text text-center text-transparent transition-opacity duration-[350ms] lg:text-left ${
-            index === i && visible ? "opacity-100" : "pointer-events-none opacity-0"
-          }`}
-        >
-          {name.text}
-        </span>
-      ))}
-    </span>
-  );
-}
 
 type Theme = "light" | "dark" | "system";
 
