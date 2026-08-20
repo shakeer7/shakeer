@@ -998,7 +998,9 @@ const education = [
     period: "Expected: July 2026",
     logo: isbLogo.url,
     logoAlt: "ISB logo",
+    credentialUrl: "https://www.credential.net/85d1e385-706c-40fb-9f88-f51cd2a15145#acc.PphVAMtc",
   },
+
   {
     degree: "MBA (PG) — Business Operations & Analytics",
     school: "CBIT, Hyderabad",
