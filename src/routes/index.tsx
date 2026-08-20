@@ -272,46 +272,8 @@ function useActiveSection(ids: string[]) {
   return active;
 }
 
-const NAME_LANGS: { text: string; lang: string; dir?: "ltr" | "rtl" }[] = [
-  { text: "Shakeer Mohammed", lang: "en" },
-  { text: "شاكر محمد", lang: "ar", dir: "rtl" },
-];
+const DISPLAY_NAME = "Shakeer Mohammed";
 
-function AnimatedName() {
-  const [i, setI] = useState(0);
-  const [visible, setVisible] = useState(true);
-  useEffect(() => {
-    let swapTimer: ReturnType<typeof setTimeout> | undefined;
-    const t = setInterval(() => {
-      setVisible(false);
-      swapTimer = setTimeout(() => {
-        setI((n) => (n + 1) % NAME_LANGS.length);
-        setVisible(true);
-      }, 350);
-    }, 2200);
-    return () => {
-      clearInterval(t);
-      if (swapTimer) clearTimeout(swapTimer);
-    };
-  }, []);
-  return (
-    <span className="relative grid h-[2.4em] w-full max-w-full place-items-center overflow-hidden leading-[1.15] lg:place-items-start" aria-label="Shakeer Mohammed">
-      {NAME_LANGS.map((name, index) => (
-        <span
-          key={name.lang}
-          lang={name.lang}
-          dir={name.dir ?? "ltr"}
-          aria-hidden={index !== i}
-          className={`absolute inset-x-0 top-1/2 -translate-y-1/2 break-words bg-gradient-to-r from-primary via-foreground to-primary bg-clip-text text-center text-transparent transition-opacity duration-[350ms] lg:text-left ${
-            index === i && visible ? "opacity-100" : "pointer-events-none opacity-0"
-          }`}
-        >
-          {name.text}
-        </span>
-      ))}
-    </span>
-  );
-}
 
 type Theme = "light" | "dark" | "system";
 
@@ -541,7 +503,7 @@ function HeroSection() {
               Available for opportunities
             </div>
             <h1 className="font-display text-[clamp(2.25rem,7vw,4rem)] font-bold tracking-tight text-foreground leading-[1.02]">
-              <span className="block hero-name-gradient"><AnimatedName /></span>
+              <span className="block hero-name-gradient">{DISPLAY_NAME}</span>
               <span className="block mt-5 eyebrow text-[0.62rem] sm:text-[0.7rem] tracking-[0.2em] sm:tracking-[0.28em] leading-[1.8] text-muted-foreground">DevOps / Cloud Engineer <span className="text-primary">|</span> MLOps Enthusiast</span>
             </h1>
             <p className="mt-5 font-display text-xl sm:text-2xl italic font-medium text-primary tracking-normal">
