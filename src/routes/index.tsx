@@ -503,7 +503,7 @@ function HeroSection() {
               Available for opportunities
             </div>
             <h1 className="font-display text-[clamp(2.25rem,7vw,4rem)] font-bold tracking-tight text-foreground leading-[1.02]">
-              <span className="block hero-name-gradient"><AnimatedName /></span>
+              <span className="block hero-name-gradient">{DISPLAY_NAME}</span>
               <span className="block mt-5 eyebrow text-[0.62rem] sm:text-[0.7rem] tracking-[0.2em] sm:tracking-[0.28em] leading-[1.8] text-muted-foreground">DevOps / Cloud Engineer <span className="text-primary">|</span> MLOps Enthusiast</span>
             </h1>
             <p className="mt-5 font-display text-xl sm:text-2xl italic font-medium text-primary tracking-normal">
