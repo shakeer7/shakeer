@@ -318,7 +318,7 @@ function ThemeToggle() {
 
   return (
     <div
-      className="inline-flex items-center rounded-full border border-[var(--glass-border)] bg-white/10 p-0.5 gap-0.5"
+      className="inline-flex items-center rounded-full glass glass-edge glass-shine p-0.5 gap-0.5"
       aria-label="Theme selector"
       role="group"
     >
@@ -371,12 +371,12 @@ function Navbar({ activeSection }: { activeSection: string }) {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4">
       <div
-        className={`mx-auto max-w-6xl rounded-2xl border border-[var(--glass-border)] transition-all duration-300 ${
+        className={`mx-auto max-w-6xl rounded-2xl glass-edge glass-shine transition-all duration-300 ${
           scrolled
             ? "bg-[var(--glass-bg-strong)] shadow-[var(--glass-shadow)]"
             : "bg-[var(--glass-bg)] shadow-[0_4px_20px_-12px_rgba(15,23,42,0.25)]"
         }`}
-        style={{ backdropFilter: "blur(20px) saturate(160%)" }}
+        style={{ backdropFilter: "blur(24px) saturate(180%)" }}
       >
         <div className="flex items-center justify-between gap-3 px-4 sm:px-5 h-14">
           <div className="flex min-w-0 items-center gap-4">
@@ -492,13 +492,14 @@ function HeroSection() {
 
 
       {/* Floating glass orbs */}
-      <div className="pointer-events-none absolute top-1/4 left-[10%] w-64 h-64 rounded-full bg-primary/10 blur-[80px]" />
-      <div className="pointer-events-none absolute bottom-1/4 right-[10%] w-72 h-72 rounded-full bg-aurora-2/10 blur-[90px]" />
+      <div className="glass-orb top-1/4 left-[10%] w-64 h-64" />
+      <div className="glass-orb glass-orb-2 bottom-1/4 right-[10%] w-72 h-72" />
+      <div className="glass-orb glass-orb-3 top-1/2 left-1/2 w-56 h-56 -translate-x-1/2 -translate-y-1/2 opacity-30" />
 
       <div className="container-tight relative z-10 pt-24 pb-16">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           <div className="flex-1 text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-sm font-medium text-foreground mb-6">
+            <div className="inline-flex items-center gap-2 rounded-full glass glass-edge glass-shine px-4 py-1.5 text-sm font-medium text-foreground mb-6">
               <Zap className="w-4 h-4 text-primary" />
               Available for opportunities
             </div>
@@ -599,7 +600,7 @@ function AboutSection() {
     <section id="about" className="py-24">
       <div className="container-tight">
         <div className="max-w-3xl mx-auto">
-          <div className="glass-card p-8 sm:p-12 text-center">
+          <div className="glass-card glass-noise glass-edge glass-shine p-8 sm:p-12 text-center">
             <span className="text-sm font-semibold uppercase tracking-wider text-primary">About Me</span>
             <h2 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
               Passionate about cloud, automation & reliability
@@ -767,7 +768,7 @@ function SkillsSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillCategories.map((cat, i) => (
             <Reveal key={cat.title} delay={(Math.min(i, 3) as 0 | 1 | 2 | 3)}>
-              <div className="group rounded-2xl glass p-6 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1 transition-all duration-300 h-full">
+              <div className="group rounded-2xl glass glass-noise glass-edge glass-card-hover p-6 transition-all duration-300 h-full">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-primary/10 text-primary">
                     <cat.icon className="w-5 h-5" />
@@ -856,7 +857,7 @@ function ExperienceSection() {
 
               <div className="md:ml-12">
                 {/* Company header */}
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-6 glass-card px-5 py-4">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-6 glass-card glass-noise glass-edge glass-shine px-5 py-4">
                   <div>
                     <h3 className="text-xl font-bold text-foreground">{exp.title}</h3>
                     <p className="text-base font-medium text-primary">{exp.company}</p>
@@ -876,7 +877,7 @@ function ExperienceSection() {
                       <AccordionItem
                         key={ci}
                         value={value}
-                        className="rounded-2xl glass-strong border-l-4 border-primary/60 border-b-0 px-5 overflow-hidden"
+                        className="rounded-2xl glass-strong glass-noise glass-edge border-l-4 border-primary/60 border-b-0 px-5 overflow-hidden"
                       >
                         <AccordionTrigger className="py-4 hover:no-underline">
                           <div className="flex items-center justify-between w-full pr-4">
@@ -951,7 +952,7 @@ function ProjectsSection() {
               href={p.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group rounded-2xl glass p-6 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300"
+              className="group rounded-2xl glass glass-noise glass-edge glass-card-hover p-6 transition-all duration-300"
             >
               <div className="flex items-start justify-between mb-3">
                 <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-primary/10 text-primary">
@@ -1033,7 +1034,7 @@ function EducationSection() {
           {education.map((edu) => (
             <div
               key={edu.degree}
-              className="rounded-2xl glass p-6 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300"
+              className="rounded-2xl glass glass-noise glass-edge glass-card-hover p-6 transition-all duration-300"
             >
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0 w-14 h-14 rounded-xl overflow-hidden ring-1 ring-white/20 flex items-center justify-center">
@@ -1099,7 +1100,7 @@ function CertificationsSection() {
           {certifications.map((cert) => (
             <div
               key={cert.name}
-              className="flex items-center gap-4 rounded-2xl glass p-5 transition-colors"
+              className="flex items-center gap-4 rounded-2xl glass glass-noise glass-edge glass-shine p-5 transition-colors"
             >
               <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary">
                 <cert.icon className="w-6 h-6" />
@@ -1145,7 +1146,7 @@ function InterestsSection() {
           {interests.map((item) => (
             <div
               key={item.label}
-              className="inline-flex items-center gap-2 rounded-full glass glass-pill-hover px-4 py-2.5 text-sm font-medium text-foreground transition-all"
+              className="inline-flex items-center gap-2 rounded-full glass glass-pill-hover glass-edge glass-shine px-4 py-2.5 text-sm font-medium text-foreground transition-all"
             >
               <item.icon className="w-4 h-4 text-primary" />
               {item.label}
@@ -1190,7 +1191,7 @@ function MissionSection() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--color-hero-glow)_0%,_transparent_60%)] opacity-50" />
       <div className="container-tight relative z-10">
         <div className="max-w-4xl mx-auto">
-          <div className="glass rounded-3xl p-8 sm:p-12">
+          <div className="glass glass-noise glass-edge glass-shine rounded-3xl p-8 sm:p-12">
             <div className="grid gap-10 md:grid-cols-[minmax(0,1fr)_auto] md:items-center">
               <div className="min-w-0">
                 <div className="inline-flex items-center gap-2 rounded-full border border-[var(--glass-border)] px-3 py-1 text-xs font-medium text-muted-foreground">
@@ -1320,7 +1321,7 @@ function VisitorStats() {
             {stats.map((s) => (
               <div
                 key={s.label}
-                className="inline-flex items-center gap-2.5 rounded-full glass px-3.5 py-2 hover:shadow-md hover:shadow-primary/10 transition-all"
+                className="inline-flex items-center gap-2.5 rounded-full glass glass-edge glass-shine px-3.5 py-2 hover:shadow-md hover:shadow-primary/10 transition-all"
                 title={s.hint}
               >
                 <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-primary/10 text-primary shrink-0">
