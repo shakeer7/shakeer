@@ -79,11 +79,11 @@
   --hero-glow: oklch(0.88 0.05 250);
   --skill-icon: oklch(0.58 0.17 250);
 
-  --glass-bg: color-mix(in oklab, white 50%, transparent);
-  --glass-bg-strong: color-mix(in oklab, white 66%, transparent);
-  --glass-border: color-mix(in oklab, white 65%, transparent);
-  --glass-highlight: rgba(255, 255, 255, 0.6);
-  --glass-shadow: 0 10px 40px -12px rgba(30, 58, 138, 0.16), 0 2px 8px -2px rgba(15, 23, 42, 0.07);
+  --glass-bg: color-mix(in oklab, white 52%, transparent);
+  --glass-bg-strong: color-mix(in oklab, white 70%, transparent);
+  --glass-border: color-mix(in oklab, white 68%, transparent);
+  --glass-highlight: rgba(255, 255, 255, 0.65);
+  --glass-shadow: 0 10px 40px -12px rgba(30, 58, 138, 0.18), 0 2px 8px -2px rgba(15, 23, 42, 0.08);
 
   --aurora-1: oklch(0.78 0.14 245);
   --aurora-2: oklch(0.82 0.12 200);
@@ -125,11 +125,11 @@
   --hero-glow: oklch(0.72 0.18 65);
   --skill-icon: oklch(0.72 0.20 65);
 
-  --glass-bg: color-mix(in oklab, oklch(0.34 0.04 245) 55%, transparent);
-  --glass-bg-strong: color-mix(in oklab, oklch(0.40 0.04 245) 70%, transparent);
-  --glass-border: color-mix(in oklab, oklch(0.45 0.05 245) 45%, transparent);
-  --glass-highlight: rgba(255, 255, 255, 0.08);
-  --glass-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.55), 0 2px 8px -2px rgba(0, 0, 0, 0.35);
+  --glass-bg: color-mix(in oklab, oklch(0.34 0.04 245) 58%, transparent);
+  --glass-bg-strong: color-mix(in oklab, oklch(0.40 0.04 245) 74%, transparent);
+  --glass-border: color-mix(in oklab, oklch(0.50 0.05 245) 52%, transparent);
+  --glass-highlight: rgba(255, 255, 255, 0.12);
+  --glass-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.6), 0 2px 8px -2px rgba(0, 0, 0, 0.4);
 
   --aurora-1: oklch(0.45 0.12 245);
   --aurora-2: oklch(0.60 0.16 65);
@@ -170,34 +170,40 @@
 }
 
 @utility glass {
+  position: relative;
   background: var(--glass-bg);
-  backdrop-filter: blur(28px) saturate(200%);
+  backdrop-filter: blur(32px) saturate(210%);
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    inset 0 1px 0 0 var(--glass-highlight),
+    inset 0 -1px 0 0 rgba(255, 255, 255, 0.04),
+    var(--glass-shadow);
+  overflow: hidden;
+}
+
+@utility glass-strong {
+  position: relative;
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(40px) saturate(230%);
   border: 1px solid var(--glass-border);
   box-shadow:
     inset 0 1px 0 0 var(--glass-highlight),
     inset 0 -1px 0 0 rgba(255, 255, 255, 0.05),
     var(--glass-shadow);
-}
-
-@utility glass-strong {
-  background: var(--glass-bg-strong);
-  backdrop-filter: blur(36px) saturate(220%);
-  border: 1px solid var(--glass-border);
-  box-shadow:
-    inset 0 1px 0 0 var(--glass-highlight),
-    inset 0 -1px 0 0 rgba(255, 255, 255, 0.06),
-    var(--glass-shadow);
+  overflow: hidden;
 }
 
 @utility glass-pill {
+  position: relative;
   background: var(--glass-bg);
-  backdrop-filter: blur(22px) saturate(190%);
+  backdrop-filter: blur(26px) saturate(200%);
   border: 1px solid var(--glass-border);
   box-shadow:
     inset 0 1px 0 0 var(--glass-highlight),
     inset 0 -1px 0 0 rgba(255, 255, 255, 0.04),
     0 4px 14px -4px rgba(15, 23, 42, 0.15);
   transition: background 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+  overflow: hidden;
 }
 
 @utility glass-pill-hover {
@@ -211,14 +217,28 @@
 }
 
 @utility glass-card {
+  position: relative;
   background: var(--glass-bg-strong);
-  backdrop-filter: blur(32px) saturate(210%);
+  backdrop-filter: blur(36px) saturate(220%);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-2xl);
   box-shadow:
     inset 0 1px 0 0 var(--glass-highlight),
     inset 0 -1px 0 0 rgba(255, 255, 255, 0.05),
     var(--glass-shadow);
+  transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 300ms ease;
+  overflow: hidden;
+}
+
+@utility glass-card-hover {
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      inset 0 1px 0 0 var(--glass-highlight),
+      inset 0 -1px 0 0 rgba(255, 255, 255, 0.06),
+      0 18px 40px -12px color-mix(in oklab, var(--primary) 18%, transparent),
+      var(--glass-shadow);
+  }
 }
 
 @utility glass-edge {
@@ -229,16 +249,82 @@
     inset: 0;
     border-radius: inherit;
     padding: 1px;
-    background: linear-gradient(135deg, var(--glass-highlight), transparent 40%, transparent 60%, var(--glass-highlight));
+    background: linear-gradient(135deg, var(--glass-highlight) 0%, transparent 35%, transparent 65%, var(--glass-highlight) 100%);
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask-composite: exclude;
     pointer-events: none;
   }
 }
 
+@utility glass-noise {
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0.06;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+  }
+}
+
+@utility glass-shine {
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.02) 40%, transparent 60%);
+  }
+}
+
+@utility glass-orb {
+  position: absolute;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 30% 25%, color-mix(in oklab, var(--primary) 55%, transparent), color-mix(in oklab, var(--aurora-2) 35%, transparent) 60%, transparent 80%);
+  filter: blur(60px);
+  opacity: 0.55;
+  animation: glass-float 18s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@utility glass-orb-2 {
+  animation-delay: -9s;
+  animation-duration: 22s;
+}
+
+@utility glass-orb-3 {
+  animation-delay: -15s;
+  animation-duration: 26s;
+}
+
+@utility glass-dark {
+  background: var(--glass-bg);
+  box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.12), 0 20px 60px -20px rgba(0,0,0,0.6);
+}
+
+@utility glass-card-dark {
+  background: var(--glass-bg-strong);
+  box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.14), 0 24px 70px -20px rgba(0,0,0,0.65);
+}
+
 @utility aurora-bg {
   position: relative;
   isolation: isolate;
+}
+
+@keyframes glass-float {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(4%, -5%, 0) scale(1.06);
+  }
+  66% {
+    transform: translate3d(-3%, 4%, 0) scale(0.96);
+  }
 }
 
 .aurora-layer {
