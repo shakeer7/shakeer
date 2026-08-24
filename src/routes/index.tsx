@@ -371,101 +371,155 @@ function Navbar({ activeSection }: { activeSection: string }) {
 
   const isHome = activeSection === "home" || activeSection === "";
 
+  // WhatsApp-style bottom nav: 5 primary items with icons + labels
+  const mobileNavLinks = [
+    { label: "Home", href: "#home", icon: Home },
+    { label: "About", href: "#about", icon: User },
+    { label: "Skills", href: "#skills", icon: Zap },
+    { label: "Experience", href: "#experience", icon: Briefcase },
+    { label: "Contact", href: "#contact", icon: Mail },
+  ];
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4">
-      <div
-        className={`mx-auto max-w-6xl rounded-2xl glass-edge glass-shine transition-all duration-300 ${
-          scrolled
-            ? "bg-[var(--glass-bg-strong)] shadow-[var(--glass-shadow)]"
-            : "bg-[var(--glass-bg)] shadow-[0_4px_20px_-12px_rgba(15,23,42,0.25)]"
-        }`}
-        style={{ backdropFilter: "blur(24px) saturate(180%)" }}
-      >
-        <div className="flex items-center justify-between gap-3 px-4 sm:px-5 h-14">
-          <div className="flex min-w-0 items-center gap-4">
-            <a
-              href="#home"
-              onClick={(e) => handleNavClick(e, "#home")}
-              className={`shrink-0 text-base font-bold tracking-tight transition-colors ${
-                isHome
-                  ? "text-primary"
-                  : "text-foreground hover:text-primary"
-              }`}
-            >
-              SM
-            </a>
-            <div className="hidden md:flex min-w-0 items-center gap-0.5">
-              {navLinks.map((link) => {
-                const active = activeSection === link.href.replace("#", "");
-                return (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    onClick={(e) => handleNavClick(e, link.href)}
-                    className={`px-2.5 py-1.5 text-[13px] font-medium rounded-full transition-colors ${
-                      active
-                        ? "text-primary bg-primary/10"
-                        : "text-muted-foreground hover:text-foreground hover:bg-white/15"
-                    }`}
-                  >
-                    {link.label}
-                  </a>
-                );
-              })}
+    <>
+      {/* Desktop / top nav */}
+      <nav className="fixed top-0 left-0 right-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4 hidden md:block">
+        <div
+          className={`mx-auto max-w-6xl rounded-2xl glass-edge glass-shine transition-all duration-300 ${
+            scrolled
+              ? "bg-[var(--glass-bg-strong)] shadow-[var(--glass-shadow)]"
+              : "bg-[var(--glass-bg)] shadow-[0_4px_20px_-12px_rgba(15,23,42,0.25)]"
+          }`}
+          style={{ backdropFilter: "blur(24px) saturate(180%)" }}
+        >
+          <div className="flex items-center justify-between gap-3 px-4 sm:px-5 h-14">
+            <div className="flex min-w-0 items-center gap-4">
+              <a
+                href="#home"
+                onClick={(e) => handleNavClick(e, "#home")}
+                className={`shrink-0 text-base font-bold tracking-tight transition-colors ${
+                  isHome
+                    ? "text-primary"
+                    : "text-foreground hover:text-primary"
+                }`}
+              >
+                SM
+              </a>
+              <div className="flex min-w-0 items-center gap-0.5">
+                {navLinks.map((link) => {
+                  const active = activeSection === link.href.replace("#", "");
+                  return (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      onClick={(e) => handleNavClick(e, link.href)}
+                      className={`px-2.5 py-1.5 text-[13px] font-medium rounded-full transition-colors ${
+                        active
+                          ? "text-primary bg-primary/10"
+                          : "text-muted-foreground hover:text-foreground hover:bg-white/15"
+                      }`}
+                    >
+                      {link.label}
+                    </a>
+                  );
+                })}
+              </div>
             </div>
-          </div>
-          <div className="flex shrink-0 items-center gap-2">
-            <ThemeToggle />
-            <a
-              href="tel:+919441793387"
-              className="hidden sm:inline-flex items-center justify-center w-8 h-8 rounded-full border border-[var(--glass-border)] text-muted-foreground hover:text-primary hover:bg-white/15 transition-colors"
-              aria-label="Call +91 94417 93387"
-              title="Call +91 94417 93387"
-            >
-              <Phone className="w-4 h-4" />
-            </a>
-            <a
-              href="mailto:mds.shakeer@gmail.com"
-              className="inline-flex items-center gap-2 rounded-full bg-primary px-3.5 py-1.5 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
-            >
-              <Mail className="w-4 h-4" />
-              <span className="hidden sm:inline">Get in Touch</span>
-            </a>
-            <button
-              onClick={() => setOpen((v) => !v)}
-              className="md:hidden inline-flex items-center justify-center w-8 h-8 rounded-full border border-[var(--glass-border)] text-muted-foreground hover:text-foreground transition-colors"
-              aria-label={open ? "Close menu" : "Open menu"}
-              aria-expanded={open}
-            >
-              {open ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
-            </button>
+            <div className="flex shrink-0 items-center gap-2">
+              <ThemeToggle />
+              <a
+                href="tel:+919441793387"
+                className="hidden sm:inline-flex items-center justify-center w-8 h-8 rounded-full border border-[var(--glass-border)] text-muted-foreground hover:text-primary hover:bg-white/15 transition-colors"
+                aria-label="Call +91 94417 93387"
+                title="Call +91 94417 93387"
+              >
+                <Phone className="w-4 h-4" />
+              </a>
+              <a
+                href="mailto:mds.shakeer@gmail.com"
+                className="inline-flex items-center gap-2 rounded-full bg-primary px-3.5 py-1.5 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
+              >
+                <Mail className="w-4 h-4" />
+                <span className="hidden sm:inline">Get in Touch</span>
+              </a>
+            </div>
           </div>
         </div>
-        {open && (
-          <div className="md:hidden border-t border-[var(--glass-border)] px-3 py-2">
-            <div className="grid grid-cols-2 gap-1">
-              {navLinks.map((link) => {
-                const active = activeSection === link.href.replace("#", "");
-                return (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    onClick={(e) => handleNavClick(e, link.href)}
-                    className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
-                      active
-                        ? "text-primary bg-primary/10"
-                        : "text-muted-foreground hover:text-foreground hover:bg-white/15"
-                    }`}
-                  >
+      </nav>
+
+      {/* Mobile bottom nav — WhatsApp-style dark glass pill */}
+      <nav className="fixed bottom-4 left-0 right-0 z-50 px-4 md:hidden">
+        <div
+          className="mx-auto max-w-sm rounded-full border border-white/10 bg-[#1a1a1a]/82 dark:bg-black/85 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.45)]"
+          style={{ backdropFilter: "blur(22px) saturate(160%)" }}
+        >
+          <div className="flex items-center justify-between px-1.5 py-1.5">
+            {mobileNavLinks.map((link) => {
+              const active = activeSection === link.href.replace("#", "");
+              const Icon = link.icon;
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className={`relative flex flex-col items-center justify-center min-w-0 flex-1 rounded-full py-1.5 px-1 transition-colors ${
+                    active
+                      ? "bg-white/12 text-white"
+                      : "text-white/60 hover:text-white/90"
+                  }`}
+                  aria-current={active ? "page" : undefined}
+                >
+                  <Icon className="w-5 h-5 shrink-0" />
+                  <span className="text-[10px] font-medium mt-0.5 leading-none">
                     {link.label}
-                  </a>
-                );
-              })}
-            </div>
+                  </span>
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      </nav>
+
+      {/* Mobile menu overlay for the remaining links */}
+      <div className="md:hidden">
+        <button
+          onClick={() => setOpen((v) => !v)}
+          className="fixed bottom-4 right-4 z-[60] inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary text-primary-foreground shadow-lg"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+        >
+          {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+        </button>
+        {open && (
+          <div
+            className="fixed inset-0 z-[55] bg-black/60 backdrop-blur-sm"
+            onClick={() => setOpen(false)}
+            aria-hidden="true"
+          />
+        )}
+        {open && (
+          <div className="fixed bottom-[5.5rem] right-4 z-[56] w-52 rounded-2xl glass-card-dark border border-white/10 bg-[#1a1a1a]/90 p-2 shadow-2xl">
+            {navLinks.map((link) => {
+              const active = activeSection === link.href.replace("#", "");
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className={`block px-4 py-2.5 text-sm font-medium rounded-xl transition-colors ${
+                    active
+                      ? "text-primary bg-white/10"
+                      : "text-white/80 hover:text-white hover:bg-white/10"
+                  }`}
+                >
+                  {link.label}
+                </a>
+              );
+            })}
           </div>
         )}
       </div>
-    </nav>
+    </>
   );
 }
 
