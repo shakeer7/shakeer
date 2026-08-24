@@ -351,7 +351,7 @@ function ThemeToggle() {
 
 function Navbar({ activeSection }: { activeSection: string }) {
   const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -359,26 +359,33 @@ function Navbar({ activeSection }: { activeSection: string }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>, href: string) => {
     e.preventDefault();
     const id = href.replace("#", "");
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-    setOpen(false);
+    setMoreOpen(false);
   };
 
   const isHome = activeSection === "home" || activeSection === "";
 
-  // WhatsApp-style bottom nav: 5 primary items with icons + labels
+  // WhatsApp-style bottom nav: 4 primary items + More
   const mobileNavLinks = [
     { label: "Home", href: "#home", icon: Home },
     { label: "About", href: "#about", icon: User },
     { label: "Skills", href: "#skills", icon: Zap },
     { label: "Experience", href: "#experience", icon: Briefcase },
-    { label: "Contact", href: "#contact", icon: Mail },
   ];
+
+  const moreLinks = navLinks.filter(
+    (l) => !mobileNavLinks.some((m) => m.href === l.href),
+  );
+
+  const isMoreActive = moreLinks.some(
+    (l) => activeSection === l.href.replace("#", ""),
+  );
 
   return (
     <>
@@ -453,7 +460,7 @@ function Navbar({ activeSection }: { activeSection: string }) {
           className="mx-auto max-w-sm rounded-full border border-white/10 bg-[#1a1a1a]/82 dark:bg-black/85 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.45)]"
           style={{ backdropFilter: "blur(22px) saturate(160%)" }}
         >
-          <div className="flex items-center justify-between px-1.5 py-1.5">
+          <div className="flex items-center justify-between px-1 py-1.5">
             {mobileNavLinks.map((link) => {
               const active = activeSection === link.href.replace("#", "");
               const Icon = link.icon;
@@ -476,49 +483,59 @@ function Navbar({ activeSection }: { activeSection: string }) {
                 </a>
               );
             })}
+            <button
+              onClick={() => setMoreOpen((v) => !v)}
+              className={`relative flex flex-col items-center justify-center min-w-0 flex-1 rounded-full py-1.5 px-1 transition-colors ${
+                isMoreActive
+                  ? "bg-white/12 text-white"
+                  : moreOpen
+                    ? "bg-white/12 text-white"
+                    : "text-white/60 hover:text-white/90"
+              }`}
+              aria-label="More sections"
+              aria-expanded={moreOpen}
+            >
+              <LayoutGrid className="w-5 h-5 shrink-0" />
+              <span className="text-[10px] font-medium mt-0.5 leading-none">More</span>
+            </button>
           </div>
         </div>
       </nav>
 
-      {/* Mobile menu overlay for the remaining links */}
-      <div className="md:hidden">
-        <button
-          onClick={() => setOpen((v) => !v)}
-          className="fixed bottom-4 right-4 z-[60] inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary text-primary-foreground shadow-lg"
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-        >
-          {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-        </button>
-        {open && (
-          <div
-            className="fixed inset-0 z-[55] bg-black/60 backdrop-blur-sm"
-            onClick={() => setOpen(false)}
-            aria-hidden="true"
-          />
-        )}
-        {open && (
-          <div className="fixed bottom-[5.5rem] right-4 z-[56] w-52 rounded-2xl glass-card-dark border border-white/10 bg-[#1a1a1a]/90 p-2 shadow-2xl">
-            {navLinks.map((link) => {
-              const active = activeSection === link.href.replace("#", "");
-              return (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={(e) => handleNavClick(e, link.href)}
-                  className={`block px-4 py-2.5 text-sm font-medium rounded-xl transition-colors ${
-                    active
-                      ? "text-primary bg-white/10"
-                      : "text-white/80 hover:text-white hover:bg-white/10"
-                  }`}
-                >
-                  {link.label}
-                </a>
-              );
-            })}
+      {/* Mobile "More" menu */}
+      {moreOpen && (
+        <div
+          className="fixed inset-0 z-[45] bg-black/40 backdrop-blur-sm md:hidden"
+          onClick={() => setMoreOpen(false)}
+          aria-hidden="true"
+        />
+      )}
+      {moreOpen && (
+        <div className="fixed bottom-[5.5rem] left-4 right-4 z-[46] mx-auto max-w-sm md:hidden">
+          <div className="rounded-2xl border border-white/10 bg-[#1a1a1a]/90 shadow-2xl overflow-hidden">
+            <div className="grid grid-cols-2 gap-1 p-2">
+              {moreLinks.map((link) => {
+                const active = activeSection === link.href.replace("#", "");
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className={`flex items-center gap-2 px-3 py-2.5 text-sm font-medium rounded-xl transition-colors ${
+                      active
+                        ? "text-primary bg-white/10"
+                        : "text-white/80 hover:text-white hover:bg-white/10"
+                    }`}
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-current" />
+                    {link.label}
+                  </a>
+                );
+              })}
+            </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </>
   );
 }
