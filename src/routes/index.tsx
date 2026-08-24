@@ -1517,7 +1517,7 @@ function Index() {
         }}
       />
       <Navbar activeSection={activeSection} />
-      <main data-auto-reveal className="relative z-10">
+      <main data-auto-reveal className="relative z-10 pb-24 md:pb-0">
         <HeroSection />
         <AboutSection />
         <SkillsSection />
