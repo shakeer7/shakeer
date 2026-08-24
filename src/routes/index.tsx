@@ -28,8 +28,6 @@ import {
   Sun,
   Moon,
   Laptop,
-  Menu,
-  X,
   Home,
   User,
   Briefcase,
