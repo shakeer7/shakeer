@@ -28,9 +28,10 @@ import {
   Sun,
   Moon,
   Laptop,
-  Menu,
-  X,
-
+  Home,
+  User,
+  Briefcase,
+  GraduationCap,
 } from "lucide-react";
 import profileImg from "../assets/shakeer-portrait.jpg.asset.json";
 
@@ -348,7 +349,7 @@ function ThemeToggle() {
 
 function Navbar({ activeSection }: { activeSection: string }) {
   const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -356,113 +357,184 @@ function Navbar({ activeSection }: { activeSection: string }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>, href: string) => {
     e.preventDefault();
     const id = href.replace("#", "");
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-    setOpen(false);
+    setMoreOpen(false);
   };
 
   const isHome = activeSection === "home" || activeSection === "";
 
+  // WhatsApp-style bottom nav: 4 primary items + More
+  const mobileNavLinks = [
+    { label: "Home", href: "#home", icon: Home },
+    { label: "About", href: "#about", icon: User },
+    { label: "Skills", href: "#skills", icon: Zap },
+    { label: "Experience", href: "#experience", icon: Briefcase },
+  ];
+
+  const moreLinks = navLinks.filter(
+    (l) => !mobileNavLinks.some((m) => m.href === l.href),
+  );
+
+  const isMoreActive = moreLinks.some(
+    (l) => activeSection === l.href.replace("#", ""),
+  );
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4">
-      <div
-        className={`mx-auto max-w-6xl rounded-2xl glass-edge glass-shine transition-all duration-300 ${
-          scrolled
-            ? "bg-[var(--glass-bg-strong)] shadow-[var(--glass-shadow)]"
-            : "bg-[var(--glass-bg)] shadow-[0_4px_20px_-12px_rgba(15,23,42,0.25)]"
-        }`}
-        style={{ backdropFilter: "blur(24px) saturate(180%)" }}
-      >
-        <div className="flex items-center justify-between gap-3 px-4 sm:px-5 h-14">
-          <div className="flex min-w-0 items-center gap-4">
-            <a
-              href="#home"
-              onClick={(e) => handleNavClick(e, "#home")}
-              className={`shrink-0 text-base font-bold tracking-tight transition-colors ${
-                isHome
-                  ? "text-primary"
-                  : "text-foreground hover:text-primary"
-              }`}
-            >
-              SM
-            </a>
-            <div className="hidden md:flex min-w-0 items-center gap-0.5">
-              {navLinks.map((link) => {
-                const active = activeSection === link.href.replace("#", "");
-                return (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    onClick={(e) => handleNavClick(e, link.href)}
-                    className={`px-2.5 py-1.5 text-[13px] font-medium rounded-full transition-colors ${
-                      active
-                        ? "text-primary bg-primary/10"
-                        : "text-muted-foreground hover:text-foreground hover:bg-white/15"
-                    }`}
-                  >
-                    {link.label}
-                  </a>
-                );
-              })}
+    <>
+      {/* Desktop / top nav */}
+      <nav className="fixed top-0 left-0 right-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4 hidden md:block">
+        <div
+          className={`mx-auto max-w-6xl rounded-2xl glass-edge glass-shine transition-all duration-300 ${
+            scrolled
+              ? "bg-[var(--glass-bg-strong)] shadow-[var(--glass-shadow)]"
+              : "bg-[var(--glass-bg)] shadow-[0_4px_20px_-12px_rgba(15,23,42,0.25)]"
+          }`}
+          style={{ backdropFilter: "blur(24px) saturate(180%)" }}
+        >
+          <div className="flex items-center justify-between gap-3 px-4 sm:px-5 h-14">
+            <div className="flex min-w-0 items-center gap-4">
+              <a
+                href="#home"
+                onClick={(e) => handleNavClick(e, "#home")}
+                className={`shrink-0 text-base font-bold tracking-tight transition-colors ${
+                  isHome
+                    ? "text-primary"
+                    : "text-foreground hover:text-primary"
+                }`}
+              >
+                SM
+              </a>
+              <div className="flex min-w-0 items-center gap-0.5">
+                {navLinks.map((link) => {
+                  const active = activeSection === link.href.replace("#", "");
+                  return (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      onClick={(e) => handleNavClick(e, link.href)}
+                      className={`px-2.5 py-1.5 text-[13px] font-medium rounded-full transition-colors ${
+                        active
+                          ? "text-primary bg-primary/10"
+                          : "text-muted-foreground hover:text-foreground hover:bg-white/15"
+                      }`}
+                    >
+                      {link.label}
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+            <div className="flex shrink-0 items-center gap-2">
+              <ThemeToggle />
+              <a
+                href="tel:+919441793387"
+                className="hidden sm:inline-flex items-center justify-center w-8 h-8 rounded-full border border-[var(--glass-border)] text-muted-foreground hover:text-primary hover:bg-white/15 transition-colors"
+                aria-label="Call +91 94417 93387"
+                title="Call +91 94417 93387"
+              >
+                <Phone className="w-4 h-4" />
+              </a>
+              <a
+                href="mailto:mds.shakeer@gmail.com"
+                className="inline-flex items-center gap-2 rounded-full bg-primary px-3.5 py-1.5 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
+              >
+                <Mail className="w-4 h-4" />
+                <span className="hidden sm:inline">Get in Touch</span>
+              </a>
             </div>
           </div>
-          <div className="flex shrink-0 items-center gap-2">
-            <ThemeToggle />
-            <a
-              href="tel:+919441793387"
-              className="hidden sm:inline-flex items-center justify-center w-8 h-8 rounded-full border border-[var(--glass-border)] text-muted-foreground hover:text-primary hover:bg-white/15 transition-colors"
-              aria-label="Call +91 94417 93387"
-              title="Call +91 94417 93387"
-            >
-              <Phone className="w-4 h-4" />
-            </a>
-            <a
-              href="mailto:mds.shakeer@gmail.com"
-              className="inline-flex items-center gap-2 rounded-full bg-primary px-3.5 py-1.5 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
-            >
-              <Mail className="w-4 h-4" />
-              <span className="hidden sm:inline">Get in Touch</span>
-            </a>
+        </div>
+      </nav>
+
+      {/* Mobile bottom nav — WhatsApp-style dark glass pill */}
+      <nav className="fixed bottom-4 left-0 right-0 z-50 px-4 md:hidden">
+        <div
+          className="mx-auto max-w-sm rounded-full border border-white/10 bg-[#1a1a1a]/82 dark:bg-black/85 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.45)]"
+          style={{ backdropFilter: "blur(22px) saturate(160%)" }}
+        >
+          <div className="flex items-center justify-between px-1 py-1.5">
+            {mobileNavLinks.map((link) => {
+              const active = activeSection === link.href.replace("#", "");
+              const Icon = link.icon;
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className={`relative flex flex-col items-center justify-center min-w-0 flex-1 rounded-full py-1.5 px-1 transition-colors ${
+                    active
+                      ? "bg-white/12 text-white"
+                      : "text-white/60 hover:text-white/90"
+                  }`}
+                  aria-current={active ? "page" : undefined}
+                >
+                  <Icon className="w-5 h-5 shrink-0" />
+                  <span className="text-[10px] font-medium mt-0.5 leading-none">
+                    {link.label}
+                  </span>
+                </a>
+              );
+            })}
             <button
-              onClick={() => setOpen((v) => !v)}
-              className="md:hidden inline-flex items-center justify-center w-8 h-8 rounded-full border border-[var(--glass-border)] text-muted-foreground hover:text-foreground transition-colors"
-              aria-label={open ? "Close menu" : "Open menu"}
-              aria-expanded={open}
+              onClick={() => setMoreOpen((v) => !v)}
+              className={`relative flex flex-col items-center justify-center min-w-0 flex-1 rounded-full py-1.5 px-1 transition-colors ${
+                isMoreActive
+                  ? "bg-white/12 text-white"
+                  : moreOpen
+                    ? "bg-white/12 text-white"
+                    : "text-white/60 hover:text-white/90"
+              }`}
+              aria-label="More sections"
+              aria-expanded={moreOpen}
             >
-              {open ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+              <LayoutGrid className="w-5 h-5 shrink-0" />
+              <span className="text-[10px] font-medium mt-0.5 leading-none">More</span>
             </button>
           </div>
         </div>
-        {open && (
-          <div className="md:hidden border-t border-[var(--glass-border)] px-3 py-2">
-            <div className="grid grid-cols-2 gap-1">
-              {navLinks.map((link) => {
+      </nav>
+
+      {/* Mobile "More" menu */}
+      {moreOpen && (
+        <div
+          className="fixed inset-0 z-[45] bg-black/40 backdrop-blur-sm md:hidden"
+          onClick={() => setMoreOpen(false)}
+          aria-hidden="true"
+        />
+      )}
+      {moreOpen && (
+        <div className="fixed bottom-[5.5rem] left-4 right-4 z-[46] mx-auto max-w-sm md:hidden">
+          <div className="rounded-2xl border border-white/10 bg-[#1a1a1a]/90 shadow-2xl overflow-hidden">
+            <div className="grid grid-cols-2 gap-1 p-2">
+              {moreLinks.map((link) => {
                 const active = activeSection === link.href.replace("#", "");
                 return (
                   <a
                     key={link.href}
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
+                    className={`flex items-center gap-2 px-3 py-2.5 text-sm font-medium rounded-xl transition-colors ${
                       active
-                        ? "text-primary bg-primary/10"
-                        : "text-muted-foreground hover:text-foreground hover:bg-white/15"
+                        ? "text-primary bg-white/10"
+                        : "text-white/80 hover:text-white hover:bg-white/10"
                     }`}
                   >
+                    <span className="w-1.5 h-1.5 rounded-full bg-current" />
                     {link.label}
                   </a>
                 );
               })}
             </div>
           </div>
-        )}
-      </div>
-    </nav>
+        </div>
+      )}
+    </>
   );
 }
 
@@ -1460,7 +1532,7 @@ function Index() {
         }}
       />
       <Navbar activeSection={activeSection} />
-      <main data-auto-reveal className="relative z-10">
+      <main data-auto-reveal className="relative z-10 pb-24 md:pb-0">
         <HeroSection />
         <AboutSection />
         <SkillsSection />
