@@ -30,7 +30,10 @@ import {
   Laptop,
   Menu,
   X,
-
+  Home,
+  User,
+  Briefcase,
+  GraduationCap,
 } from "lucide-react";
 import profileImg from "../assets/shakeer-portrait.jpg.asset.json";
 
