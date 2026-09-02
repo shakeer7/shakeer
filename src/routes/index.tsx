@@ -296,6 +296,9 @@ function ThemeToggle() {
     } catch {
       // ignore
     }
+    const onExternal = (e: Event) => setTheme((e as CustomEvent<Theme>).detail);
+    window.addEventListener("shakeer-theme-change", onExternal);
+    return () => window.removeEventListener("shakeer-theme-change", onExternal);
   }, []);
 
   useEffect(() => {
