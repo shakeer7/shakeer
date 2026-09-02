@@ -452,12 +452,9 @@ function Navbar({ activeSection }: { activeSection: string }) {
         </div>
       </nav>
 
-      {/* Mobile bottom nav — WhatsApp-style dark glass pill */}
+      {/* Mobile bottom nav — liquid glass pill */}
       <nav className="fixed bottom-4 left-0 right-0 z-50 px-4 md:hidden">
-        <div
-          className="mx-auto max-w-sm rounded-full border border-white/10 bg-[#1a1a1a]/82 dark:bg-black/85 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.45)]"
-          style={{ backdropFilter: "blur(22px) saturate(160%)" }}
-        >
+        <div className="mx-auto max-w-sm rounded-full glass-liquid glass-edge glass-noise">
           <div className="flex items-center justify-between px-1 py-1.5">
             {mobileNavLinks.map((link) => {
               const active = activeSection === link.href.replace("#", "");
