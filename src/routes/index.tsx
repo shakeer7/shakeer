@@ -390,6 +390,11 @@ function Navbar({ activeSection }: { activeSection: string }) {
 
   return (
     <>
+      {/* Theme toggle — top right, mobile-first */}
+      <div className="fixed top-3 right-3 z-[60] md:hidden">
+        <ThemeToggle />
+      </div>
+
       {/* Desktop / top nav */}
       <nav className="fixed top-0 left-0 right-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4 hidden md:block">
         <div
