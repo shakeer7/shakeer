@@ -452,12 +452,9 @@ function Navbar({ activeSection }: { activeSection: string }) {
         </div>
       </nav>
 
-      {/* Mobile bottom nav — WhatsApp-style dark glass pill */}
+      {/* Mobile bottom nav — liquid glass pill */}
       <nav className="fixed bottom-4 left-0 right-0 z-50 px-4 md:hidden">
-        <div
-          className="mx-auto max-w-sm rounded-full border border-white/10 bg-[#1a1a1a]/82 dark:bg-black/85 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.45)]"
-          style={{ backdropFilter: "blur(22px) saturate(160%)" }}
-        >
+        <div className="mx-auto max-w-sm rounded-full glass-liquid glass-edge glass-noise">
           <div className="flex items-center justify-between px-1 py-1.5">
             {mobileNavLinks.map((link) => {
               const active = activeSection === link.href.replace("#", "");
@@ -469,8 +466,8 @@ function Navbar({ activeSection }: { activeSection: string }) {
                   onClick={(e) => handleNavClick(e, link.href)}
                   className={`relative flex flex-col items-center justify-center min-w-0 flex-1 rounded-full py-1.5 px-1 transition-colors ${
                     active
-                      ? "bg-white/12 text-white"
-                      : "text-white/60 hover:text-white/90"
+                      ? "bg-primary/20 text-primary shadow-[inset_0_1px_0_0_var(--glass-highlight)]"
+                      : "text-muted-foreground hover:text-foreground"
                   }`}
                   aria-current={active ? "page" : undefined}
                 >
@@ -484,11 +481,9 @@ function Navbar({ activeSection }: { activeSection: string }) {
             <button
               onClick={() => setMoreOpen((v) => !v)}
               className={`relative flex flex-col items-center justify-center min-w-0 flex-1 rounded-full py-1.5 px-1 transition-colors ${
-                isMoreActive
-                  ? "bg-white/12 text-white"
-                  : moreOpen
-                    ? "bg-white/12 text-white"
-                    : "text-white/60 hover:text-white/90"
+                isMoreActive || moreOpen
+                  ? "bg-primary/20 text-primary shadow-[inset_0_1px_0_0_var(--glass-highlight)]"
+                  : "text-muted-foreground hover:text-foreground"
               }`}
               aria-label="More sections"
               aria-expanded={moreOpen}
@@ -510,7 +505,7 @@ function Navbar({ activeSection }: { activeSection: string }) {
       )}
       {moreOpen && (
         <div className="fixed bottom-[5.5rem] left-4 right-4 z-[46] mx-auto max-w-sm md:hidden">
-          <div className="rounded-2xl border border-white/10 bg-[#1a1a1a]/90 shadow-2xl overflow-hidden">
+          <div className="rounded-2xl glass-liquid glass-edge glass-noise overflow-hidden">
             <div className="grid grid-cols-2 gap-1 p-2">
               {moreLinks.map((link) => {
                 const active = activeSection === link.href.replace("#", "");
@@ -521,8 +516,8 @@ function Navbar({ activeSection }: { activeSection: string }) {
                     onClick={(e) => handleNavClick(e, link.href)}
                     className={`flex items-center gap-2 px-3 py-2.5 text-sm font-medium rounded-xl transition-colors ${
                       active
-                        ? "text-primary bg-white/10"
-                        : "text-white/80 hover:text-white hover:bg-white/10"
+                        ? "text-primary bg-primary/15"
+                        : "text-foreground/75 hover:text-foreground hover:bg-foreground/10"
                     }`}
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-current" />
