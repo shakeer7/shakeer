@@ -1,26 +1,28 @@
-# Matte Black Dark Mode
+# Liquid Glass Mobile Nav Bar
 
 ## Goal
-Make the dark-mode background a full matte black (zero chroma, near-zero lightness) instead of the current dark slate-blue `oklch(0.15 0.02 260)`, while keeping the glass-morphism cards and aurora accents legible against it.
+Restyle the mobile bottom navigation capsule into a true "liquid glass" look — highly translucent, refractive, with specular highlights — matching the iOS-style liquid glass aesthetic and the site's existing glass design system. It must work in both light and dark themes.
 
-## Changes — `src/styles.css` (`.dark` block only)
-Update dark-mode tokens to a matte-black palette. Light mode is untouched.
+## Changes (src/routes/index.tsx + src/styles.css)
 
-- `--background`: `oklch(0 0 0)` — pure matte black, no blue tint.
-- `--surface`: `oklch(0.04 0 0)` — barely-above-black for subtle surface lifts.
-- `--surface-elevated`: `oklch(0.06 0 0)`.
-- `--card`: `oklch(0.05 0 0)` — slightly above background so glass cards still read.
-- `--popover`: `oklch(0.06 0 0)`.
-- `--secondary`: `oklch(0.08 0 0)`.
-- `--muted`: `oklch(0.08 0 0)`.
-- `--border`: `oklch(0 0 0 / 10%)` (was white 8%) — neutral, no blue cast.
-- `--input`: `oklch(0 0 0 / 14%)`.
-- `--hero-glow`: keep current low-chroma value but drop chroma to 0 → `oklch(0.30 0 0)` so the hero radial glow stays neutral on matte black.
+1. **Add a `glass-liquid` utility in `src/styles.css`:**
+   - Semi-transparent tinted background (adapts to light/dark via existing `--glass-*` tokens)
+   - Heavy backdrop blur (~28px) with saturate boost
+   - Specular top highlight (inset white line), subtle inner bottom shadow
+   - Gradient border via existing `glass-edge` mask technique
+   - Soft floating shadow with a hint of the primary color
+   - Optional `glass-noise` texture for realism
 
-`--foreground`, `--muted-foreground`, `--primary`, `--aurora-*`, and glass tokens stay unchanged (they provide the only color in an otherwise black scheme and keep contrast accessible).
+2. **Apply it to the mobile bottom nav in `src/routes/index.tsx`:**
+   - Replace the solid `bg-[#1a1a1a]/82 dark:bg-black/85` capsule with the new `glass-liquid` style
+   - Active tab: glowing glass pill background (`bg-primary/15` tint + inner highlight) instead of flat white
+   - Icons/labels switch from hardcoded `text-white` to theme-aware tokens so it reads correctly in light mode too
 
-## Verification
-- Run `bun run build` to confirm no CSS errors.
-- Visually confirm in preview: background is true matte black, glass cards remain visible, aurora accents still read, and text contrast is preserved.
+3. **Match the "More" popup menu:**
+   - Same liquid-glass treatment on the expanded grid panel
 
-No light-mode changes. No component changes — everything keys off the semantic tokens.
+4. **Verify** in the preview at a mobile viewport in both light and dark themes: legibility of icons, active-tab highlight, blur over page content behind the bar.
+
+## Notes
+- Desktop top pill nav stays as-is.
+- No changes to nav behavior, links, or active-section highlighting.
