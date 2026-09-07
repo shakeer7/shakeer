@@ -353,6 +353,10 @@ function ThemeToggle() {
 function Navbar({ activeSection }: { activeSection: string }) {
   const [scrolled, setScrolled] = useState(false);
   const [moreOpen, setMoreOpen] = useState(false);
+  const [draggedNavIndex, setDraggedNavIndex] = useState<number | null>(null);
+  const mobileNavRef = useRef<HTMLDivElement | null>(null);
+  const navDraggingRef = useRef(false);
+  const draggedNavIndexRef = useRef<number | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -387,6 +391,42 @@ function Navbar({ activeSection }: { activeSection: string }) {
   const isMoreActive = moreLinks.some(
     (l) => activeSection === l.href.replace("#", ""),
   );
+
+  const activeMobileIndex = draggedNavIndex ?? (
+    isMoreActive || moreOpen
+      ? 4
+      : Math.max(0, mobileNavLinks.findIndex((link) => activeSection === link.href.replace("#", "")))
+  );
+
+  const indicatorColumns = ["col-start-1", "col-start-2", "col-start-3", "col-start-4", "col-start-5"];
+
+  const updateDraggedItem = (clientX: number) => {
+    const nav = mobileNavRef.current;
+    if (!nav) return;
+    const bounds = nav.getBoundingClientRect();
+    const relativeX = Math.min(Math.max(clientX - bounds.left, 0), bounds.width - 1);
+    const nextIndex = Math.min(4, Math.floor((relativeX / bounds.width) * 5));
+    draggedNavIndexRef.current = nextIndex;
+    setDraggedNavIndex(nextIndex);
+  };
+
+  const finishNavDrag = (event: React.PointerEvent<HTMLDivElement>) => {
+    const selectedIndex = draggedNavIndexRef.current;
+    if (selectedIndex === null) return;
+    navDraggingRef.current = false;
+    draggedNavIndexRef.current = null;
+    setDraggedNavIndex(null);
+    event.currentTarget.releasePointerCapture(event.pointerId);
+    if (selectedIndex === 4) {
+      setMoreOpen((value) => !value);
+      return;
+    }
+    const selected = mobileNavLinks[selectedIndex];
+    if (!selected) return;
+    const section = document.getElementById(selected.href.replace("#", ""));
+    section?.scrollIntoView({ behavior: "smooth", block: "start" });
+    setMoreOpen(false);
+  };
 
   return (
     <>
@@ -463,7 +503,32 @@ function Navbar({ activeSection }: { activeSection: string }) {
       {/* Mobile bottom nav — liquid glass pill */}
       <nav className="mobile-nav-safe fixed left-0 right-0 z-50 px-2.5 sm:px-4 lg:hidden" aria-label="Mobile navigation">
         <div className="mx-auto w-full max-w-sm rounded-full glass-liquid glass-edge glass-noise">
-          <div className="grid min-h-16 grid-cols-5 items-stretch gap-0.5 p-1.5">
+          <div
+            ref={mobileNavRef}
+            className="relative grid min-h-16 touch-none select-none grid-cols-5 items-stretch gap-0.5 p-1.5"
+            onPointerDown={(event) => {
+              event.preventDefault();
+              event.currentTarget.setPointerCapture(event.pointerId);
+              navDraggingRef.current = true;
+              updateDraggedItem(event.clientX);
+            }}
+            onPointerMove={(event) => {
+              if (navDraggingRef.current) updateDraggedItem(event.clientX);
+            }}
+            onPointerUp={finishNavDrag}
+            onPointerCancel={() => {
+              navDraggingRef.current = false;
+              draggedNavIndexRef.current = null;
+              setDraggedNavIndex(null);
+            }}
+          >
+            <div className="pointer-events-none absolute inset-0 grid grid-cols-5 gap-0.5 p-1.5" aria-hidden="true">
+              <span
+                className={`mobile-liquid-indicator ${indicatorColumns[activeMobileIndex] ?? "col-start-1"} ${
+                  draggedNavIndex !== null ? "scale-[1.06]" : "scale-100"
+                }`}
+              />
+            </div>
             {mobileNavLinks.map((link) => {
               const active = activeSection === link.href.replace("#", "");
               const Icon = link.icon;
@@ -471,10 +536,16 @@ function Navbar({ activeSection }: { activeSection: string }) {
                 <a
                   key={link.href}
                   href={link.href}
-                  onClick={(e) => handleNavClick(e, link.href)}
-                  className={`relative flex min-w-0 flex-col items-center justify-center gap-1 rounded-full px-0.5 py-1 transition-[color,background-color,box-shadow,transform] duration-200 active:scale-95 ${
-                    active
-                      ? "bg-primary/20 text-primary shadow-[inset_0_1px_0_0_var(--glass-highlight)]"
+                  onClick={(e) => {
+                    if (e.detail !== 0) {
+                      e.preventDefault();
+                      return;
+                    }
+                    handleNavClick(e, link.href);
+                  }}
+                  className={`relative z-10 flex min-w-0 flex-col items-center justify-center gap-1 rounded-full px-0.5 py-1 transition-[color,transform] duration-200 active:scale-95 ${
+                    active || draggedNavIndex === mobileNavLinks.indexOf(link)
+                      ? "text-primary"
                       : "text-muted-foreground hover:text-foreground"
                   }`}
                   aria-current={active ? "page" : undefined}
@@ -487,10 +558,13 @@ function Navbar({ activeSection }: { activeSection: string }) {
               );
             })}
             <button
-              onClick={() => setMoreOpen((v) => !v)}
-              className={`relative flex min-w-0 flex-col items-center justify-center gap-1 rounded-full px-0.5 py-1 transition-[color,background-color,box-shadow,transform] duration-200 active:scale-95 ${
-                isMoreActive || moreOpen
-                  ? "bg-primary/20 text-primary shadow-[inset_0_1px_0_0_var(--glass-highlight)]"
+              onClick={(event) => {
+                if (event.detail !== 0) return;
+                setMoreOpen((value) => !value);
+              }}
+              className={`relative z-10 flex min-w-0 flex-col items-center justify-center gap-1 rounded-full px-0.5 py-1 transition-[color,transform] duration-200 active:scale-95 ${
+                isMoreActive || moreOpen || draggedNavIndex === 4
+                  ? "text-primary"
                   : "text-muted-foreground hover:text-foreground"
               }`}
               aria-label="More sections"
