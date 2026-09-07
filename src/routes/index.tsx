@@ -391,12 +391,12 @@ function Navbar({ activeSection }: { activeSection: string }) {
   return (
     <>
       {/* Theme toggle — top right, mobile-first */}
-      <div className="fixed top-3 right-3 z-[60] md:hidden">
+      <div className="fixed top-3 right-3 z-[60] lg:hidden">
         <ThemeToggle />
       </div>
 
       {/* Desktop / top nav */}
-      <nav className="fixed top-0 left-0 right-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4 hidden md:block">
+      <nav className="fixed top-0 left-0 right-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4 hidden lg:block">
         <div
           className={`mx-auto max-w-6xl rounded-2xl glass-edge glass-shine transition-all duration-300 ${
             scrolled
@@ -461,9 +461,9 @@ function Navbar({ activeSection }: { activeSection: string }) {
       </nav>
 
       {/* Mobile bottom nav — liquid glass pill */}
-      <nav className="fixed bottom-4 left-0 right-0 z-50 px-4 md:hidden">
-        <div className="mx-auto max-w-sm rounded-full glass-liquid glass-edge glass-noise">
-          <div className="flex items-center justify-between px-1 py-1.5">
+      <nav className="mobile-nav-safe fixed left-0 right-0 z-50 px-2.5 sm:px-4 lg:hidden" aria-label="Mobile navigation">
+        <div className="mx-auto w-full max-w-sm rounded-full glass-liquid glass-edge glass-noise">
+          <div className="grid min-h-16 grid-cols-5 items-stretch gap-0.5 p-1.5">
             {mobileNavLinks.map((link) => {
               const active = activeSection === link.href.replace("#", "");
               const Icon = link.icon;
@@ -472,15 +472,15 @@ function Navbar({ activeSection }: { activeSection: string }) {
                   key={link.href}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className={`relative flex flex-col items-center justify-center min-w-0 flex-1 rounded-full py-1.5 px-1 transition-colors ${
+                  className={`relative flex min-w-0 flex-col items-center justify-center gap-1 rounded-full px-0.5 py-1 transition-[color,background-color,box-shadow,transform] duration-200 active:scale-95 ${
                     active
                       ? "bg-primary/20 text-primary shadow-[inset_0_1px_0_0_var(--glass-highlight)]"
                       : "text-muted-foreground hover:text-foreground"
                   }`}
                   aria-current={active ? "page" : undefined}
                 >
-                  <Icon className="w-5 h-5 shrink-0" />
-                  <span className="text-[10px] font-medium mt-0.5 leading-none">
+                  <Icon className="h-5 w-5 shrink-0" strokeWidth={active ? 2.4 : 2} />
+                  <span className="max-w-full truncate text-[clamp(0.5rem,2.5vw,0.625rem)] font-semibold leading-none">
                     {link.label}
                   </span>
                 </a>
@@ -488,7 +488,7 @@ function Navbar({ activeSection }: { activeSection: string }) {
             })}
             <button
               onClick={() => setMoreOpen((v) => !v)}
-              className={`relative flex flex-col items-center justify-center min-w-0 flex-1 rounded-full py-1.5 px-1 transition-colors ${
+              className={`relative flex min-w-0 flex-col items-center justify-center gap-1 rounded-full px-0.5 py-1 transition-[color,background-color,box-shadow,transform] duration-200 active:scale-95 ${
                 isMoreActive || moreOpen
                   ? "bg-primary/20 text-primary shadow-[inset_0_1px_0_0_var(--glass-highlight)]"
                   : "text-muted-foreground hover:text-foreground"
@@ -496,8 +496,8 @@ function Navbar({ activeSection }: { activeSection: string }) {
               aria-label="More sections"
               aria-expanded={moreOpen}
             >
-              <LayoutGrid className="w-5 h-5 shrink-0" />
-              <span className="text-[10px] font-medium mt-0.5 leading-none">More</span>
+              <LayoutGrid className="h-5 w-5 shrink-0" strokeWidth={isMoreActive || moreOpen ? 2.4 : 2} />
+              <span className="max-w-full truncate text-[clamp(0.5rem,2.5vw,0.625rem)] font-semibold leading-none">More</span>
             </button>
           </div>
         </div>
@@ -506,13 +506,13 @@ function Navbar({ activeSection }: { activeSection: string }) {
       {/* Mobile "More" menu */}
       {moreOpen && (
         <div
-          className="fixed inset-0 z-[45] bg-black/40 backdrop-blur-sm md:hidden"
+          className="fixed inset-0 z-[45] bg-foreground/30 backdrop-blur-sm lg:hidden"
           onClick={() => setMoreOpen(false)}
           aria-hidden="true"
         />
       )}
       {moreOpen && (
-        <div className="fixed bottom-[5.5rem] left-4 right-4 z-[46] mx-auto max-w-sm md:hidden">
+        <div className="mobile-more-safe fixed left-2.5 right-2.5 z-[46] mx-auto max-w-sm sm:left-4 sm:right-4 lg:hidden">
           <div className="rounded-2xl glass-liquid glass-edge glass-noise overflow-hidden">
             <div className="grid grid-cols-2 gap-1 p-2">
               {moreLinks.map((link) => {
