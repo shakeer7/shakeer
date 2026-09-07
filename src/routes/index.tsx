@@ -524,7 +524,13 @@ function Navbar({ activeSection }: { activeSection: string }) {
                 <a
                   key={link.href}
                   href={link.href}
-                  onClick={(e) => handleNavClick(e, link.href)}
+                  onClick={(e) => {
+                    if (e.detail !== 0) {
+                      e.preventDefault();
+                      return;
+                    }
+                    handleNavClick(e, link.href);
+                  }}
                   className={`relative z-10 flex min-w-0 flex-col items-center justify-center gap-1 rounded-full px-0.5 py-1 transition-[color,transform] duration-200 active:scale-95 ${
                     active || draggedNavIndex === mobileNavLinks.indexOf(link)
                       ? "text-primary"
@@ -540,7 +546,10 @@ function Navbar({ activeSection }: { activeSection: string }) {
               );
             })}
             <button
-              onClick={() => setMoreOpen((v) => !v)}
+              onClick={(event) => {
+                if (event.detail !== 0) return;
+                setMoreOpen((value) => !value);
+              }}
               className={`relative z-10 flex min-w-0 flex-col items-center justify-center gap-1 rounded-full px-0.5 py-1 transition-[color,transform] duration-200 active:scale-95 ${
                 isMoreActive || moreOpen || draggedNavIndex === 4
                   ? "text-primary"
