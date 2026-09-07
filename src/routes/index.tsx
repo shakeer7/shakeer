@@ -355,6 +355,8 @@ function Navbar({ activeSection }: { activeSection: string }) {
   const [moreOpen, setMoreOpen] = useState(false);
   const [draggedNavIndex, setDraggedNavIndex] = useState<number | null>(null);
   const mobileNavRef = useRef<HTMLDivElement | null>(null);
+  const navDraggingRef = useRef(false);
+  const draggedNavIndexRef = useRef<number | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -403,12 +405,16 @@ function Navbar({ activeSection }: { activeSection: string }) {
     if (!nav) return;
     const bounds = nav.getBoundingClientRect();
     const relativeX = Math.min(Math.max(clientX - bounds.left, 0), bounds.width - 1);
-    setDraggedNavIndex(Math.min(4, Math.floor((relativeX / bounds.width) * 5)));
+    const nextIndex = Math.min(4, Math.floor((relativeX / bounds.width) * 5));
+    draggedNavIndexRef.current = nextIndex;
+    setDraggedNavIndex(nextIndex);
   };
 
   const finishNavDrag = (event: React.PointerEvent<HTMLDivElement>) => {
-    if (draggedNavIndex === null) return;
-    const selectedIndex = draggedNavIndex;
+    const selectedIndex = draggedNavIndexRef.current;
+    if (selectedIndex === null) return;
+    navDraggingRef.current = false;
+    draggedNavIndexRef.current = null;
     setDraggedNavIndex(null);
     event.currentTarget.releasePointerCapture(event.pointerId);
     if (selectedIndex === 4) {
@@ -501,14 +507,20 @@ function Navbar({ activeSection }: { activeSection: string }) {
             ref={mobileNavRef}
             className="relative grid min-h-16 touch-none select-none grid-cols-5 items-stretch gap-0.5 p-1.5"
             onPointerDown={(event) => {
+              event.preventDefault();
               event.currentTarget.setPointerCapture(event.pointerId);
+              navDraggingRef.current = true;
               updateDraggedItem(event.clientX);
             }}
             onPointerMove={(event) => {
-              if (draggedNavIndex !== null) updateDraggedItem(event.clientX);
+              if (navDraggingRef.current) updateDraggedItem(event.clientX);
             }}
             onPointerUp={finishNavDrag}
-            onPointerCancel={() => setDraggedNavIndex(null)}
+            onPointerCancel={() => {
+              navDraggingRef.current = false;
+              draggedNavIndexRef.current = null;
+              setDraggedNavIndex(null);
+            }}
           >
             <div className="pointer-events-none absolute inset-0 grid grid-cols-5 gap-0.5 p-1.5" aria-hidden="true">
               <span
