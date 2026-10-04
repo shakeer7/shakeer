@@ -1534,58 +1534,27 @@ function Footer() {
               Guide: Azure DevOps vs GitHub Actions
             </Link>
           </div>
-          <div className="flex items-center gap-4">
-            <a
-              href="mailto:mds.shakeer@gmail.com"
-              className="text-muted-foreground hover:text-primary transition-colors"
-              aria-label="Email"
-            >
-              <Mail className="w-5 h-5" />
-            </a>
-            <a
-              href="https://github.com/shakeer7"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors"
-              aria-label="GitHub"
-            >
-              <Github className="w-5 h-5" />
-            </a>
-            <a
-              href={LINKEDIN_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="w-5 h-5" />
-            </a>
-            <a
-              href={SUBSTACK_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors"
-              aria-label="Substack"
-            >
-              <SubstackIcon className="w-5 h-5" />
-            </a>
-            <a
-              href="tel:+919441793387"
-              className="text-muted-foreground hover:text-primary transition-colors"
-              aria-label="Call +91 94417 93387"
-              title="Call +91 94417 93387"
-            >
-              <Phone className="w-5 h-5" />
-            </a>
-            <a
-              href="https://github.com/Tracer-Cloud/opensre"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors"
-              aria-label="OpenSRE"
-            >
-              <Globe className="w-5 h-5" />
-            </a>
+          <div className="flex items-center gap-3">
+            {[
+              { href: "mailto:mds.shakeer@gmail.com", label: "Email", icon: Mail },
+              { href: "https://github.com/shakeer7", label: "GitHub", icon: Github },
+              { href: LINKEDIN_URL, label: "LinkedIn", icon: Linkedin },
+              { href: SUBSTACK_URL, label: "Substack", icon: SubstackIcon },
+              { href: "tel:+919441793387", label: "Call +91 94417 93387", icon: Phone },
+              { href: "https://github.com/Tracer-Cloud/opensre", label: "OpenSRE", icon: Globe },
+            ].map(({ href, label, icon: Icon }) => (
+              <a
+                key={label}
+                href={href}
+                target={href.startsWith("http") ? "_blank" : undefined}
+                rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+                aria-label={label}
+                title={label}
+                className="flex items-center justify-center w-10 h-10 rounded-full border border-border/60 bg-card/60 backdrop-blur-md text-foreground/80 hover:text-primary hover:border-primary/50 hover:bg-primary/10 transition-all"
+              >
+                <Icon className="w-5 h-5" />
+              </a>
+            ))}
           </div>
           <p className="text-xs text-muted-foreground">
             &copy; {new Date().getFullYear()} Shakeer Mohammed. All rights reserved.
