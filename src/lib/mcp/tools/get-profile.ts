@@ -5,12 +5,13 @@ const profile = {
   title: "DevOps / Cloud Engineer | MLOps Enthusiast",
   location: "Hyderabad, India",
   email: "mds.shakeer@gmail.com",
-  links: {
-    github: "https://github.com/shakeer7",
-    linkedin: "https://www.linkedin.com/in/shakeer-mohammed-384b741a2/",
-    opensre: "https://github.com/Tracer-Cloud/opensre",
-    website: "https://shakeer.lovable.app",
-  },
+    links: {
+      github: "https://github.com/shakeer7",
+      linkedin: "https://www.linkedin.com/in/shakeer-mohammed-384b741a2/",
+      opensre: "https://github.com/Tracer-Cloud/opensre",
+      substack: "https://open.substack.com/pub/shakeer7",
+      website: "https://shakeer.lovable.app",
+    },
   about:
     "Cloud & DevOps Engineer with 4+ years of experience designing, automating, and managing cloud infrastructure, CI/CD pipelines, containerized apps, and IaC on Azure and AWS. Expanding into MLOps, Platform Engineering, and AI-driven infrastructure automation.",
   mission:

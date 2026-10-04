@@ -235,6 +235,21 @@ const navLinks = [
 ];
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/shakeer-mohammed-384b741a2/";
+const SUBSTACK_URL = "https://open.substack.com/pub/shakeer7";
+
+function SubstackIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path d="M22.539 8.242H2.095V5.25h20.444v2.992ZM2.095 10.738h20.444v2.992H2.095v-2.992ZM2.095 15.734h20.444v5.25L12.317 17.5l-10.222 3.484v-5.25Z" />
+    </svg>
+  );
+}
 
 function useActiveSection(ids: string[]) {
   const [active, setActive] = useState("");
@@ -687,6 +702,15 @@ function HeroSection() {
               >
                 <Linkedin className="w-5 h-5" />
                 LinkedIn
+              </a>
+              <a
+                href={SUBSTACK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full glass glass-pill-hover px-6 py-3 text-base font-medium text-foreground transition-all"
+              >
+                <SubstackIcon className="w-5 h-5" />
+                Substack
               </a>
             </div>
             <div className="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-muted-foreground">
@@ -1333,6 +1357,12 @@ function MissionSection() {
       value: "shakeer7",
       href: "https://github.com/shakeer7",
     },
+    {
+      icon: SubstackIcon,
+      label: "Substack",
+      value: "shakeer7.substack.com",
+      href: SUBSTACK_URL,
+    },
   ];
 
   return (
@@ -1529,6 +1559,15 @@ function Footer() {
               aria-label="LinkedIn"
             >
               <Linkedin className="w-5 h-5" />
+            </a>
+            <a
+              href={SUBSTACK_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-primary transition-colors"
+              aria-label="Substack"
+            >
+              <SubstackIcon className="w-5 h-5" />
             </a>
             <a
               href="tel:+919441793387"
