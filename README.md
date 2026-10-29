@@ -16,7 +16,7 @@ Contributor to the OpenSRE community: https://github.com/Tracer-Cloud/opensre
 
 Cloud & DevOps Engineer with 3+ years of experience in designing, automating, and managing cloud infrastructure, CI/CD pipelines, containerized applications, and Infrastructure as Code solutions.
 
-Experienced in Azure and AWS cloud environments, with hands-on expertise in Kubernetes, Docker, Terraform, GitHub Actions, Jenkins, and automation. Passionate about building scalable, secure, and highly available systems that accelerate software delivery and improve operational efficiency.
+Experienced in Azure and AWS cloud environments, with hands-on expertise in Kubernetes, Docker, Terraform, Bicep, GitHub Actions, Jenkins, and automation. Passionate about building scalable, secure, and highly available systems that accelerate software delivery and improve operational efficiency.
 
 Currently expanding expertise in MLOps, Platform Engineering, and AI-driven infrastructure automation. Strong advocate of DevOps culture, continuous improvement, knowledge sharing, and delivering measurable business value through technology.
 
@@ -35,7 +35,7 @@ Currently expanding expertise in MLOps, Platform Engineering, and AI-driven infr
 * GitHub Actions
 * Jenkins
 * CI/CD Pipelines
-* Infrastructure as Code (Terraform)
+* Infrastructure as Code (Terraform, Bicep)
 
 ### Containers & Orchestration
 

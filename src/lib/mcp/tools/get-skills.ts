@@ -8,6 +8,7 @@ const skills = {
     "Ansible",
     "CI/CD Pipelines",
     "Terraform (IaC)",
+    "Azure Bicep",
   ],
   containers: ["Docker", "Kubernetes", "Helm", "Argo CD"],
   monitoring: ["Datadog", "Prometheus", "Grafana"],

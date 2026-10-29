@@ -837,6 +837,7 @@ const skillCategories: {
       { name: "Ansible", slug: "ansible" },
       { name: "CI/CD Pipelines" },
       { name: "Terraform (IaC)", slug: "terraform" },
+      { name: "Azure Bicep" },
     ],
   },
   {
@@ -996,9 +997,12 @@ const experiences = [
         title: "Cloud & DevOps Engineer",
         client: "Client: US-based Financial Services",
         highlights: [
-          "Supported migration from on-premises infrastructure to Microsoft Azure",
-          "Assisted in cloud setup, deployment, and migration activities",
-          "Helped ensure minimal downtime during migration initiatives",
+          "Led the end-to-end migration of on-premises infrastructure to Microsoft Azure, covering workload assessment, replication, phased cutover and post-migration validation",
+          "Provisioned and managed cloud infrastructure using Azure Bicep (Infrastructure as Code), enabling repeatable, consistent deployments of resource groups, VNets, storage, compute and networking components",
+          "Designed, built and maintained CI/CD pipelines in Azure DevOps to automate build, test and deployment of migrated workloads across dev, test and production environments",
+          "Established secure hybrid connectivity between the on-premises datacenter and Azure (VPN gateway, VNets, NSGs) to support phased workload migration",
+          "Planned and executed cutover windows with rollback strategies, ensuring minimal downtime and zero data loss during migration initiatives",
+          "Assisted in cloud setup, deployment, and migration activities while modernizing legacy server workloads onto Azure",
         ],
       },
     ],
