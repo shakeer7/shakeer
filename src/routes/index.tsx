@@ -633,8 +633,8 @@ function Navbar({ activeSection }: { activeSection: string }) {
 
 function HeroSection() {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Hero backdrop */}
+    <section id="home" className="relative min-h-screen flex flex-col justify-center overflow-hidden">
+      {/* Backdrop — dimmed artwork with a clean vertical fade */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <img
           src={heroAnimeBg.url}
@@ -642,125 +642,113 @@ function HeroSection() {
           aria-hidden="true"
           width={1920}
           height={1080}
-          className="h-full w-full object-cover opacity-45 dark:opacity-30"
+          className="h-full w-full object-cover opacity-25 dark:opacity-[0.16]"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/55 to-background dark:from-background/55 dark:via-background/70 dark:to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/55 to-background" />
+        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-background to-transparent" />
       </div>
 
+      {/* Hairline column guides */}
+      <div className="pointer-events-none absolute inset-0 -z-10 hidden lg:block">
+        <div className="container-tight grid h-full grid-cols-4">
+          <div className="border-l border-foreground/[0.05]" />
+          <div className="border-l border-foreground/[0.05]" />
+          <div className="border-l border-foreground/[0.05]" />
+          <div className="border-x border-foreground/[0.05]" />
+        </div>
+      </div>
 
-      {/* Soft glow accents only — aurora shows through */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--color-hero-glow)_0%,_transparent_60%)] opacity-30" />
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_20%_20%,_color-mix(in_oklab,var(--primary)_30%,transparent)_0%,_transparent_55%),radial-gradient(ellipse_at_80%_70%,_color-mix(in_oklab,var(--aurora-2)_30%,transparent)_0%,_transparent_55%)]" />
-
-
-
-
-      {/* Floating glass orbs */}
-      <div className="glass-orb top-1/4 left-[10%] w-64 h-64" />
-      <div className="glass-orb glass-orb-2 bottom-1/4 right-[10%] w-72 h-72" />
-      <div className="glass-orb glass-orb-3 top-1/2 left-1/2 w-56 h-56 -translate-x-1/2 -translate-y-1/2 opacity-30" />
-
-      <div className="container-tight relative z-10 pt-24 pb-16">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-          <div className="flex-1 text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 rounded-full glass glass-edge glass-shine px-4 py-1.5 text-sm font-medium text-foreground mb-6">
-              <Zap className="w-4 h-4 text-primary" />
-              Available for opportunities
+      <div className="container-tight relative z-10 pt-32 pb-24">
+        <div className="grid items-center gap-14 lg:grid-cols-[1.2fr_auto] lg:gap-24">
+          {/* Left — identity */}
+          <div className="text-center lg:text-left">
+            <div className="inline-flex items-center gap-2.5 rounded-full border border-border/70 bg-background/40 px-4 py-1.5 text-[0.7rem] font-medium uppercase tracking-[0.2em] text-muted-foreground">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-60" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
+              </span>
+              Open to opportunities
             </div>
-            <h1 className="font-display text-[clamp(2.25rem,7vw,4rem)] font-bold tracking-tight text-foreground leading-[1.02]">
-              <span className="block hero-name-gradient">{DISPLAY_NAME}</span>
-              <span className="block mt-5 eyebrow text-[0.62rem] sm:text-[0.7rem] tracking-[0.2em] sm:tracking-[0.28em] leading-[1.8] text-muted-foreground">DevOps / Cloud Engineer <span className="text-primary">|</span> MLOps Enthusiast</span>
+
+            <p className="mt-9 font-mono text-[0.7rem] sm:text-xs uppercase tracking-[0.34em] text-muted-foreground">
+              DevOps Engineer <span className="text-primary">·</span> Cloud <span className="text-primary">·</span> MLOps
+            </p>
+
+            <h1 className="mt-4 font-display text-[clamp(2.6rem,7.5vw,5rem)] font-bold tracking-tight text-foreground leading-[1.0]">
+              {DISPLAY_NAME}
+              <span className="text-primary">.</span>
             </h1>
-            <p className="mt-5 font-display text-xl sm:text-2xl italic font-medium text-primary tracking-normal">
-              Azure · AWS · Kubernetes · Terraform · CI/CD · MLOps
+
+            <p className="mx-auto mt-7 max-w-md text-base sm:text-lg text-muted-foreground leading-relaxed lg:mx-0">
+              Building scalable, secure, and automated cloud platforms — Azure, Kubernetes, and CI/CD done right.
             </p>
-            <p className="mt-6 text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 leading-relaxed">
-              Building scalable, secure, and automated cloud platforms that accelerate software delivery and drive operational excellence.
+
+            <p className="mt-6 font-mono text-[0.72rem] sm:text-sm text-muted-foreground/80">
+              <span className="text-primary">❯</span> 4+ yrs · Terraform · Docker · GitHub Actions · MLOps
             </p>
-            <div className="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-4">
+
+            <div className="mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-3">
               <a
                 href="mailto:mds.shakeer@gmail.com"
-                className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-base font-semibold uppercase tracking-wider text-primary-foreground hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
+                className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-semibold tracking-wide text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/25"
               >
-                <Mail className="w-5 h-5" />
-                Contact Me
+                <Mail className="h-4 w-4" />
+                Get in touch
               </a>
               <a
-                href="https://github.com/shakeer7"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full glass glass-pill-hover px-6 py-3 text-base font-medium text-foreground transition-all"
+                href="#experience"
+                className="inline-flex items-center gap-2 rounded-full border border-border/70 px-7 py-3 text-sm font-medium text-foreground transition-colors hover:border-primary/60 hover:text-primary"
               >
-                <Github className="w-5 h-5" />
-                GitHub
-              </a>
-              <a
-                href={LINKEDIN_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full glass glass-pill-hover px-6 py-3 text-base font-medium text-foreground transition-all"
-              >
-                <Linkedin className="w-5 h-5" />
-                LinkedIn
-              </a>
-              <a
-                href={SUBSTACK_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full glass glass-pill-hover px-6 py-3 text-base font-medium text-foreground transition-all"
-              >
-                <SubstackIcon className="w-5 h-5" />
-                Substack
+                View experience
               </a>
             </div>
-            <div className="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-muted-foreground">
+
+            <div className="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-x-5 gap-y-2 text-sm text-muted-foreground">
+              <a href="https://github.com/shakeer7" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground">
+                <Github className="h-4 w-4" />
+                GitHub
+              </a>
+              <span className="text-foreground/20">/</span>
+              <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground">
+                <Linkedin className="h-4 w-4" />
+                LinkedIn
+              </a>
+              <span className="text-foreground/20">/</span>
+              <a href={SUBSTACK_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground">
+                <SubstackIcon className="h-4 w-4" />
+                Substack
+              </a>
+              <span className="text-foreground/20">/</span>
               <span className="inline-flex items-center gap-1.5">
-                <MapPin className="w-4 h-4" />
+                <MapPin className="h-4 w-4" />
                 Hyderabad, India
               </span>
-              <span className="inline-flex items-center gap-1.5">
-                <Mail className="w-4 h-4" />
-                mds.shakeer@gmail.com
-              </span>
-              <a
-                href="tel:+919441793387"
-                className="inline-flex items-center gap-1.5 hover:text-primary transition-colors"
-                aria-label="Call +91 94417 93387"
-                title="Call +91 94417 93387"
-              >
-                <Phone className="w-4 h-4" />
-                <span className="sr-only">+91 94417 93387</span>
-                <span>Contact</span>
-              </a>
             </div>
           </div>
 
-          <div className="flex-shrink-0">
-            <div className="relative w-64 h-64 sm:w-80 sm:h-80">
-              <div className="absolute -inset-4 rounded-full bg-[conic-gradient(from_140deg,var(--primary),var(--aurora-1),var(--aurora-2),var(--aurora-3),var(--primary))] opacity-40 blur-2xl" />
-              <div className="absolute inset-0 rounded-full glass-strong p-2">
-                <div className="w-full h-full rounded-full overflow-hidden ring-2 ring-primary/60">
-                  <img
-                    src={profileImg.url}
-                    alt="Shakeer Mohammed"
-                    className="w-full h-full object-cover object-top"
-                    width={320}
-                    height={320}
-                  />
-                </div>
-              </div>
+          {/* Right — portrait, quiet and sharp */}
+          <div className="relative justify-self-center lg:justify-self-end">
+            <div className="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-b from-primary/15 to-transparent blur-2xl" />
+            <div className="relative w-60 sm:w-72 overflow-hidden rounded-[2rem] border border-border/60 bg-background/60 shadow-2xl shadow-black/25">
+              <img
+                src={profileImg.url}
+                alt="Shakeer Mohammed"
+                className="aspect-[4/5] w-full object-cover object-top grayscale transition-all duration-700 hover:grayscale-0"
+                width={320}
+                height={400}
+              />
             </div>
-
+            <p className="mt-5 text-center font-mono text-[0.6rem] uppercase tracking-[0.35em] text-muted-foreground">
+              shakeer.online
+            </p>
           </div>
         </div>
 
-        <div className="mt-16 flex justify-center">
-          <a
-            href="#about"
-            className="inline-flex flex-col items-center gap-1 text-muted-foreground hover:text-primary transition-colors animate-bounce"
-          >
-            <span className="text-xs font-medium uppercase tracking-wider">Scroll</span>
-            <ChevronDown className="w-5 h-5" />
+        {/* Scroll cue */}
+        <div className="mt-24 flex justify-center">
+          <a href="#about" className="group flex flex-col items-center gap-3 text-muted-foreground transition-colors hover:text-primary">
+            <span className="font-mono text-[0.6rem] uppercase tracking-[0.4em]">Scroll</span>
+            <span className="scroll-line" />
           </a>
         </div>
       </div>
