@@ -657,7 +657,7 @@ function HeroSection() {
       </div>
 
       <div className="container-tight relative z-10 pt-32 pb-24">
-        <div className="grid items-center gap-10 md:grid-cols-[1.2fr_auto] md:gap-16 lg:gap-24">
+        <div className="grid items-center gap-6 md:grid-cols-[1.2fr_auto] md:gap-16 lg:gap-24">
           {/* Left — identity */}
           <div className="text-center md:text-left">
             <div className="inline-flex items-center gap-2.5 rounded-full border border-border/70 bg-background/40 px-4 py-1.5 text-[0.7rem] font-medium uppercase tracking-[0.2em] text-muted-foreground">
@@ -685,7 +685,7 @@ function HeroSection() {
               <span className="text-primary">❯</span> 4+ yrs · Terraform · Docker · GitHub Actions · MLOps
             </p>
 
-            <div className="mt-10 flex flex-wrap items-center justify-center md:justify-start gap-3">
+            <div className="mt-6 flex flex-wrap items-center justify-center md:mt-10 md:justify-start gap-3">
               <a
                 href="mailto:mds.shakeer@gmail.com"
                 className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-semibold tracking-wide text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/25"
@@ -725,9 +725,9 @@ function HeroSection() {
           </div>
 
           {/* Right — editorial portrait card */}
-          <div className="relative justify-self-center md:justify-self-end">
+          <div className="relative order-first justify-self-center md:order-none md:justify-self-end">
             <div className="absolute -inset-5 rounded-[2.5rem] bg-primary/20 blur-3xl" />
-            <div className="relative w-64 sm:w-80 overflow-hidden rounded-[2rem] border border-white/20 bg-background/60 shadow-2xl shadow-black/30">
+            <div className="relative w-44 sm:w-56 md:w-80 overflow-hidden rounded-[2rem] border border-white/20 bg-background/60 shadow-2xl shadow-black/30">
               <img
                 src="/images/shakeer-profile.jpeg"
                 alt="Shakeer Mohammed seated in a warm interior"
