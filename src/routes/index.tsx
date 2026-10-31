@@ -657,7 +657,7 @@ function HeroSection() {
       </div>
 
       <div className="container-tight relative z-10 px-5 pb-20 pt-28 sm:px-8 sm:pt-36 lg:pb-28">
-        <div className="relative grid grid-cols-1 items-start gap-8 min-[381px]:grid-cols-[minmax(0,1fr)_96px] min-[420px]:grid-cols-[minmax(0,1fr)_128px] min-[420px]:gap-5 md:grid-cols-[minmax(0,1fr)_auto] md:items-center md:gap-16 lg:gap-24">
+        <div className="relative grid grid-cols-[minmax(0,1fr)_72px] items-start gap-3 min-[381px]:grid-cols-[minmax(0,1fr)_96px] min-[420px]:grid-cols-[minmax(0,1fr)_128px] min-[420px]:gap-5 md:grid-cols-[minmax(0,1fr)_auto] md:items-center md:gap-16 lg:gap-24">
           {/* Left — identity */}
           <div className="relative z-10 max-w-xl text-left">
             <div className="inline-flex items-center gap-2.5 rounded-full border border-border/70 bg-background/40 px-4 py-1.5 text-[0.7rem] font-medium uppercase tracking-[0.2em] text-muted-foreground">
@@ -672,7 +672,7 @@ function HeroSection() {
               DevOps Engineer <span className="text-primary">·</span> Cloud <span className="text-primary">·</span> MLOps
             </p>
 
-            <h1 className="mt-4 max-w-[10ch] font-display text-[clamp(2.25rem,8vw,6.6rem)] font-bold tracking-[-0.055em] text-foreground leading-[0.92] sm:text-[clamp(3.2rem,8vw,6.6rem)]">
+            <h1 className="mt-4 max-w-[10ch] font-display text-[clamp(1.9rem,8vw,6.6rem)] font-bold tracking-[-0.055em] text-foreground leading-[0.92] sm:text-[clamp(3.2rem,8vw,6.6rem)]">
               {DISPLAY_NAME}
               <span className="text-primary">.</span>
             </h1>
@@ -725,9 +725,9 @@ function HeroSection() {
           </div>
 
           {/* Right — editorial portrait card */}
-          <div className="relative mt-1 block justify-self-center max-[380px]:hidden min-[381px]:justify-self-end md:mt-0 md:justify-self-end">
+          <div className="relative mt-1 block justify-self-end md:mt-0 md:justify-self-end">
             <div className="absolute -inset-5 rounded-[2.5rem] bg-primary/20 blur-3xl" />
-            <div className="relative w-24 min-[381px]:w-24 min-[420px]:w-28 sm:w-44 md:w-80 overflow-hidden rounded-[1.25rem] border border-white/20 bg-background/60 shadow-2xl shadow-black/30">
+            <div className="relative w-[72px] min-[381px]:w-24 min-[420px]:w-28 sm:w-44 md:w-80 overflow-hidden rounded-[1.25rem] border border-white/20 bg-background/60 shadow-2xl shadow-black/30">
               <img
                 src="/images/shakeer-profile.jpeg"
                 alt="" aria-hidden="true"
@@ -740,7 +740,7 @@ function HeroSection() {
                 <span className="text-xs text-white/70">Hyderabad</span>
               </div>
             </div>
-            <div className="absolute -right-5 -top-5 rounded-full border border-border/70 bg-background/90 px-3 py-2 font-mono text-[0.58rem] uppercase tracking-[0.22em] text-muted-foreground shadow-lg">
+            <div className="absolute -right-5 -top-5 hidden rounded-full border border-border/70 bg-background/90 px-3 py-2 font-mono text-[0.58rem] uppercase tracking-[0.22em] text-muted-foreground shadow-lg md:block">
               Cloud · MLOps
             </div>
             <p className="mt-5 text-center font-mono text-[0.6rem] uppercase tracking-[0.35em] text-muted-foreground">
