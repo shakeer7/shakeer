@@ -33,8 +33,6 @@ import {
   Briefcase,
   GraduationCap,
 } from "lucide-react";
-import fallbackHeroImg from "../assets/hero-bg.jpg";
-
 import heroAnimeBg from "../assets/hero-anime-bg.jpg.asset.json";
 import isbLogo from "../assets/isb-logo.png.asset.json";
 import cbitLogo from "../assets/cbit-logo.png.asset.json";
@@ -726,17 +724,24 @@ function HeroSection() {
             </div>
           </div>
 
-          {/* Right — portrait, quiet and sharp */}
+          {/* Right — editorial portrait card */}
           <div className="relative justify-self-center md:justify-self-end">
-            <div className="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-b from-primary/15 to-transparent blur-2xl" />
-            <div className="relative w-60 sm:w-72 overflow-hidden rounded-[2rem] border border-border/60 bg-background/60 shadow-2xl shadow-black/25">
+            <div className="absolute -inset-5 rounded-[2.5rem] bg-primary/20 blur-3xl" />
+            <div className="relative w-64 sm:w-80 overflow-hidden rounded-[2rem] border border-white/20 bg-background/60 shadow-2xl shadow-black/30">
               <img
-                src={fallbackHeroImg}
-                alt="Shakeer Mohammed"
-                className="aspect-[4/5] w-full object-cover object-top grayscale transition-all duration-700 hover:grayscale-0"
-                width={320}
-                height={400}
+                src="/images/shakeer-profile.jpeg"
+                alt="Shakeer Mohammed seated in a warm interior"
+                className="aspect-[4/5] w-full object-cover object-center transition-transform duration-700 hover:scale-[1.03]"
+                width={640}
+                height={853}
               />
+              <div className="absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-black/80 via-black/20 to-transparent px-5 pb-5 pt-16 text-white">
+                <span className="font-mono text-[0.6rem] uppercase tracking-[0.28em]">Profile / 01</span>
+                <span className="text-xs text-white/70">Hyderabad</span>
+              </div>
+            </div>
+            <div className="absolute -right-5 -top-5 rounded-full border border-border/70 bg-background/90 px-3 py-2 font-mono text-[0.58rem] uppercase tracking-[0.22em] text-muted-foreground shadow-lg">
+              Cloud · MLOps
             </div>
             <p className="mt-5 text-center font-mono text-[0.6rem] uppercase tracking-[0.35em] text-muted-foreground">
               shakeer.online
