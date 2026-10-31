@@ -33,7 +33,7 @@ import {
   Briefcase,
   GraduationCap,
 } from "lucide-react";
-import profileImg from "../assets/shakeer-portrait.jpg.asset.json";
+import fallbackHeroImg from "../assets/hero-bg.jpg";
 
 import heroAnimeBg from "../assets/hero-anime-bg.jpg.asset.json";
 import isbLogo from "../assets/isb-logo.png.asset.json";
@@ -446,12 +446,12 @@ function Navbar({ activeSection }: { activeSection: string }) {
   return (
     <>
       {/* Theme toggle — top right, mobile-first */}
-      <div className="fixed top-3 right-3 z-[60] lg:hidden">
+      <div className="fixed top-3 right-3 z-[60] md:hidden">
         <ThemeToggle />
       </div>
 
       {/* Desktop / top nav */}
-      <nav className="fixed top-0 left-0 right-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4 hidden lg:block">
+      <nav className="fixed top-0 left-0 right-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4 hidden md:block">
         <div
           className={`mx-auto max-w-6xl rounded-2xl glass-edge glass-shine transition-all duration-300 ${
             scrolled
@@ -516,7 +516,7 @@ function Navbar({ activeSection }: { activeSection: string }) {
       </nav>
 
       {/* Mobile bottom nav — liquid glass pill */}
-      <nav className="mobile-nav-safe fixed left-0 right-0 z-50 px-2.5 sm:px-4 lg:hidden" aria-label="Mobile navigation">
+      <nav className="mobile-nav-safe fixed left-0 right-0 z-50 px-2.5 sm:px-4 md:hidden" aria-label="Mobile navigation">
         <div className="mx-auto w-full max-w-sm rounded-full glass-liquid glass-edge glass-noise">
           <div
             ref={mobileNavRef}
@@ -595,13 +595,13 @@ function Navbar({ activeSection }: { activeSection: string }) {
       {/* Mobile "More" menu */}
       {moreOpen && (
         <div
-          className="fixed inset-0 z-[45] bg-foreground/30 backdrop-blur-sm lg:hidden"
+          className="fixed inset-0 z-[45] bg-foreground/30 backdrop-blur-sm md:hidden"
           onClick={() => setMoreOpen(false)}
           aria-hidden="true"
         />
       )}
       {moreOpen && (
-        <div className="mobile-more-safe fixed left-2.5 right-2.5 z-[46] mx-auto max-w-sm sm:left-4 sm:right-4 lg:hidden">
+        <div className="mobile-more-safe fixed left-2.5 right-2.5 z-[46] mx-auto max-w-sm sm:left-4 sm:right-4 md:hidden">
           <div className="rounded-2xl glass-liquid glass-edge glass-noise overflow-hidden">
             <div className="grid grid-cols-2 gap-1 p-2">
               {moreLinks.map((link) => {
@@ -649,7 +649,7 @@ function HeroSection() {
       </div>
 
       {/* Hairline column guides */}
-      <div className="pointer-events-none absolute inset-0 -z-10 hidden lg:block">
+      <div className="pointer-events-none absolute inset-0 -z-10 hidden md:block">
         <div className="container-tight grid h-full grid-cols-4">
           <div className="border-l border-foreground/[0.05]" />
           <div className="border-l border-foreground/[0.05]" />
@@ -659,9 +659,9 @@ function HeroSection() {
       </div>
 
       <div className="container-tight relative z-10 pt-32 pb-24">
-        <div className="grid items-center gap-14 lg:grid-cols-[1.2fr_auto] lg:gap-24">
+        <div className="grid items-center gap-10 md:grid-cols-[1.2fr_auto] md:gap-16 lg:gap-24">
           {/* Left — identity */}
-          <div className="text-center lg:text-left">
+          <div className="text-center md:text-left">
             <div className="inline-flex items-center gap-2.5 rounded-full border border-border/70 bg-background/40 px-4 py-1.5 text-[0.7rem] font-medium uppercase tracking-[0.2em] text-muted-foreground">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-60" />
@@ -679,7 +679,7 @@ function HeroSection() {
               <span className="text-primary">.</span>
             </h1>
 
-            <p className="mx-auto mt-7 max-w-md text-base sm:text-lg text-muted-foreground leading-relaxed lg:mx-0">
+            <p className="mx-auto mt-7 max-w-md text-base sm:text-lg text-muted-foreground leading-relaxed md:mx-0">
               Building scalable, secure, and automated cloud platforms — Azure, Kubernetes, and CI/CD done right.
             </p>
 
@@ -687,7 +687,7 @@ function HeroSection() {
               <span className="text-primary">❯</span> 4+ yrs · Terraform · Docker · GitHub Actions · MLOps
             </p>
 
-            <div className="mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-3">
+            <div className="mt-10 flex flex-wrap items-center justify-center md:justify-start gap-3">
               <a
                 href="mailto:mds.shakeer@gmail.com"
                 className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-semibold tracking-wide text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/25"
@@ -703,7 +703,7 @@ function HeroSection() {
               </a>
             </div>
 
-            <div className="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-x-5 gap-y-2 text-sm text-muted-foreground">
+            <div className="mt-8 flex flex-wrap items-center justify-center md:justify-start gap-x-5 gap-y-2 text-sm text-muted-foreground">
               <a href="https://github.com/shakeer7" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground">
                 <Github className="h-4 w-4" />
                 GitHub
@@ -727,11 +727,11 @@ function HeroSection() {
           </div>
 
           {/* Right — portrait, quiet and sharp */}
-          <div className="relative justify-self-center lg:justify-self-end">
+          <div className="relative justify-self-center md:justify-self-end">
             <div className="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-b from-primary/15 to-transparent blur-2xl" />
             <div className="relative w-60 sm:w-72 overflow-hidden rounded-[2rem] border border-border/60 bg-background/60 shadow-2xl shadow-black/25">
               <img
-                src={profileImg.url}
+                src={fallbackHeroImg}
                 alt="Shakeer Mohammed"
                 className="aspect-[4/5] w-full object-cover object-top grayscale transition-all duration-700 hover:grayscale-0"
                 width={320}
