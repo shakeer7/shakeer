@@ -501,6 +501,28 @@
   }
 }
 
+.hero-shell {
+  isolation: isolate;
+  background: var(--background);
+}
+
+.hero-backdrop {
+  background:
+    radial-gradient(circle at 78% 24%, color-mix(in oklab, var(--primary) 16%, transparent), transparent 30rem),
+    radial-gradient(circle at 15% 75%, color-mix(in oklab, var(--aurora-2) 10%, transparent), transparent 26rem),
+    linear-gradient(135deg, color-mix(in oklab, var(--background) 95%, var(--primary)), var(--background));
+}
+
+.hero-backdrop::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.42;
+  background-image: linear-gradient(color-mix(in oklab, var(--foreground) 6%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in oklab, var(--foreground) 6%, transparent) 1px, transparent 1px);
+  background-size: 4rem 4rem;
+  mask-image: linear-gradient(to bottom, black, transparent 80%);
+}
+
 @keyframes scroll-line-drip {
   0% {
     transform: translateY(-110%);

@@ -631,9 +631,9 @@ function Navbar({ activeSection }: { activeSection: string }) {
 
 function HeroSection() {
   return (
-    <section id="home" className="relative min-h-screen flex flex-col justify-center overflow-hidden">
+    <section id="home" className="hero-shell relative flex min-h-[100svh] flex-col justify-center overflow-hidden">
       {/* Backdrop — dimmed artwork with a clean vertical fade */}
-      <div className="pointer-events-none absolute inset-0 -z-10">
+      <div className="hero-backdrop pointer-events-none absolute inset-0 -z-10">
         <img
           src={heroAnimeBg.url}
           alt=""
@@ -656,8 +656,8 @@ function HeroSection() {
         </div>
       </div>
 
-      <div className="container-tight relative z-10 pt-32 pb-24">
-        <div className="relative block md:grid md:items-center md:grid-cols-[1.2fr_auto] md:gap-16 lg:gap-24">
+      <div className="container-tight relative z-10 px-5 pb-20 pt-28 sm:px-8 sm:pt-36 lg:pb-28">
+        <div className="relative flex flex-col gap-10 md:grid md:items-center md:grid-cols-[minmax(0,1fr)_auto] md:gap-16 lg:gap-24">
           {/* Left — identity */}
           <div className="relative z-10 max-w-xl text-center md:text-left">
             <div className="inline-flex items-center gap-2.5 rounded-full border border-border/70 bg-background/40 px-4 py-1.5 text-[0.7rem] font-medium uppercase tracking-[0.2em] text-muted-foreground">
@@ -668,24 +668,24 @@ function HeroSection() {
               Open to opportunities
             </div>
 
-            <p className="mt-9 font-mono text-[0.7rem] sm:text-xs uppercase tracking-[0.34em] text-muted-foreground">
+            <p className="mt-7 font-mono text-[0.65rem] uppercase tracking-[0.28em] text-muted-foreground sm:text-xs sm:tracking-[0.34em]">
               DevOps Engineer <span className="text-primary">·</span> Cloud <span className="text-primary">·</span> MLOps
             </p>
 
-            <h1 className="mt-4 font-display text-[clamp(2.6rem,7.5vw,5rem)] font-bold tracking-tight text-foreground leading-[1.0]">
+            <h1 className="mt-4 max-w-[10ch] font-display text-[clamp(2.65rem,8vw,6.6rem)] font-bold tracking-[-0.055em] text-foreground leading-[0.92] sm:text-[clamp(3.2rem,8vw,6.6rem)]">
               {DISPLAY_NAME}
               <span className="text-primary">.</span>
             </h1>
 
-            <p className="mx-auto mt-7 max-w-md text-base sm:text-lg text-muted-foreground leading-relaxed md:mx-0">
+            <p className="mx-auto mt-6 max-w-md text-[0.95rem] leading-relaxed text-muted-foreground sm:mt-7 sm:text-lg md:mx-0">
               Building scalable, secure, and automated cloud platforms — Azure, Kubernetes, and CI/CD done right.
             </p>
 
-            <p className="mt-6 font-mono text-[0.72rem] sm:text-sm text-muted-foreground/80">
+            <p className="mt-6 font-mono text-[0.72rem] text-muted-foreground/80 max-[360px]:hidden sm:text-sm">
               <span className="text-primary">❯</span> 4+ yrs · Terraform · Docker · GitHub Actions · MLOps
             </p>
 
-            <div className="mt-6 flex flex-wrap items-center justify-center md:mt-10 md:justify-start gap-3">
+            <div className="mt-0 flex flex-wrap items-center justify-center gap-3 sm:mt-6 md:mt-10 md:justify-start">
               <a
                 href="mailto:mds.shakeer@gmail.com"
                 className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-semibold tracking-wide text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/25"
@@ -695,13 +695,13 @@ function HeroSection() {
               </a>
               <a
                 href="#experience"
-                className="inline-flex items-center gap-2 rounded-full border border-border/70 px-7 py-3 text-sm font-medium text-foreground transition-colors hover:border-primary/60 hover:text-primary"
+                className="inline-flex items-center gap-2 rounded-full border border-border/70 px-7 py-3 text-sm font-medium text-foreground transition-colors hover:border-primary/60 hover:text-primary max-[360px]:hidden"
               >
                 View experience
               </a>
             </div>
 
-            <div className="mt-8 flex flex-wrap items-center justify-center md:justify-start gap-x-5 gap-y-2 text-sm text-muted-foreground">
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-muted-foreground max-[360px]:hidden md:justify-start">
               <a href="https://github.com/shakeer7" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground">
                 <Github className="h-4 w-4" />
                 GitHub
@@ -725,9 +725,9 @@ function HeroSection() {
           </div>
 
           {/* Right — editorial portrait card */}
-          <div className="pointer-events-none absolute -right-20 top-12 z-0 w-52 opacity-25 md:pointer-events-auto md:relative md:right-auto md:top-auto md:z-auto md:order-none md:w-auto md:justify-self-end md:opacity-100">
+          <div className="relative mt-4 hidden justify-self-center min-[420px]:block md:mt-0 md:justify-self-end">
             <div className="absolute -inset-5 rounded-[2.5rem] bg-primary/20 blur-3xl" />
-            <div className="relative w-44 sm:w-56 md:w-80 overflow-hidden rounded-[2rem] border border-white/20 bg-background/60 shadow-2xl shadow-black/30">
+            <div className="relative w-32 sm:w-44 md:w-80 overflow-hidden rounded-[1.5rem] border border-white/20 bg-background/60 shadow-2xl shadow-black/30">
               <img
                 src="/images/shakeer-profile.jpeg"
                 alt="" aria-hidden="true"
