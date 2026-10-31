@@ -657,7 +657,7 @@ function HeroSection() {
       </div>
 
       <div className="container-tight relative z-10 pt-32 pb-24">
-        <div className="relative flex flex-col gap-6 md:grid md:items-center md:grid-cols-[1.2fr_auto] md:gap-16 lg:gap-24">
+        <div className="relative flex flex-col gap-3 md:grid md:items-center md:grid-cols-[1.2fr_auto] md:gap-16 lg:gap-24">
           {/* Left — identity */}
           <div className="relative z-10 max-w-xl text-center md:text-left">
             <div className="inline-flex items-center gap-2.5 rounded-full border border-border/70 bg-background/40 px-4 py-1.5 text-[0.7rem] font-medium uppercase tracking-[0.2em] text-muted-foreground">
@@ -725,9 +725,9 @@ function HeroSection() {
           </div>
 
           {/* Right — editorial portrait card */}
-          <div className="relative order-first justify-self-center md:order-none md:justify-self-end">
+          <div className="relative mt-4 justify-self-center md:mt-0 md:justify-self-end">
             <div className="absolute -inset-5 rounded-[2.5rem] bg-primary/20 blur-3xl" />
-            <div className="relative w-44 sm:w-56 md:w-80 overflow-hidden rounded-[2rem] border border-white/20 bg-background/60 shadow-2xl shadow-black/30">
+            <div className="relative w-32 sm:w-44 md:w-80 overflow-hidden rounded-[1.5rem] border border-white/20 bg-background/60 shadow-2xl shadow-black/30">
               <img
                 src="/images/shakeer-profile.jpeg"
                 alt="" aria-hidden="true"
