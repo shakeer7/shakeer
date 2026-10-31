@@ -33,8 +33,6 @@ import {
   Briefcase,
   GraduationCap,
 } from "lucide-react";
-import fallbackHeroImg from "../assets/hero-bg.jpg";
-
 import heroAnimeBg from "../assets/hero-anime-bg.jpg.asset.json";
 import isbLogo from "../assets/isb-logo.png.asset.json";
 import cbitLogo from "../assets/cbit-logo.png.asset.json";
@@ -642,7 +640,7 @@ function HeroSection() {
           aria-hidden="true"
           width={1920}
           height={1080}
-          className="h-full w-full object-cover opacity-25 dark:opacity-[0.16]"
+          className="hidden h-full w-full object-cover opacity-25 dark:opacity-[0.16] md:block"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/55 to-background" />
         <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-background to-transparent" />
@@ -659,9 +657,9 @@ function HeroSection() {
       </div>
 
       <div className="container-tight relative z-10 pt-32 pb-24">
-        <div className="grid items-center gap-10 md:grid-cols-[1.2fr_auto] md:gap-16 lg:gap-24">
+        <div className="relative block md:grid md:items-center md:grid-cols-[1.2fr_auto] md:gap-16 lg:gap-24">
           {/* Left — identity */}
-          <div className="text-center md:text-left">
+          <div className="relative z-10 max-w-xl text-center md:text-left">
             <div className="inline-flex items-center gap-2.5 rounded-full border border-border/70 bg-background/40 px-4 py-1.5 text-[0.7rem] font-medium uppercase tracking-[0.2em] text-muted-foreground">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-60" />
@@ -687,7 +685,7 @@ function HeroSection() {
               <span className="text-primary">❯</span> 4+ yrs · Terraform · Docker · GitHub Actions · MLOps
             </p>
 
-            <div className="mt-10 flex flex-wrap items-center justify-center md:justify-start gap-3">
+            <div className="mt-6 flex flex-wrap items-center justify-center md:mt-10 md:justify-start gap-3">
               <a
                 href="mailto:mds.shakeer@gmail.com"
                 className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-semibold tracking-wide text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/25"
@@ -726,17 +724,24 @@ function HeroSection() {
             </div>
           </div>
 
-          {/* Right — portrait, quiet and sharp */}
-          <div className="relative justify-self-center md:justify-self-end">
-            <div className="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-b from-primary/15 to-transparent blur-2xl" />
-            <div className="relative w-60 sm:w-72 overflow-hidden rounded-[2rem] border border-border/60 bg-background/60 shadow-2xl shadow-black/25">
+          {/* Right — editorial portrait card */}
+          <div className="pointer-events-none absolute -right-20 top-12 z-0 w-52 opacity-25 md:pointer-events-auto md:relative md:right-auto md:top-auto md:z-auto md:order-none md:w-auto md:justify-self-end md:opacity-100">
+            <div className="absolute -inset-5 rounded-[2.5rem] bg-primary/20 blur-3xl" />
+            <div className="relative w-44 sm:w-56 md:w-80 overflow-hidden rounded-[2rem] border border-white/20 bg-background/60 shadow-2xl shadow-black/30">
               <img
-                src={fallbackHeroImg}
-                alt="Shakeer Mohammed"
-                className="aspect-[4/5] w-full object-cover object-top grayscale transition-all duration-700 hover:grayscale-0"
-                width={320}
-                height={400}
+                src="/images/shakeer-profile.jpeg"
+                alt="" aria-hidden="true"
+                className="aspect-[4/5] w-full object-cover object-center transition-transform duration-700 hover:scale-[1.03]"
+                width={640}
+                height={853}
               />
+              <div className="absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-black/80 via-black/20 to-transparent px-5 pb-5 pt-16 text-white">
+                <span className="font-mono text-[0.6rem] uppercase tracking-[0.28em]">Profile / 01</span>
+                <span className="text-xs text-white/70">Hyderabad</span>
+              </div>
+            </div>
+            <div className="absolute -right-5 -top-5 rounded-full border border-border/70 bg-background/90 px-3 py-2 font-mono text-[0.58rem] uppercase tracking-[0.22em] text-muted-foreground shadow-lg">
+              Cloud · MLOps
             </div>
             <p className="mt-5 text-center font-mono text-[0.6rem] uppercase tracking-[0.35em] text-muted-foreground">
               shakeer.online
