@@ -631,9 +631,9 @@ function Navbar({ activeSection }: { activeSection: string }) {
 
 function HeroSection() {
   return (
-    <section id="home" className="relative min-h-screen flex flex-col justify-center overflow-hidden">
+    <section id="home" className="hero-shell relative flex min-h-[100svh] flex-col justify-center overflow-hidden">
       {/* Backdrop — dimmed artwork with a clean vertical fade */}
-      <div className="pointer-events-none absolute inset-0 -z-10">
+      <div className="hero-backdrop pointer-events-none absolute inset-0 -z-10">
         <img
           src={heroAnimeBg.url}
           alt=""
@@ -656,8 +656,8 @@ function HeroSection() {
         </div>
       </div>
 
-      <div className="container-tight relative z-10 pt-32 pb-24">
-        <div className="relative flex flex-col gap-3 md:grid md:items-center md:grid-cols-[1.2fr_auto] md:gap-16 lg:gap-24">
+      <div className="container-tight relative z-10 px-5 pb-20 pt-28 sm:px-8 sm:pt-36 lg:pb-28">
+        <div className="relative flex flex-col gap-10 md:grid md:items-center md:grid-cols-[minmax(0,1fr)_auto] md:gap-16 lg:gap-24">
           {/* Left — identity */}
           <div className="relative z-10 max-w-xl text-center md:text-left">
             <div className="inline-flex items-center gap-2.5 rounded-full border border-border/70 bg-background/40 px-4 py-1.5 text-[0.7rem] font-medium uppercase tracking-[0.2em] text-muted-foreground">
@@ -668,11 +668,11 @@ function HeroSection() {
               Open to opportunities
             </div>
 
-            <p className="mt-9 font-mono text-[0.7rem] sm:text-xs uppercase tracking-[0.34em] text-muted-foreground">
+            <p className="mt-7 font-mono text-[0.65rem] uppercase tracking-[0.28em] text-muted-foreground sm:text-xs sm:tracking-[0.34em]">
               DevOps Engineer <span className="text-primary">·</span> Cloud <span className="text-primary">·</span> MLOps
             </p>
 
-            <h1 className="mt-4 font-display text-[clamp(2.6rem,7.5vw,5rem)] font-bold tracking-tight text-foreground leading-[1.0]">
+            <h1 className="mt-4 max-w-[10ch] font-display text-[clamp(3.2rem,8vw,6.6rem)] font-bold tracking-[-0.055em] text-foreground leading-[0.92]">
               {DISPLAY_NAME}
               <span className="text-primary">.</span>
             </h1>
