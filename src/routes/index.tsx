@@ -725,7 +725,7 @@ function HeroSection() {
           </div>
 
           {/* Right — editorial portrait card */}
-          <div className="pointer-events-none absolute -right-20 top-12 z-0 w-52 opacity-25 md:pointer-events-auto md:relative md:right-auto md:top-auto md:z-auto md:order-none md:w-auto md:justify-self-end md:opacity-100">
+          <div className="hidden md:relative md:block md:justify-self-end">
             <div className="absolute -inset-5 rounded-[2.5rem] bg-primary/20 blur-3xl" />
             <div className="relative w-44 sm:w-56 md:w-80 overflow-hidden rounded-[2rem] border border-white/20 bg-background/60 shadow-2xl shadow-black/30">
               <img
