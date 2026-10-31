@@ -657,9 +657,9 @@ function HeroSection() {
       </div>
 
       <div className="container-tight relative z-10 pt-32 pb-24">
-        <div className="grid items-center gap-6 md:grid-cols-[1.2fr_auto] md:gap-16 lg:gap-24">
+        <div className="relative block md:grid md:items-center md:grid-cols-[1.2fr_auto] md:gap-16 lg:gap-24">
           {/* Left — identity */}
-          <div className="text-center md:text-left">
+          <div className="relative z-10 max-w-xl text-center md:text-left">
             <div className="inline-flex items-center gap-2.5 rounded-full border border-border/70 bg-background/40 px-4 py-1.5 text-[0.7rem] font-medium uppercase tracking-[0.2em] text-muted-foreground">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-60" />
@@ -725,12 +725,12 @@ function HeroSection() {
           </div>
 
           {/* Right — editorial portrait card */}
-          <div className="relative order-first justify-self-center md:order-none md:justify-self-end">
+          <div className="pointer-events-none absolute -right-20 top-12 z-0 w-52 opacity-25 md:pointer-events-auto md:relative md:right-auto md:top-auto md:z-auto md:order-none md:w-auto md:justify-self-end md:opacity-100">
             <div className="absolute -inset-5 rounded-[2.5rem] bg-primary/20 blur-3xl" />
             <div className="relative w-44 sm:w-56 md:w-80 overflow-hidden rounded-[2rem] border border-white/20 bg-background/60 shadow-2xl shadow-black/30">
               <img
                 src="/images/shakeer-profile.jpeg"
-                alt="Shakeer Mohammed seated in a warm interior"
+                alt="" aria-hidden="true"
                 className="aspect-[4/5] w-full object-cover object-center transition-transform duration-700 hover:scale-[1.03]"
                 width={640}
                 height={853}
