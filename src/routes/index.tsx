@@ -678,7 +678,7 @@ function HeroSection() {
             </h1>
 
             <p className="mx-auto mt-6 max-w-md text-[0.95rem] leading-relaxed text-muted-foreground sm:mt-7 sm:text-lg md:mx-0">
-              Building scalable, secure, and automated cloud platforms — Azure, Kubernetes, and CI/CD done right.
+              Building scalable, secure, and automated cloud platforms with Azure, Kubernetes, and CI/CD.
             </p>
 
             <p className="mt-6 font-mono text-[0.72rem] text-muted-foreground/80 max-[360px]:hidden sm:text-sm">
@@ -778,7 +778,7 @@ function AboutSection() {
               Experienced in <strong className="text-foreground">Azure and AWS</strong> cloud environments, with hands-on expertise in Kubernetes, Docker, Terraform, GitHub Actions, Argo CD, Helm, and automation. Currently expanding expertise in <strong className="text-foreground">MLOps, Platform Engineering, and AI-driven infrastructure automation</strong>.
             </p>
             <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-              Strong advocate of DevOps culture, continuous improvement, knowledge sharing, and delivering measurable business value through technology.
+              I advocate for DevOps, continuous improvement, and knowledge sharing.
             </p>
             <div className="mt-8 flex items-center justify-center gap-2 text-sm text-muted-foreground">
               <Github className="w-4 h-4" />
@@ -1088,7 +1088,7 @@ const projects = [
   {
     name: "OpenSRE",
     description:
-      "Open-source Site Reliability Engineering toolkit by Tracer Cloud. Contributing to community-driven SRE tooling and best practices.",
+      "Open-source Site Reliability Engineering toolkit by Tracer Cloud. I contribute to the project.",
     url: "https://github.com/Tracer-Cloud/opensre",
     tags: ["SRE", "Open Source", "Community"],
   },
@@ -1378,8 +1378,7 @@ function MissionSection() {
                   Let&apos;s build something reliable
                 </h2>
                 <p className="mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed">
-                  Scalable, secure and automated cloud platforms — helping teams ship faster with
-                  modern DevOps and MLOps practices. Reach out for roles, collaborations or a quick chat.
+                  Scalable, secure and automated cloud platforms that help teams ship faster with DevOps and MLOps. Reach out for roles, collaborations or a quick chat.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-3">
                   <a

@@ -1,5 +1,3 @@
-# Cloud Automation Hub
-
 # Shakeer Mohammed
 
 ### DevOps Engineer (Azure) | Cloud Engineer | MLOps Enthusiast
@@ -16,9 +14,9 @@ Contributor to the OpenSRE community: https://github.com/Tracer-Cloud/opensre
 
 Cloud & DevOps Engineer with 3+ years of experience in designing, automating, and managing cloud infrastructure, CI/CD pipelines, containerized applications, and Infrastructure as Code solutions.
 
-Experienced in Azure and AWS cloud environments, with hands-on expertise in Kubernetes, Docker, Terraform, Bicep, GitHub Actions, Jenkins, and automation. Passionate about building scalable, secure, and highly available systems that accelerate software delivery and improve operational efficiency.
+Experienced in Azure and AWS cloud environments, with hands-on expertise in Kubernetes, Docker, Terraform, Bicep, GitHub Actions, Jenkins, and automation. I care about building scalable, secure, and highly available systems.
 
-Currently expanding expertise in MLOps, Platform Engineering, and AI-driven infrastructure automation. Strong advocate of DevOps culture, continuous improvement, knowledge sharing, and delivering measurable business value through technology.
+Currently expanding expertise in MLOps, Platform Engineering, and AI-driven infrastructure automation. I advocate for DevOps, continuous improvement, and knowledge sharing.
 
 ---
 
@@ -128,7 +126,7 @@ SR University, Warangal
 
 ## Mission
 
-To build scalable, secure, and automated cloud platforms that enable organizations to deliver software faster, improve reliability, and drive innovation through modern engineering practices.
+To build scalable, secure, and automated cloud platforms that help organizations deliver software faster and improve reliability.
 
 This project was built with [Lovable](https://lovable.dev).
 
