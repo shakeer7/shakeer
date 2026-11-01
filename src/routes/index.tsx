@@ -913,10 +913,11 @@ function ToolIcon({ slug, name }: { slug?: string; name: string }) {
       </span>
     );
   }
+  const src = localLogos[slug] ?? `https://cdn.simpleicons.org/${slug}`;
   return (
     <span className="inline-flex items-center justify-center w-6 h-6 rounded-md bg-white/70 dark:bg-white/10 ring-1 ring-black/5 dark:ring-white/10 shrink-0">
       <img
-        src={`https://cdn.simpleicons.org/${slug}`}
+        src={src}
         alt={`${name} logo`}
         loading="lazy"
         width={16}
