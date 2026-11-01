@@ -37,6 +37,18 @@ import heroAnimeBg from "../assets/hero-anime-bg.jpg.asset.json";
 import isbLogo from "../assets/isb-logo.png.asset.json";
 import cbitLogo from "../assets/cbit-logo.png.asset.json";
 import sruLogo from "../assets/sru-logo.png.asset.json";
+import azureLogo from "../assets/logos/azure.svg";
+import azureDevOpsLogo from "../assets/logos/azuredevops.svg";
+import awsLogo from "../assets/logos/aws.svg";
+import argoCdLogo from "../assets/logos/argocd.png";
+
+// Logos removed from the Simple Icons CDN (trademark requests) are bundled locally.
+const localLogos: Record<string, string> = {
+  microsoftazure: azureLogo,
+  amazonwebservices: awsLogo,
+  azuredevops: azureDevOpsLogo,
+  argocd: argoCdLogo,
+};
 import {
   Accordion,
   AccordionContent,
