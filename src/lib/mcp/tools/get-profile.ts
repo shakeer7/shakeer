@@ -15,7 +15,7 @@ const profile = {
   about:
     "Cloud & DevOps Engineer with 4+ years of experience designing, automating, and managing cloud infrastructure, CI/CD pipelines, containerized apps, and IaC on Azure and AWS. Expanding into MLOps, Platform Engineering, and AI-driven infrastructure automation.",
   mission:
-    "To build scalable, secure, and automated cloud platforms that enable organizations to deliver software faster, improve reliability, and drive innovation through modern engineering practices.",
+    "To build scalable, secure, and automated cloud platforms that help organizations deliver software faster and improve reliability.",
 };
 
 export default defineTool({
