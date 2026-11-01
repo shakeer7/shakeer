@@ -456,12 +456,12 @@ function Navbar({ activeSection }: { activeSection: string }) {
   return (
     <>
       {/* Theme toggle — top right, mobile-first */}
-      <div className="fixed top-3 right-3 z-[60] md:hidden">
+      <div className="fixed top-3 right-3 z-[60] lg:hidden">
         <ThemeToggle />
       </div>
 
       {/* Desktop / top nav */}
-      <nav className="fixed top-0 left-0 right-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4 hidden md:block">
+      <nav className="fixed top-0 left-0 right-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4 hidden lg:block">
         <div
           className={`mx-auto max-w-6xl rounded-2xl glass-edge glass-shine transition-all duration-300 ${
             scrolled
@@ -526,7 +526,7 @@ function Navbar({ activeSection }: { activeSection: string }) {
       </nav>
 
       {/* Mobile bottom nav — liquid glass pill */}
-      <nav className="mobile-nav-safe fixed left-0 right-0 z-50 px-2.5 sm:px-4 md:hidden" aria-label="Mobile navigation">
+      <nav className="mobile-nav-safe fixed left-0 right-0 z-50 px-2.5 sm:px-4 lg:hidden" aria-label="Mobile navigation">
         <div className="mx-auto w-full max-w-sm rounded-full glass-liquid glass-edge glass-noise">
           <div
             ref={mobileNavRef}
@@ -605,13 +605,13 @@ function Navbar({ activeSection }: { activeSection: string }) {
       {/* Mobile "More" menu */}
       {moreOpen && (
         <div
-          className="fixed inset-0 z-[45] bg-foreground/30 backdrop-blur-sm md:hidden"
+          className="fixed inset-0 z-[45] bg-foreground/30 backdrop-blur-sm lg:hidden"
           onClick={() => setMoreOpen(false)}
           aria-hidden="true"
         />
       )}
       {moreOpen && (
-        <div className="mobile-more-safe fixed left-2.5 right-2.5 z-[46] mx-auto max-w-sm sm:left-4 sm:right-4 md:hidden">
+        <div className="mobile-more-safe fixed left-2.5 right-2.5 z-[46] mx-auto max-w-sm sm:left-4 sm:right-4 lg:hidden">
           <div className="rounded-2xl glass-liquid glass-edge glass-noise overflow-hidden">
             <div className="grid grid-cols-2 gap-1 p-2">
               {moreLinks.map((link) => {
