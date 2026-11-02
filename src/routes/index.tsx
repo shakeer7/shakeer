@@ -672,78 +672,94 @@ function HeroSection() {
         <div className="relative flex flex-col gap-10 md:grid md:items-center md:grid-cols-[minmax(0,1fr)_auto] md:gap-16 lg:gap-24">
           {/* Left — identity */}
           <div className="relative z-10 max-w-xl text-center md:text-left">
-            <div className="inline-flex items-center gap-2.5 rounded-full border border-border/70 bg-background/40 px-4 py-1.5 text-[0.7rem] font-medium uppercase tracking-[0.2em] text-muted-foreground">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-60" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
-              </span>
-              Open to opportunities
-            </div>
+            <Reveal>
+              <div className="inline-flex items-center gap-2.5 rounded-full border border-border/70 bg-background/40 px-4 py-1.5 text-[0.7rem] font-medium uppercase tracking-[0.2em] text-muted-foreground">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-60" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
+                </span>
+                Open to opportunities <span aria-hidden="true" className="text-primary">·</span> 4+ yrs
+              </div>
+            </Reveal>
 
-            <p className="mt-7 font-mono text-[0.65rem] uppercase tracking-[0.28em] text-muted-foreground sm:text-xs sm:tracking-[0.34em]">
-              DevOps Engineer <span className="text-primary">·</span> Cloud <span className="text-primary">·</span> MLOps
-            </p>
+            <Reveal delay={1}>
+              <p className="mt-7 font-mono text-[0.65rem] uppercase tracking-[0.28em] text-muted-foreground sm:text-xs sm:tracking-[0.34em]">
+                DevOps Engineer <span className="text-primary">·</span> Cloud <span className="text-primary">·</span> MLOps
+              </p>
+            </Reveal>
 
-            <h1 className="mt-4 max-w-[10ch] font-display text-[clamp(2.65rem,8vw,6.6rem)] font-bold tracking-[-0.055em] text-foreground leading-[0.92] sm:text-[clamp(3.2rem,8vw,6.6rem)]">
-              {DISPLAY_NAME}
-              <span className="text-primary">.</span>
-            </h1>
+            <Reveal delay={1}>
+              <h1 className="hero-name-shine mt-4 max-w-[10ch] font-display text-[clamp(2.65rem,8vw,6.6rem)] font-bold tracking-[-0.055em] leading-[0.92] sm:text-[clamp(3.2rem,8vw,6.6rem)]">
+                {DISPLAY_NAME}
+                <span className="text-primary">.</span>
+              </h1>
+            </Reveal>
 
-            <p className="mx-auto mt-6 max-w-md text-[0.95rem] leading-relaxed text-muted-foreground sm:mt-7 sm:text-lg md:mx-0">
-              Building scalable, secure, and automated cloud platforms with Azure, Kubernetes, and CI/CD.
-            </p>
+            <Reveal delay={2}>
+              <p className="mx-auto mt-6 max-w-md text-[0.95rem] leading-relaxed text-muted-foreground sm:mt-7 sm:text-lg md:mx-0">
+                Building scalable, secure, and automated cloud platforms with Azure, Kubernetes, and CI/CD.
+              </p>
+            </Reveal>
 
-            <p className="mt-6 font-mono text-[0.72rem] text-muted-foreground/80 max-[360px]:hidden sm:text-sm">
-              <span className="text-primary">❯</span> 4+ yrs · Terraform · Docker · GitHub Actions · MLOps
-            </p>
+            <Reveal delay={2}>
+              <div className="mt-6 flex justify-center md:justify-start">
+                <HeroTerminal />
+              </div>
+            </Reveal>
 
-            <div className="mt-0 flex flex-wrap items-center justify-center gap-3 sm:mt-6 md:mt-10 md:justify-start">
-              <a
-                href="mailto:mds.shakeer@gmail.com"
-                className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-semibold tracking-wide text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/25"
-              >
-                <Mail className="h-4 w-4" />
-                Get in touch
-              </a>
-              <a
-                href="#experience"
-                className="inline-flex items-center gap-2 rounded-full border border-border/70 px-7 py-3 text-sm font-medium text-foreground transition-colors hover:border-primary/60 hover:text-primary max-[360px]:hidden"
-              >
-                View experience
-              </a>
-            </div>
+            <Reveal delay={3}>
+              <div className="mt-0 flex flex-wrap items-center justify-center gap-3 sm:mt-6 md:mt-10 md:justify-start">
+                <a
+                  href="mailto:mds.shakeer@gmail.com"
+                  className="group inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-semibold tracking-wide text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/25"
+                >
+                  <Mail className="h-4 w-4" />
+                  Get in touch
+                  <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+                </a>
+                <a
+                  href="#experience"
+                  className="group inline-flex items-center gap-2 rounded-full border border-border/70 px-7 py-3 text-sm font-medium text-foreground transition-colors hover:border-primary/60 hover:text-primary max-[360px]:hidden"
+                >
+                  View experience
+                  <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+                </a>
+              </div>
+            </Reveal>
 
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-muted-foreground max-[360px]:hidden md:justify-start">
-              <a href="https://github.com/shakeer7" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground">
-                <Github className="h-4 w-4" />
-                GitHub
-              </a>
-              <span className="text-foreground/20">/</span>
-              <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground">
-                <Linkedin className="h-4 w-4" />
-                LinkedIn
-              </a>
-              <span className="text-foreground/20">/</span>
-              <a href={SUBSTACK_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground">
-                <SubstackIcon className="h-4 w-4" />
-                Substack
-              </a>
-              <span className="text-foreground/20">/</span>
-              <span className="inline-flex items-center gap-1.5">
-                <MapPin className="h-4 w-4" />
-                Hyderabad, India
-              </span>
-            </div>
+            <Reveal delay={3}>
+              <div className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-muted-foreground max-[360px]:hidden md:justify-start">
+                <a href="https://github.com/shakeer7" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground">
+                  <Github className="h-4 w-4" />
+                  GitHub
+                </a>
+                <span className="text-foreground/20">/</span>
+                <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground">
+                  <Linkedin className="h-4 w-4" />
+                  LinkedIn
+                </a>
+                <span className="text-foreground/20">/</span>
+                <a href={SUBSTACK_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground">
+                  <SubstackIcon className="h-4 w-4" />
+                  Substack
+                </a>
+                <span className="text-foreground/20">/</span>
+                <span className="inline-flex items-center gap-1.5">
+                  <MapPin className="h-4 w-4" />
+                  Hyderabad, India
+                </span>
+              </div>
+            </Reveal>
           </div>
 
           {/* Right — editorial portrait card */}
-          <div className="relative mt-4 hidden justify-self-center min-[420px]:block md:mt-0 md:justify-self-end">
+          <Reveal delay={2} className="relative mt-4 hidden justify-self-center min-[420px]:block md:mt-0 md:justify-self-end">
             <div className="absolute -inset-5 rounded-[2.5rem] bg-primary/20 blur-3xl" />
             <div className="relative w-32 sm:w-44 md:w-80 overflow-hidden rounded-[1.5rem] border border-white/20 bg-background/60 shadow-2xl shadow-black/30">
               <img
                 src="/images/shakeer-profile.jpeg"
                 alt="" aria-hidden="true"
-                className="aspect-[4/5] w-full object-cover object-center transition-transform duration-700 hover:scale-[1.03]"
+                className="aspect-[4/5] w-full object-cover object-center grayscale transition-all duration-700 hover:scale-[1.03] hover:grayscale-0"
                 width={640}
                 height={853}
               />
@@ -758,18 +774,86 @@ function HeroSection() {
             <p className="mt-5 text-center font-mono text-[0.6rem] uppercase tracking-[0.35em] text-muted-foreground">
               shakeer.online
             </p>
-          </div>
+          </Reveal>
         </div>
 
         {/* Scroll cue */}
-        <div className="mt-24 flex justify-center">
-          <a href="#about" className="group flex flex-col items-center gap-3 text-muted-foreground transition-colors hover:text-primary">
-            <span className="font-mono text-[0.6rem] uppercase tracking-[0.4em]">Scroll</span>
-            <span className="scroll-line" />
-          </a>
-        </div>
+        <Reveal delay={4}>
+          <div className="mt-24 flex justify-center">
+            <a href="#about" className="group flex flex-col items-center gap-3 text-muted-foreground transition-colors hover:text-primary">
+              <span className="font-mono text-[0.6rem] uppercase tracking-[0.4em]">Scroll</span>
+              <span className="scroll-line" />
+            </a>
+          </div>
+        </Reveal>
       </div>
     </section>
+  );
+}
+
+const TERMINAL_LINES: { cmd: string; out: string }[] = [
+  { cmd: "terraform apply", out: "infrastructure in sync" },
+  { cmd: "kubectl rollout status", out: "rollout healthy" },
+  { cmd: "gh run watch", out: "pipeline green" },
+];
+
+function HeroTerminal() {
+  const [lineIndex, setLineIndex] = useState(0);
+  const [typed, setTyped] = useState(0);
+  const [phase, setPhase] = useState<"typing" | "hold" | "erasing">("typing");
+  const [reduced, setReduced] = useState(false);
+
+  useEffect(() => {
+    const m = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    setReduced(m);
+    if (m) {
+      setTyped(TERMINAL_LINES[0].cmd.length);
+      setPhase("hold");
+    }
+  }, []);
+
+  useEffect(() => {
+    if (reduced) return;
+    const line = TERMINAL_LINES[lineIndex];
+    const delay =
+      phase === "typing"
+        ? typed >= line.cmd.length ? 500 : 60
+        : phase === "hold"
+          ? 1600
+          : typed > 0 ? 22 : 260;
+    const timer = window.setTimeout(() => {
+      if (phase === "typing") {
+        if (typed >= line.cmd.length) setPhase("hold");
+        else setTyped(typed + 1);
+      } else if (phase === "hold") {
+        setPhase("erasing");
+      } else if (typed > 0) {
+        setTyped(typed - 1);
+      } else {
+        setLineIndex((i) => (i + 1) % TERMINAL_LINES.length);
+        setPhase("typing");
+      }
+    }, delay);
+    return () => clearTimeout(timer);
+  }, [reduced, lineIndex, typed, phase]);
+
+  const line = TERMINAL_LINES[lineIndex];
+  const cmdText = reduced ? line.cmd : line.cmd.slice(0, typed);
+  const showOut = reduced || phase !== "typing";
+
+  return (
+    <div
+      className="glass-pill glass-edge inline-flex max-w-full items-center gap-2.5 rounded-full px-4 py-2 font-mono text-[0.7rem] text-muted-foreground sm:text-xs"
+      aria-label={`${line.cmd}: ${line.out}`}
+    >
+      <span aria-hidden="true" className="select-none text-primary">❯</span>
+      <span aria-hidden="true" className="truncate text-foreground/80">{cmdText}</span>
+      {showOut ? (
+        <span aria-hidden="true" className="truncate text-success">✓ {line.out}</span>
+      ) : (
+        <span aria-hidden="true" className="terminal-caret" />
+      )}
+    </div>
   );
 }
 
