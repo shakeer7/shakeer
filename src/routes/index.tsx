@@ -756,7 +756,7 @@ function HeroSection() {
           </div>
 
           {/* Right — editorial portrait card */}
-          <Reveal delay={2} hero className="relative mt-4 hidden justify-self-center min-[420px]:block md:mt-0 md:justify-self-end">
+          <Reveal delay={2} hero className="relative mt-4 justify-self-center md:mt-0 md:justify-self-end">
             <div className="absolute -inset-5 rounded-[2.5rem] bg-primary/20 blur-3xl" />
             <div className="relative w-32 sm:w-44 md:w-80 overflow-hidden rounded-[1.5rem] border border-white/20 bg-background/60 shadow-2xl shadow-black/30">
               <img
