@@ -63,11 +63,13 @@ function Reveal({
   as: Tag = "div",
   delay = 0,
   className = "",
+  hero = false,
 }: {
   children: ReactNode;
   as?: React.ElementType;
   delay?: 0 | 1 | 2 | 3 | 4;
   className?: string;
+  hero?: boolean;
 }) {
   const ref = useRef<HTMLElement | null>(null);
   useEffect(() => {
@@ -92,7 +94,8 @@ function Reveal({
     return () => io.disconnect();
   }, []);
   const delayClass = delay ? ` reveal-delay-${delay}` : "";
-  return <Tag ref={ref as never} className={`reveal${delayClass} ${className}`}>{children}</Tag>;
+  const heroClass = hero ? " reveal-hero" : "";
+  return <Tag ref={ref as never} className={`reveal${delayClass}${heroClass} ${className}`}>{children}</Tag>;
 }
 
 const SITE_URL = "https://shakeer.online";
