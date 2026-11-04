@@ -756,27 +756,29 @@ function HeroSection() {
           </div>
 
           {/* Right — editorial portrait card */}
-          <Reveal delay={2} hero className="relative mt-4 hidden justify-self-center min-[420px]:block md:mt-0 md:justify-self-end">
-            <div className="absolute -inset-5 rounded-[2.5rem] bg-primary/20 blur-3xl" />
-            <div className="relative w-32 sm:w-44 md:w-80 overflow-hidden rounded-[1.5rem] border border-white/20 bg-background/60 shadow-2xl shadow-black/30">
-              <img
-                src="/images/shakeer-profile.jpeg"
-                alt="" aria-hidden="true"
-                className="aspect-[4/5] w-full object-cover object-center grayscale transition-all duration-700 hover:scale-[1.03] hover:grayscale-0"
-                width={640}
-                height={853}
-              />
-              <div className="absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-black/80 via-black/20 to-transparent px-5 pb-5 pt-16 text-white">
-                <span className="font-mono text-[0.6rem] uppercase tracking-[0.28em]">Profile / 01</span>
-                <span className="text-xs text-white/70">Hyderabad</span>
+          <Reveal delay={2} hero className="mt-6 flex justify-center md:mt-0 md:block md:justify-self-end">
+            <div className="relative w-fit">
+              <div className="absolute -inset-5 rounded-[2.5rem] bg-primary/20 blur-3xl" />
+              <div className="relative w-40 overflow-hidden rounded-[1.5rem] border border-white/20 bg-background/60 shadow-2xl shadow-black/30 sm:w-48 md:w-80">
+                <img
+                  src="/images/shakeer-profile.jpeg"
+                  alt="" aria-hidden="true"
+                  className="aspect-[4/5] w-full object-cover object-center grayscale transition-all duration-700 hover:scale-[1.03] hover:grayscale-0"
+                  width={640}
+                  height={853}
+                />
+                <div className="absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-black/80 via-black/20 to-transparent px-4 pb-4 pt-16 text-white sm:px-5 sm:pb-5">
+                  <span className="font-mono text-[0.6rem] uppercase tracking-[0.28em]">Profile / 01</span>
+                  <span className="hidden text-xs text-white/70 sm:inline">Hyderabad</span>
+                </div>
               </div>
+              <div className="absolute -right-4 -top-4 rounded-full border border-border/70 bg-background/90 px-3 py-2 font-mono text-[0.58rem] uppercase tracking-[0.22em] text-muted-foreground shadow-lg md:-right-5 md:-top-5">
+                Cloud · MLOps
+              </div>
+              <p className="mt-5 text-center font-mono text-[0.6rem] uppercase tracking-[0.35em] text-muted-foreground">
+                shakeer.online
+              </p>
             </div>
-            <div className="absolute -right-5 -top-5 rounded-full border border-border/70 bg-background/90 px-3 py-2 font-mono text-[0.58rem] uppercase tracking-[0.22em] text-muted-foreground shadow-lg">
-              Cloud · MLOps
-            </div>
-            <p className="mt-5 text-center font-mono text-[0.6rem] uppercase tracking-[0.35em] text-muted-foreground">
-              shakeer.online
-            </p>
           </Reveal>
         </div>
 
