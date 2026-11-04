@@ -675,7 +675,7 @@ function HeroSection() {
         <div className="relative flex flex-col gap-10 md:grid md:items-center md:grid-cols-[minmax(0,1fr)_auto] md:gap-16 lg:gap-24">
           {/* Left — identity */}
           <div className="relative z-10 max-w-xl text-center md:text-left">
-            <Reveal>
+            <Reveal hero>
               <div className="inline-flex items-center gap-2.5 rounded-full border border-border/70 bg-background/40 px-4 py-1.5 text-[0.7rem] font-medium uppercase tracking-[0.2em] text-muted-foreground">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-60" />
@@ -685,32 +685,32 @@ function HeroSection() {
               </div>
             </Reveal>
 
-            <Reveal delay={1}>
+            <Reveal delay={1} hero>
               <p className="mt-7 font-mono text-[0.65rem] uppercase tracking-[0.28em] text-muted-foreground sm:text-xs sm:tracking-[0.34em]">
                 DevOps Engineer <span className="text-primary">·</span> Cloud <span className="text-primary">·</span> MLOps
               </p>
             </Reveal>
 
-            <Reveal delay={1}>
+            <Reveal delay={1} hero>
               <h1 className="hero-name-shine mt-4 max-w-[10ch] font-display text-[clamp(2.65rem,8vw,6.6rem)] font-bold tracking-[-0.055em] leading-[0.92] sm:text-[clamp(3.2rem,8vw,6.6rem)]">
                 {DISPLAY_NAME}
                 <span className="text-primary">.</span>
               </h1>
             </Reveal>
 
-            <Reveal delay={2}>
+            <Reveal delay={2} hero>
               <p className="mx-auto mt-6 max-w-md text-[0.95rem] leading-relaxed text-muted-foreground sm:mt-7 sm:text-lg md:mx-0">
                 Building scalable, secure, and automated cloud platforms with Azure, Kubernetes, and CI/CD.
               </p>
             </Reveal>
 
-            <Reveal delay={2}>
+            <Reveal delay={2} hero>
               <div className="mt-6 flex justify-center md:justify-start">
                 <HeroTerminal />
               </div>
             </Reveal>
 
-            <Reveal delay={3}>
+            <Reveal delay={3} hero>
               <div className="mt-0 flex flex-wrap items-center justify-center gap-3 sm:mt-6 md:mt-10 md:justify-start">
                 <a
                   href="mailto:mds.shakeer@gmail.com"
@@ -730,7 +730,7 @@ function HeroSection() {
               </div>
             </Reveal>
 
-            <Reveal delay={3}>
+            <Reveal delay={3} hero>
               <div className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-muted-foreground max-[360px]:hidden md:justify-start">
                 <a href="https://github.com/shakeer7" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground">
                   <Github className="h-4 w-4" />
@@ -756,7 +756,7 @@ function HeroSection() {
           </div>
 
           {/* Right — editorial portrait card */}
-          <Reveal delay={2} className="relative mt-4 hidden justify-self-center min-[420px]:block md:mt-0 md:justify-self-end">
+          <Reveal delay={2} hero className="relative mt-4 hidden justify-self-center min-[420px]:block md:mt-0 md:justify-self-end">
             <div className="absolute -inset-5 rounded-[2.5rem] bg-primary/20 blur-3xl" />
             <div className="relative w-32 sm:w-44 md:w-80 overflow-hidden rounded-[1.5rem] border border-white/20 bg-background/60 shadow-2xl shadow-black/30">
               <img
@@ -781,7 +781,7 @@ function HeroSection() {
         </div>
 
         {/* Scroll cue */}
-        <Reveal delay={4}>
+        <Reveal delay={4} hero>
           <div className="mt-24 flex justify-center">
             <a href="#about" className="group flex flex-col items-center gap-3 text-muted-foreground transition-colors hover:text-primary">
               <span className="font-mono text-[0.6rem] uppercase tracking-[0.4em]">Scroll</span>
