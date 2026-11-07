@@ -731,7 +731,7 @@ function HeroSection() {
             </Reveal>
 
             <Reveal delay={3} hero>
-              <div className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-muted-foreground max-[360px]:hidden md:justify-start">
+              <div className="mt-4 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-muted-foreground max-[360px]:hidden sm:mt-8 md:mt-10 md:justify-start">
                 <a href="https://github.com/shakeer7" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground">
                   <Github className="h-4 w-4" />
                   GitHub
