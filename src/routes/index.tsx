@@ -655,7 +655,7 @@ function HeroSection() {
           aria-hidden="true"
           width={1920}
           height={1080}
-          className="hidden h-full w-full object-cover opacity-25 dark:opacity-[0.16] md:block"
+          className="hero-art-drift hidden h-full w-full object-cover opacity-25 dark:opacity-[0.16] md:block"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/55 to-background" />
         <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-background to-transparent" />
@@ -757,7 +757,7 @@ function HeroSection() {
 
           {/* Right — editorial portrait card */}
           <Reveal delay={2} hero className="mt-6 flex justify-center md:mt-0 md:block md:justify-self-end">
-            <div className="relative w-fit">
+            <div className="hero-portrait-float relative w-fit">
               <div className="absolute -inset-5 rounded-[2.5rem] bg-primary/20 blur-3xl" />
               <div className="relative w-40 overflow-hidden rounded-[1.5rem] border border-white/20 bg-background/60 shadow-2xl shadow-black/30 sm:w-48 md:w-80">
                 <img
