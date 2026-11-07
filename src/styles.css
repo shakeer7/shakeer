@@ -453,6 +453,8 @@
     background-image: none;
   }
   .terminal-caret { animation: none; }
+  .hero-art-drift,
+  .hero-portrait-float { animation: none !important; }
 }
 
 .reveal {
@@ -528,6 +530,27 @@
 .hero-shell {
   isolation: isolate;
   background: var(--background);
+}
+
+.hero-art-drift {
+  transform: scale(1.04);
+  animation: hero-art-drift 32s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.hero-portrait-float {
+  animation: hero-portrait-float 7s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes hero-art-drift {
+  from { transform: scale(1.04) translate3d(0, 0, 0); }
+  to { transform: scale(1.09) translate3d(-1%, 1%, 0); }
+}
+
+@keyframes hero-portrait-float {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -5px, 0); }
 }
 
 .hero-backdrop {
