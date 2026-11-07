@@ -454,7 +454,7 @@
   }
   .terminal-caret { animation: none; }
   .hero-art-drift,
-  .hero-portrait-float { animation: none; }
+  .hero-portrait-float { animation: none !important; }
 }
 
 .reveal {
