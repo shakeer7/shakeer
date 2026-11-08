@@ -657,8 +657,9 @@ function HeroSection() {
           height={1080}
           className="hero-art-drift hidden h-full w-full object-cover opacity-25 dark:opacity-[0.16] md:block"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/55 to-background" />
-        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-background to-transparent" />
+        <div className="hero-color-flow absolute inset-0" />
+        <div className="absolute inset-0 z-[1] bg-gradient-to-b from-background/70 via-background/55 to-background" />
+        <div className="absolute inset-x-0 bottom-0 z-[1] h-48 bg-gradient-to-t from-background to-transparent" />
       </div>
 
       {/* Hairline column guides */}
@@ -714,7 +715,7 @@ function HeroSection() {
               <div className="mt-0 flex flex-wrap items-center justify-center gap-3 sm:mt-6 md:mt-10 md:justify-start">
                 <a
                   href="mailto:mds.shakeer@gmail.com"
-                  className="group inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-semibold tracking-wide text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/25"
+                  className="hero-cta-glow group inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-semibold tracking-wide text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/25"
                 >
                   <Mail className="h-4 w-4" />
                   Get in touch
