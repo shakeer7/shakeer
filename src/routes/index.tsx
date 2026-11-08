@@ -759,7 +759,7 @@ function HeroSection() {
           <Reveal delay={2} hero className="mt-6 flex justify-center md:mt-0 md:block md:justify-self-end">
             <div className="hero-portrait-float relative w-fit">
               <div className="absolute -inset-5 rounded-[2.5rem] bg-primary/20 blur-3xl" />
-              <div className="relative w-40 overflow-hidden rounded-[1.5rem] border border-white/20 bg-background/60 shadow-2xl shadow-black/30 sm:w-48 md:w-80">
+              <div className="hero-portrait-sheen relative w-40 overflow-hidden rounded-[1.5rem] border border-white/20 bg-background/60 shadow-2xl shadow-black/30 sm:w-48 md:w-80">
                 <img
                   src="/images/shakeer-profile.jpeg"
                   alt="" aria-hidden="true"

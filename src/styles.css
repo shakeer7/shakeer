@@ -454,7 +454,8 @@
   }
   .terminal-caret { animation: none; }
   .hero-art-drift,
-  .hero-portrait-float { animation: none !important; }
+  .hero-portrait-float,
+  .hero-portrait-sheen::after { animation: none !important; }
 }
 
 .reveal {
@@ -543,6 +544,22 @@
   will-change: transform;
 }
 
+.hero-portrait-sheen::after {
+  content: "";
+  position: absolute;
+  inset: -60% -80%;
+  pointer-events: none;
+  background: linear-gradient(
+    112deg,
+    transparent 44%,
+    color-mix(in oklab, var(--primary) 14%, transparent) 49%,
+    color-mix(in oklab, var(--foreground) 12%, transparent) 50%,
+    transparent 56%
+  );
+  transform: translateX(-70%);
+  animation: hero-portrait-sheen 9s ease-in-out infinite;
+}
+
 @keyframes hero-art-drift {
   from { transform: scale(1.04) translate3d(0, 0, 0); }
   to { transform: scale(1.09) translate3d(-1%, 1%, 0); }
@@ -551,6 +568,11 @@
 @keyframes hero-portrait-float {
   0%, 100% { transform: translate3d(0, 0, 0); }
   50% { transform: translate3d(0, -5px, 0); }
+}
+
+@keyframes hero-portrait-sheen {
+  0%, 58% { transform: translateX(-70%); }
+  82%, 100% { transform: translateX(70%); }
 }
 
 .hero-backdrop {
