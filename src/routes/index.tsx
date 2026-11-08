@@ -849,7 +849,7 @@ function HeroTerminal() {
 
   return (
     <div
-      className="glass-pill glass-edge inline-flex max-w-full items-center gap-2.5 rounded-full px-4 py-2 font-mono text-[0.7rem] text-muted-foreground sm:text-xs"
+      className="glass-pill glass-edge inline-flex max-w-full items-center gap-4 rounded-full px-4 py-2 font-mono text-[0.7rem] text-muted-foreground sm:text-xs"
       aria-label={`${line.cmd}: ${line.out}`}
     >
       <span aria-hidden="true" className="select-none text-primary">❯</span>
