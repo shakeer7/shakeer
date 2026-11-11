@@ -672,8 +672,8 @@ function HeroSection() {
         </div>
       </div>
 
-      <div className="container-tight relative z-10 px-5 pb-20 pt-28 sm:px-8 sm:pt-36 lg:pb-28">
-        <div className="relative flex flex-col gap-10 md:grid md:items-center md:grid-cols-[minmax(0,1fr)_auto] md:gap-16 lg:gap-24">
+      <div className="container-tight relative z-10 px-5 pb-20 pt-20 sm:px-8 sm:pt-36 lg:pb-28">
+        <div className="relative flex flex-col gap-6 md:grid md:items-center md:grid-cols-[minmax(0,1fr)_auto] md:gap-16 lg:gap-24">
           {/* Left — identity */}
           <div className="relative z-10 max-w-xl text-center md:text-left">
             <Reveal hero>
@@ -687,7 +687,7 @@ function HeroSection() {
             </Reveal>
 
             <Reveal delay={1} hero>
-              <p className="mt-7 font-mono text-[0.65rem] uppercase tracking-[0.28em] text-muted-foreground sm:text-xs sm:tracking-[0.34em]">
+              <p className="mt-4 font-mono text-[0.65rem] uppercase tracking-[0.28em] text-muted-foreground sm:mt-7 sm:text-xs sm:tracking-[0.34em]">
                 DevOps Engineer <span className="text-primary">·</span> Cloud <span className="text-primary">·</span> MLOps
               </p>
             </Reveal>
@@ -700,22 +700,22 @@ function HeroSection() {
             </Reveal>
 
             <Reveal delay={2} hero>
-              <p className="mx-auto mt-6 max-w-md text-[0.95rem] leading-relaxed text-muted-foreground sm:mt-7 sm:text-lg md:mx-0">
+              <p className="mx-auto mt-4 max-w-md text-[0.95rem] leading-relaxed text-muted-foreground sm:mt-7 sm:text-lg md:mx-0">
                 Building scalable, secure, and automated cloud platforms with Azure, Kubernetes, and CI/CD.
               </p>
             </Reveal>
 
             <Reveal delay={2} hero>
-              <div className="mt-6 flex justify-center md:justify-start">
+              <div className="mt-4 flex justify-center md:justify-start">
                 <HeroTerminal />
               </div>
             </Reveal>
 
             <Reveal delay={3} hero>
-              <div className="mt-0 flex flex-wrap items-center justify-center gap-3 sm:mt-6 md:mt-10 md:justify-start">
+              <div className="mt-0 flex flex-wrap items-center justify-center gap-2 sm:mt-6 sm:gap-3 md:mt-10 md:justify-start">
                 <a
                   href="mailto:mds.shakeer@gmail.com"
-                  className="hero-cta-glow group inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-semibold tracking-wide text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/25"
+                  className="hero-cta-glow group inline-flex items-center gap-2 rounded-full bg-primary px-4 py-3 text-sm font-semibold tracking-wide text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/25 sm:px-7"
                 >
                   <Mail className="h-4 w-4" />
                   Get in touch
@@ -723,7 +723,7 @@ function HeroSection() {
                 </a>
                 <a
                   href="#experience"
-                  className="group inline-flex items-center gap-2 rounded-full border border-border/70 px-7 py-3 text-sm font-medium text-foreground transition-colors hover:border-primary/60 hover:text-primary max-[360px]:hidden"
+                  className="group inline-flex items-center gap-2 rounded-full border border-border/70 px-4 py-3 text-sm font-medium text-foreground transition-colors hover:border-primary/60 hover:text-primary sm:px-7 max-[360px]:px-3 max-[360px]:text-xs"
                 >
                   View experience
                   <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
@@ -732,22 +732,22 @@ function HeroSection() {
             </Reveal>
 
             <Reveal delay={3} hero>
-              <div className="mt-4 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-muted-foreground max-[360px]:hidden sm:mt-8 md:mt-10 md:justify-start">
+              <div className="mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-muted-foreground sm:mt-8 sm:gap-x-5 md:mt-10 md:justify-start">
                 <a href="https://github.com/shakeer7" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground">
                   <Github className="h-4 w-4" />
                   GitHub
                 </a>
-                <span className="text-foreground/20">/</span>
+                <span className="hidden text-foreground/20 sm:inline">/</span>
                 <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground">
                   <Linkedin className="h-4 w-4" />
                   LinkedIn
                 </a>
-                <span className="text-foreground/20">/</span>
+                <span className="hidden text-foreground/20 sm:inline">/</span>
                 <a href={SUBSTACK_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground">
                   <SubstackIcon className="h-4 w-4" />
                   Substack
                 </a>
-                <span className="text-foreground/20">/</span>
+                <span className="hidden text-foreground/20 sm:inline">/</span>
                 <span className="inline-flex items-center gap-1.5">
                   <MapPin className="h-4 w-4" />
                   Hyderabad, India
@@ -757,7 +757,7 @@ function HeroSection() {
           </div>
 
           {/* Right — editorial portrait card */}
-          <Reveal delay={2} hero className="mt-6 flex justify-center md:mt-0 md:block md:justify-self-end">
+          <Reveal delay={2} hero className="flex justify-center md:mt-0 md:block md:justify-self-end">
             <div className="hero-portrait-float relative w-fit">
               <div className="absolute -inset-5 rounded-[2.5rem] bg-primary/20 blur-3xl" />
               <div className="hero-portrait-sheen relative w-40 overflow-hidden rounded-[1.5rem] border border-white/20 bg-background/60 shadow-2xl shadow-black/30 sm:w-48 md:w-80">
@@ -776,7 +776,7 @@ function HeroSection() {
               <div className="absolute -right-4 -top-4 rounded-full border border-border/70 bg-background/90 px-3 py-2 font-mono text-[0.58rem] uppercase tracking-[0.22em] text-muted-foreground shadow-lg md:-right-5 md:-top-5">
                 Cloud · MLOps
               </div>
-              <p className="mt-5 text-center font-mono text-[0.6rem] uppercase tracking-[0.35em] text-muted-foreground">
+              <p className="mt-3 text-center font-mono text-[0.6rem] uppercase tracking-[0.35em] text-muted-foreground sm:mt-5">
                 shakeer.online
               </p>
             </div>
