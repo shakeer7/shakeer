@@ -712,10 +712,10 @@ function HeroSection() {
             </Reveal>
 
             <Reveal delay={3} hero>
-              <div className="mt-0 flex flex-wrap items-center justify-center gap-3 sm:mt-6 md:mt-10 md:justify-start">
+              <div className="mt-0 flex flex-wrap items-center justify-center gap-2 sm:mt-6 sm:gap-3 md:mt-10 md:justify-start">
                 <a
                   href="mailto:mds.shakeer@gmail.com"
-                  className="hero-cta-glow group inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-semibold tracking-wide text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/25"
+                  className="hero-cta-glow group inline-flex items-center gap-2 rounded-full bg-primary px-4 py-3 text-sm font-semibold tracking-wide text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/25 sm:px-7"
                 >
                   <Mail className="h-4 w-4" />
                   Get in touch
@@ -723,7 +723,7 @@ function HeroSection() {
                 </a>
                 <a
                   href="#experience"
-                  className="group inline-flex items-center gap-2 rounded-full border border-border/70 px-7 py-3 text-sm font-medium text-foreground transition-colors hover:border-primary/60 hover:text-primary max-[360px]:hidden"
+                  className="group inline-flex items-center gap-2 rounded-full border border-border/70 px-4 py-3 text-sm font-medium text-foreground transition-colors hover:border-primary/60 hover:text-primary sm:px-7 max-[360px]:px-3 max-[360px]:text-xs"
                 >
                   View experience
                   <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
@@ -732,7 +732,7 @@ function HeroSection() {
             </Reveal>
 
             <Reveal delay={3} hero>
-              <div className="mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-muted-foreground max-[360px]:hidden sm:mt-8 sm:gap-x-5 md:mt-10 md:justify-start">
+              <div className="mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-muted-foreground sm:mt-8 sm:gap-x-5 md:mt-10 md:justify-start">
                 <a href="https://github.com/shakeer7" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground">
                   <Github className="h-4 w-4" />
                   GitHub
