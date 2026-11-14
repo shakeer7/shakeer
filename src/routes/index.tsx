@@ -672,12 +672,12 @@ function HeroSection() {
         </div>
       </div>
 
-      <div className="container-tight relative z-10 px-5 pb-20 pt-20 sm:px-8 sm:pt-36 lg:pb-28">
-        <div className="relative flex flex-col gap-6 md:grid md:items-center md:grid-cols-[minmax(0,1fr)_auto] md:gap-16 lg:gap-24">
+      <div className="container-tight relative z-10 px-5 pb-16 pt-16 sm:px-8 sm:pb-20 sm:pt-36 lg:pb-28">
+        <div className="relative flex flex-col gap-4 md:grid md:items-center md:grid-cols-[minmax(0,1fr)_auto] md:gap-16 lg:gap-24">
           {/* Left — identity */}
           <div className="relative z-10 max-w-xl text-center md:text-left">
             <Reveal hero>
-              <div className="inline-flex items-center gap-2.5 rounded-full border border-border/70 bg-background/40 px-4 py-1.5 text-[0.7rem] font-medium uppercase tracking-[0.2em] text-muted-foreground">
+              <div className="inline-flex items-center gap-2.5 rounded-full border border-border/70 bg-background/40 px-4 py-1.5 text-[0.7rem] font-medium uppercase tracking-[0.12em] text-muted-foreground sm:tracking-[0.2em]">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-60" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
@@ -687,26 +687,26 @@ function HeroSection() {
             </Reveal>
 
             <Reveal delay={1} hero>
-              <p className="mt-4 font-mono text-[0.65rem] uppercase tracking-[0.28em] text-muted-foreground sm:mt-7 sm:text-xs sm:tracking-[0.34em]">
+              <p className="mt-3 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-muted-foreground sm:mt-7 sm:text-xs sm:tracking-[0.34em]">
                 DevOps Engineer <span className="text-primary">·</span> Cloud <span className="text-primary">·</span> MLOps
               </p>
             </Reveal>
 
             <Reveal delay={1} hero>
-              <h1 className="hero-name-shine mt-4 max-w-[10ch] font-display text-[clamp(2.65rem,8vw,6.6rem)] font-bold tracking-[-0.055em] leading-[0.92] sm:text-[clamp(3.2rem,8vw,6.6rem)]">
+              <h1 className="hero-name-shine mt-3 max-w-[10ch] font-display text-[clamp(2.65rem,8vw,6.6rem)] font-bold tracking-[-0.055em] leading-[0.92] sm:mt-4 sm:text-[clamp(3.2rem,8vw,6.6rem)]">
                 {DISPLAY_NAME}
                 <span className="text-primary">.</span>
               </h1>
             </Reveal>
 
             <Reveal delay={2} hero>
-              <p className="mx-auto mt-4 max-w-md text-[0.95rem] leading-relaxed text-muted-foreground sm:mt-7 sm:text-lg md:mx-0">
+              <p className="mx-auto mt-3 max-w-md text-[0.95rem] leading-relaxed text-muted-foreground sm:mt-7 sm:text-lg md:mx-0">
                 Building scalable, secure, and automated cloud platforms with Azure, Kubernetes, and CI/CD.
               </p>
             </Reveal>
 
             <Reveal delay={2} hero>
-              <div className="mt-4 flex justify-center md:justify-start">
+              <div className="mt-2 flex justify-center md:mt-4 md:justify-start">
                 <HeroTerminal />
               </div>
             </Reveal>
@@ -732,7 +732,7 @@ function HeroSection() {
             </Reveal>
 
             <Reveal delay={3} hero>
-              <div className="mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-muted-foreground sm:mt-8 sm:gap-x-5 md:mt-10 md:justify-start">
+              <div className="mt-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs text-muted-foreground sm:mt-8 sm:gap-x-5 sm:gap-y-2 sm:text-sm md:mt-10 md:justify-start">
                 <a href="https://github.com/shakeer7" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground">
                   <Github className="h-4 w-4" />
                   GitHub
@@ -760,7 +760,7 @@ function HeroSection() {
           <Reveal delay={2} hero className="flex justify-center md:mt-0 md:block md:justify-self-end">
             <div className="hero-portrait-float relative w-fit">
               <div className="absolute -inset-5 rounded-[2.5rem] bg-primary/20 blur-3xl" />
-              <div className="hero-portrait-sheen relative w-40 overflow-hidden rounded-[1.5rem] border border-white/20 bg-background/60 shadow-2xl shadow-black/30 sm:w-48 md:w-80">
+              <div className="hero-portrait-sheen relative w-36 overflow-hidden rounded-[1.5rem] border border-white/20 bg-background/60 shadow-2xl shadow-black/30 sm:w-48 md:w-80">
                 <img
                   src="/images/shakeer-profile.jpeg"
                   alt="" aria-hidden="true"
@@ -785,7 +785,7 @@ function HeroSection() {
 
         {/* Scroll cue */}
         <Reveal delay={4} hero>
-          <div className="mt-24 flex justify-center">
+          <div className="mt-12 hidden justify-center sm:mt-24 sm:flex">
             <a href="#about" className="group flex flex-col items-center gap-3 text-muted-foreground transition-colors hover:text-primary">
               <span className="font-mono text-[0.6rem] uppercase tracking-[0.4em]">Scroll</span>
               <span className="scroll-line" />
